@@ -113,24 +113,51 @@ include("config.php");
             <div id="main" class="shell">
                 <!-- Begin Content -->
                 <div id="content">
+                    <div class="post">
+                        <?php
+                        $id = $_GET['id'];
+//current URL of the Page. cart_update.php redirects back to this URL
+                        $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
+                        $results = $mysqli->query("SELECT * FROM product where Product_ID = '" . $id . "'  ORDER BY Product_ID ASC");
+                        if ($results) {
+
+                            //fetch results set as object and output HTML
+                            while ($obj = $results->fetch_object()) {
+
+                                $productName = $obj->productName;
+                                $Product_ID = $obj->Product_ID;
+                                ?>
+                                <h2><?php echo $productName; ?> Details!</h2>
+                                <?php echo '<img src="Admin/images/products/' . $obj->Picture . '" alt="Post Image" height="160" width="260"/>'; ?> 
+                                Name: <?php echo $productName; ?> <br/>
+                                Descriptions: <?php echo $productName; ?> <br/>
+                                Size: <?php echo $productName; ?> <br/>
+                                Color: <?php echo $productName; ?> <br/>
+                                Price: <?php echo $productName; ?> <br/>
+
+                                <div class="cl">&nbsp;</div>
+                            <?php }
+                        }
+                        ?>
+                    </div>
                 </div
                 <!-- End Content -->
                 <!-- Begin Sidebar -->
                 <div id="sidebar">
                     <ul>
                         <li class="widget">
-                            <h2>TOP Boutique</h2>
+                            <h2>Location</h2>
                             <div class="brands">
-                                <ul>
-                                    <li><a href="warehouse_1.php" title="Brand 1"><img src="images/k.png" width="103" height="51" alt="Brand 1" /></a></li>
-                                    <li><a href="warehouse_2.php" title="Brand 2"><img src="images/b.png" width="103" height="51" alt="Brand 2" /></a></li>
-                                    <li><a href="warehouse_3.php" title="Brand 3"><img src="images/ab.png" width="103" height="51" alt="Brand 3" /></a></li>
-                                    <li><a href="warehouse_4.php" title="Brand 4"><img src="images/33.png" width="103" height="51" alt="Brand 4" /></a></li>
-                                </ul>
+
+                                Location: <?php echo $productName; ?> <br/> 
+                                Street: <?php echo $productName; ?> <br/>
+                                Building: <?php echo $productName; ?> <br/>
+                                Floor: <?php echo $productName; ?> <br/>
+                                Boutique Name: <?php echo $productName; ?> <br/>
+
                                 <div class="cl">&nbsp;</div>
                             </div>
-                            <a href="products.php" class="more" title="More Brands">All Products</a>
                         </li>
                     </ul>
                 </div>
@@ -138,7 +165,7 @@ include("config.php");
                 <div class="cl">&nbsp;</div>
                 <!-- Begin Products -->
                 <div id="products">
-                    <h2>Featured Products</h2>
+                    <h2>Related Products</h2>
 
 
 
