@@ -228,7 +228,6 @@ include("config.php");
                 <!-- Begin Products Slider -->
 
                 <!-- End Products Slider -->
-
             </div>
             <!-- End Main -->
             <!-- Begin Footer -->
