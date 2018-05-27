@@ -27,12 +27,12 @@ include("config.php");
         <!-- WAA DHAMAADKA JQueryga CHaTTIng Ka-->
 
         <script type="text/javascript">
-            $(document).ready(function() {
+            $(document).ready(function () {
 
                 // load messages every 1000 milliseconds from server.
                 load_data = {'fetch': 1};
-                window.setInterval(function() {
-                    $.post('shout.php', load_data, function(data) {
+                window.setInterval(function () {
+                    $.post('shout.php', load_data, function (data) {
                         $('.message_box').html(data);
                         var scrolltoh = $('.message_box')[0].scrollHeight;
                         $('.message_box').scrollTop(scrolltoh);
@@ -40,14 +40,14 @@ include("config.php");
                 }, 1000);
 
                 //method to trigger when user hits enter key
-                $("#shout_message").keypress(function(evt) {
+                $("#shout_message").keypress(function (evt) {
                     if (evt.which == 13) {
                         var iusername = $('#shout_username').val();
                         var imessage = $('#shout_message').val();
                         post_data = {'username': iusername, 'message': imessage};
 
                         //send data to "shout.php" using jQuery $.post()
-                        $.post('shout.php', post_data, function(data) {
+                        $.post('shout.php', post_data, function (data) {
 
                             //append data into messagebox with jQuery fade effect!
                             $(data).hide().appendTo('.message_box').fadeIn();
@@ -59,7 +59,7 @@ include("config.php");
                             //reset value of message box
                             $('#shout_message').val('');
 
-                        }).fail(function(err) {
+                        }).fail(function (err) {
 
                             //alert HTTP server error
                             alert(err.statusText);
@@ -68,7 +68,7 @@ include("config.php");
                 });
 
                 //toggle hide/show shout box
-                $(".close_btn").click(function(e) {
+                $(".close_btn").click(function (e) {
                     //get CSS display state of .toggle_chat element
                     var toggleState = $('.toggle_chat').css('display');
 
@@ -113,7 +113,7 @@ include("config.php");
             <div id="main" class="shell">
                 <!-- Begin Content -->
                 <div id="content">
-                    
+
                 </div
                 <!-- End Content -->
                 <!-- Begin Sidebar -->
@@ -155,16 +155,14 @@ include("config.php");
 //current URL of the Page. cart_update.php redirects back to this URL
                         $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
-                        $results = $mysqli->query("SELECT * FROM product where Warehouse_ID = '".$id."'  ORDER BY Product_ID ASC");
-						//$results = $mysqli->query("SELECT * FROM subcategory");
-						
+                        $results = $mysqli->query("SELECT * FROM product where Warehouse_ID = '" . $id . "'  ORDER BY Product_ID ASC");
                         if ($results) {
 
                             //fetch results set as object and output HTML
                             while ($obj = $results->fetch_object()) {
                                 echo '<div class="grid_1_of_4 images_1_of_4">';
                                 echo '<form method="post" action="cart_update.php">';
-                                echo '<div class="product-thumb"> <a href="product_detail.php?id='.$obj->Product_ID.'" > <img src="Admin/images/products/' . $obj->Picture . '"></a>-</div>';
+                                echo '<div class="product-thumb"> <a href="product_detail.php?id=' . $obj->Product_ID . '" > <img src="Admin/images/products/' . $obj->Picture . '"></a>-</div>';
                                 echo '<div class="product-content"><h2><b>' . $obj->productName . '</b> </h2>';
                                 echo '<div class="product-desc">' . $obj->Description . '</div>';
                                 echo '<div class="product-info">';
@@ -195,7 +193,7 @@ include("config.php");
                 <!-- Begin Shell -->
                 <div class="shell">
                     <div class="box post-box">
-                        <h2>About ISHOP</h2>
+                        <h2>About OFS</h2>
                         <div class="box-entry">
                             <img src="images/favicon.png" alt="IShop Logo" width="160" height="80"/>
                             <p>You can be confident when you're shopping online with SomStore. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
@@ -208,8 +206,6 @@ include("config.php");
                         <ul>
                             <li><a href="#" title="Facebook"><img src="images/social-icon1.png" alt="Facebook" /><span>Facebook</span><span class="cl">&nbsp;</span></a></li>
                             <li><a href="#" title="Twitter"><img src="images/social-icon2.png" alt="Twitter" /><span>Twitter</span><span class="cl">&nbsp;</span></a></li>							
-                            <li><a href="#" title="RSS"><img src="images/social-icon4.png" alt="RSS" /><span>RSS</span><span class="cl">&nbsp;</span></a></li>
-                            <li><a href="#" title="Blogger"><img src="images/social-icon7.png" alt="Blogger" /><span>Blogger</span><span class="cl">&nbsp;</span></a></li>
                         </ul>
                         <div class="cl">&nbsp;</div>
                     </div>
@@ -226,10 +222,10 @@ include("config.php");
                     <div class="box last-box">
                         <h2>Categories</h2>
                         <ul>
-                            <li><a href="#" title="Clothes">Clothes</a></li>
-                            <li><a href="#" title="Cleaning Material">Cleaning Material</a></li>
-                            <li><a href="#" title="Fizzi Drinks">Fizzy Drinks</a></li>
-                            <li><a href="#" title="Food Stuff">Food Stuff</a></li>
+                            <li><a href="#" title="Clothes">Dresses</a></li>
+                            <li><a href="#" title="Cleaning Material">skirts</a></li>
+                            <li><a href="#" title="Fizzi Drinks">jeans</a></li>
+                            <li><a href="#" title="Food Stuff">jumpsuits</a></li>
                         </ul>
                     </div>
                     <div class="cl">&nbsp;</div>
@@ -246,9 +242,9 @@ include("config.php");
                             <li><a href="#" title="VISA"><img src="images/cart-img2.jpg" alt="VISA" /></a></li>
                             <li><a href="#" title="MasterCard"><img src="images/cart-img3.jpg" alt="MasterCard" /></a></li>
                         </ul>
-                    </div>	<p>&copy; Somstore.com. Groups <a href="index.php"><i><font color="fefefe"> Welcome To Somstore Online Shopping Site </font></i></a></p>
+                    </div>	<p>&copy; OFS. Groups <a href="index.php"><i><font color="fefefe"> Welcome To OFS Online Shopping Site </font></i></a></p>
                     <div class="cl">&nbsp;</div>
-                    Copyright © 2014 SomStore.com All rights reserved. The information contained in SomStore.com may not be published, broadcast, rewritten, or redistributed without the prior written authority of SomStore.com
+                    Copyright © 2018 OFS All rights reserved. The information contained in OFS may not be published, broadcast, rewritten, or redistributed without the prior written authority of SomStore.com
                 </div>
                 <!-- End Shell -->
             </div>
@@ -256,7 +252,7 @@ include("config.php");
         <!-- End Footer -->
 
         <div class="shout_box">
-            <div class="header"> live Discussion of Somstore <div class="close_btn">&nbsp;</div></div>
+            <div class="header"> live Discussion of OFS <div class="close_btn">&nbsp;</div></div>
             <div class="toggle_chat">
                 <div class="message_box">
                 </div>
@@ -270,4 +266,4 @@ include("config.php");
         </div>
         <!-- End Wrapper -->
     </body>
- </html>
+</html>
