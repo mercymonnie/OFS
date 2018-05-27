@@ -156,7 +156,7 @@ include("config.php");
                         $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
                         $results = $mysqli->query("SELECT * FROM product where Category_ID = '".$id."'  ORDER BY Product_ID ASC");
-						$results = $mysqli->query("SELECT * FROM boutique);
+						//$results = $mysqli->query("SELECT * FROM boutique");
                         if ($results) {
 
                             //fetch results set as object and output HTML
@@ -166,7 +166,7 @@ include("config.php");
                                 echo '<div class="product-thumb"><a href="product_detail.php?id='.$obj->Product_ID.'" ><img src="Admin/images/products/' . $obj->Picture . '"></a></div>';
                                 echo '<div class="product-content"><h2><b>' . $obj->productName . '</b> </h2>';
                                 echo '<div class="product-desc">' . $obj->Description . '</div>';
-                                echo '<div class="product-info">'</div>;
+                                echo '<div class="product-info"></div>';
                                 echo '<p><span class="price"> Price:<big style="color:green">' . $currency . $obj->Price . '</big></span></p>';
                                 echo 'Qty <input type="text" name="product_qty" value="1" size="3" />';
                                 echo '<div class="button"><span><img src="images/cart.jpg" alt="" /><button class="cart-button"  class="add_to_cart">Add to Cart</button></span> </div>';
