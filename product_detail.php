@@ -156,7 +156,7 @@ include("config.php");
                         $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
                         $results = $mysqli->query("SELECT * FROM product where Product_ID = '".$id."'  ORDER BY Product_ID ASC");
-						$results = $mysqli->query("SELECT * FROM category);
+						//esults = $mysqli->query("SELECT * FROM category);
 						
                         if ($results) {
 
