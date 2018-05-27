@@ -165,7 +165,9 @@ include("config.php");
                                 echo '<div class="product-thumb"><a href="product_detail.php?id='.$obj->Product_ID.'" ><img src="Admin/images/products/' . $obj->Picture . '"></a></div>';
                                 echo '<div class="product-content"><h2><b>' . $obj->productName . '</b> </h2>';
                                 echo '<div class="product-desc">' . $obj->Description . '</div>';
+                                echo '<div class="product-info"></div>';
                                 echo '<div class="product-info">';
+
                                 echo '<p><span class="price"> Price:<big style="color:green">' . $currency . $obj->Price . '</big></span></p>';
                                 echo 'Qty <input type="text" name="product_qty" value="1" size="3" />';
                                 echo '<div class="button"><span><img src="images/cart.jpg" alt="" /><button class="cart-button"  class="add_to_cart">Add to Cart</button></span> </div>';
