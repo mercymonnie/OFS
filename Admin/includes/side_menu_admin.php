@@ -25,13 +25,9 @@
 
 
 
-    <h3>Boutique owner:</h3>
+    <h3>Administrator:</h3>
     <ul class="toggle">
-        
-        <li class="icn_photo"><a href="add_product.php">Add Product</a></li>
-        <li class="icn_tags"><a href="add_warehouse.php">Add Boutique</a></li>
-        <li class="icn_new_article"><a href="add_category.php">Add Category</a></li>
-
+         <li class="icn_photo"><a href="Employee.php">Add Boutique Owner</a></li>
     </ul>
 
     <h3>Tables:</h3>

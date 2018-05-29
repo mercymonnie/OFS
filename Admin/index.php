@@ -147,9 +147,17 @@ include("../session.php");
             </div> <!--DHAMAADKA hedaerka-->
 
 
-            <div id="content-wrap">		
-                <?php include_once 'includes/navigation.php'; ?>
-                <?php include_once 'includes/side_menu.php'; ?>
+            <div id="content-wrap">	
+                <?php
+                if ($_SESSION['role'] == 'admin') {
+                    include_once 'includes/navigation_admin.php';
+                    include_once 'includes/side_menu_admin.php';
+                } else {
+                    include_once 'includes/navigation.php';
+                    include_once 'includes/side_menu.php';
+                }
+                ?>
+
 
                 <section id="main" class="column">
 
@@ -220,7 +228,7 @@ include("../session.php");
                                         <td> <a href="conDelete.php?delete=<?php echo $row['contact_id']; ?>" onClick="del(this);" title="Delete" ><input type="image" src="images/icn_trash.png" title="Trash">  </a></td>
                                     </tr
 
-                                <?php }mysqli_close($mysqli); ?>
+<?php }mysqli_close($mysqli); ?>
                             </tbody>
                         </table>
 

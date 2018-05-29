@@ -43,11 +43,11 @@ include("../config.php");
                     $(activeTab).fadeIn(); //Fade in the active ID content
                     return false;
             });
-            });        </script>
+            });</script>
         <script type="text/javascript">
                     $(function () {
                     $('.column').equalHeight();
-                    });        </script>
+                    });</script>
 
 
     </head>
@@ -78,8 +78,16 @@ include("../config.php");
 
             <div id="content-wrap">	
 
-<?php include_once 'includes/navigation.php'; ?>
-                <?php include_once 'includes/side_menu.php'; ?>
+               <?php
+                if ($_SESSION['role'] == 'admin') {
+                    include_once 'includes/navigation_admin.php';
+                    include_once 'includes/side_menu_admin.php';
+                } else {
+                    include_once 'includes/navigation.php';
+                    include_once 'includes/side_menu.php';
+                }
+                ?>
+
 
 
                 <section id="main" class="column">
@@ -138,18 +146,18 @@ include("../config.php");
                                         <label>Sub-Category:</label>
 
                                         <select name="category" class="ed">
-<?php
-include('../config.php');
-$name = mysqli_query($mysqli, "select * from sub_category");
+                                            <?php
+                                            include('../config.php');
+                                            $name = mysqli_query($mysqli, "select * from sub_category");
 
 //echo '<select  name="select"  id="ml" class="ed">';
-echo '<option selected="selected">Select</option>';
-while ($res = mysqli_fetch_assoc($name)) {
+                                            echo '<option selected="selected">Select</option>';
+                                            while ($res = mysqli_fetch_assoc($name)) {
 
 
-    echo '<option value=' . $res['sub_category_id'] . '>' . $res['sub_name'] . '</option>';
-}
-?>
+                                                echo '<option value=' . $res['sub_category_id'] . '>' . $res['sub_name'] . '</option>';
+                                            }
+                                            ?>
                                         </select>
                                         <span class="error">This is an error</span>
 
@@ -168,12 +176,12 @@ while ($res = mysqli_fetch_assoc($name)) {
                                             <option value="blue">Yellow</option>
                                             <option value="blue">red</option>
                                             <option value="blue">gray</option>
-                                             <option value="blue">maroon</option>
-                                              <option value="blue">purple</option>
-                                              <option value="blue">brown</option>
-                                              <option value="blue">green</option>
-                                              <option value="blue">beige</option>
-                                             
+                                            <option value="blue">maroon</option>
+                                            <option value="blue">purple</option>
+                                            <option value="blue">brown</option>
+                                            <option value="blue">green</option>
+                                            <option value="blue">beige</option>
+
 
                                         </select>
                                         <span id="pass-info"> </span>
@@ -189,35 +197,35 @@ while ($res = mysqli_fetch_assoc($name)) {
                                     <td> 
 
                                         <label>Size:</label>
-                                        
+
                                         <select name="size" class="ed" required>
                                             <option value="xxl">XXL</option>
                                             <option value="xl">XL</option>
                                             <option value="l">L</option>
                                             <option value="m">M</option>
                                             <option value="s">S</option>
-                                            
+
                                         </select>
                                         <span id="pass-info"> </span>
-                                        
+
 
 
                                     </td>
                                     <td> 
                                         <label> Boutique:</label>
                                         <select name="boutique" class="ed">
-<?php
-include('../config.php');
-$name = mysqli_query($mysqli, "select * from boutique");
+                                            <?php
+                                            include('../config.php');
+                                            $name = mysqli_query($mysqli, "select * from boutique");
 
 //echo '<select  name="select"  id="ml" class="ed">';
-echo '<option selected="selected">Select</option>';
-while ($res = mysqli_fetch_assoc($name)) {
+                                            echo '<option selected="selected">Select</option>';
+                                            while ($res = mysqli_fetch_assoc($name)) {
 
 
-    echo '<option value=' . $res['Warehouse_ID'] . '>' . $res['Warehouse'] . '-' . $res['City'] . '</option>';
-}
-?>
+                                                echo '<option value=' . $res['Warehouse_ID'] . '>' . $res['Warehouse'] . '-' . $res['City'] . '</option>';
+                                            }
+                                            ?>
                                         </select>
                                         <span class="error">This is an error</span>
 
@@ -273,9 +281,9 @@ while ($res = mysqli_fetch_assoc($name)) {
 
                     </div>
 
-<?php
-$result = mysqli_query($mysqli, "SELECT * FROM product");
-?>
+                    <?php
+                    $result = mysqli_query($mysqli, "SELECT * FROM product");
+                    ?>
                     <div id="tab1" class="tab_content">
                         <table class="tablesorter" cellspacing="0"> 
 
@@ -296,8 +304,8 @@ $result = mysqli_query($mysqli, "SELECT * FROM product");
                             </tr>
                             </thead>
                             <tbody>
-<?php while ($row = mysqli_fetch_array($result)) {
-    ?>
+                                <?php while ($row = mysqli_fetch_array($result)) {
+                                    ?>
 
                                     <tr>
                                         <td><input type="checkbox"></td>
@@ -314,7 +322,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM product");
                                             <a href="prodDelete.php?delete=<?php echo $row['Product_ID']; ?>" onClick="del(this);" title="Delete" class="delbutton"><input type="image" src="images/icn_trash.png" title="Trash">  </a></td>
                                     </tr>
 
-<?php }mysqli_close($mysqli); ?>
+                                <?php }mysqli_close($mysqli); ?>
                             </tbody>
                         </table>
 

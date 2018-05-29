@@ -77,8 +77,16 @@ include("../config.php");
 
             <div id="content-wrap">	
 
-                <?php include_once 'includes/navigation.php'; ?>
-                <?php include_once 'includes/side_menu.php'; ?>
+                <?php
+                if ($_SESSION['role'] == 'admin') {
+                    include_once 'includes/navigation_admin.php';
+                    include_once 'includes/side_menu_admin.php';
+                } else {
+                    include_once 'includes/navigation.php';
+                    include_once 'includes/side_menu.php';
+                }
+                ?>
+
 
 
                 <section id="main" class="column">

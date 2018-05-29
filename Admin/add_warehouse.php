@@ -20,12 +20,12 @@ include("../config.php");
         <script src="js/jquery.tablesorter.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="js/jquery.equalHeight.js"></script>
         <script type="text/javascript">
-            $(document).ready(function ()
+            $(document).ready(function()
             {
                 $(".tablesorter").tablesorter();
             }
             );
-            $(document).ready(function () {
+            $(document).ready(function() {
 
                 //When page loads...
                 $(".tab_content").hide(); //Hide all content
@@ -33,7 +33,7 @@ include("../config.php");
                 $(".tab_content:first").show(); //Show first tab content
 
                 //On Click Event
-                $("ul.tabs li").click(function () {
+                $("ul.tabs li").click(function() {
 
                     $("ul.tabs li").removeClass("active"); //Remove any "active" class
                     $(this).addClass("active"); //Add "active" class to selected tab
@@ -47,7 +47,7 @@ include("../config.php");
             });
         </script>
         <script type="text/javascript">
-            $(function () {
+            $(function() {
                 $('.column').equalHeight();
             });
         </script>
@@ -65,9 +65,7 @@ include("../config.php");
 
                 <div id="logo-banner">
 
-                    <div id="logo">
-                        <a href="index.php"><img src="images/logo.png" alt="" /></a>
-                    </div>
+
 
                     <div id="banner">
 
@@ -79,9 +77,16 @@ include("../config.php");
 
             <div id="content-wrap">	
 
+                <?php
+                if ($_SESSION['role'] == 'admin') {
+                    include_once 'includes/navigation_admin.php';
+                    include_once 'includes/side_menu_admin.php';
+                } else {
+                    include_once 'includes/navigation.php';
+                    include_once 'includes/side_menu.php';
+                }
+                ?>
 
-                <?php include_once 'includes/navigation.php'; ?>
-                <?php include_once 'includes/side_menu.php'; ?>
 
                 <section id="main" class="column">
                     <h4 class="alert_info">Welcome To <strong>"SomStore"</strong> Admin Panel As: <?php echo "  " . "<font color='#f90'><big><b>" . $login_session . "</b></big></font>"; ?>  </h4>
@@ -133,8 +138,8 @@ include("../config.php");
 
 
                     <script type="text/javascript">
-                        $(function () {
-                            $('#wareValid').keyup(function () {
+                        $(function() {
+                            $('#wareValid').keyup(function() {
 
                                 if (this.value.match(/[^a-zA-Z]/g)) {
                                     this.value = this.value.replace(/[^a-zA-Z ]/g, '');
@@ -257,15 +262,15 @@ include("../config.php");
 
                     <script type="text/javascript">
 
-                        $(document).ready(function () {
-                            $("#myButton").click(function () {
+                        $(document).ready(function() {
+                            $("#myButton").click(function() {
                                 //alert("Pls. Postal Code Is Misssing !!!");
                                 $.ajax({
                                     cache: false,
                                     type: 'POST',
                                     url: 'jointCustomer.php',
                                     data: $("#myForm").serialize(),
-                                    success: function (d) {
+                                    success: function(d) {
                                         $("#someElement").html(d);
                                     }
                                 });

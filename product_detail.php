@@ -182,11 +182,10 @@ include("config.php");
 //current URL of the Page. cart_update.php redirects back to this URL
                         $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
-<<<<<<< HEAD
+
                         $results = $mysqli->query("SELECT * FROM product where Product_ID = '".$id."'  ORDER BY Product_ID ASC");
-=======
-                        $results = $mysqli->query("SELECT * FROM product where Product_ID = '" . $id . "'  ORDER BY Product_ID ASC");
->>>>>>> 4581257d53424b741edbd11a34703b07beebb618
+
+                        
                         if ($results) {
 
                             //fetch results set as object and output HTML
