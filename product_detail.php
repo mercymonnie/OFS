@@ -6,7 +6,7 @@ include("config.php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
     <head>
-        <title>OFS | productdetail </title>
+        <title>OFS | product Detail </title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <link rel="shortcut icon" href="images/favicon.png" />
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -115,11 +115,14 @@ include("config.php");
                 <div id="content">
                     <div class="post">
                         <?php
+                        
                         $id = $_GET['id'];
+                        $cat_id = 0;
+                        $bout_id = 0;
 //current URL of the Page. cart_update.php redirects back to this URL
                         $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
-                        $results = $mysqli->query("SELECT * FROM product where Product_ID = '" . $id . "'  ORDER BY Product_ID ASC");
+                        $results = $mysqli->query("SELECT * FROM product p,boutique b where Product_ID = '" . $id . "' and p.Warehouse_ID = b.Warehouse_ID  ORDER BY Product_ID ASC");
                         if ($results) {
 
                             //fetch results set as object and output HTML
@@ -127,17 +130,29 @@ include("config.php");
 
                                 $productName = $obj->productName;
                                 $Product_ID = $obj->Product_ID;
+                                $cat_id = $obj->Category_ID;
+                                $bout_id = $obj->Warehouse_ID;
+                                
+                                $boutique = $obj->Warehouse;
+                                $street = $obj->street;
+                                $building = $obj->building;
+                                $floor = $obj->	floor;
+                                $city = $obj->City;
+                                $coutry = $obj->Country;
+                                
                                 ?>
                                 <h2><?php echo $productName; ?> Details!</h2>
                                 <?php echo '<img src="Admin/images/products/' . $obj->Picture . '" alt="Post Image" height="160" width="260"/>'; ?> 
-                                Name: <?php echo $productName; ?> <br/>
-                                Descriptions: <?php echo $productName; ?> <br/>
-                                Size: <?php echo $productName; ?> <br/>
-                                Color: <?php echo $productName; ?> <br/>
-                                Price: <?php echo $productName; ?> <br/>
+                                <strong> Name: </strong> <?php echo $productName; ?> <br/>
+                                 
+                                 <strong> Descriptions: </strong> <?php echo $obj->Description; ?> <br/>
+                                 <strong> Size: </strong> <?php echo $obj->Type;; ?> <br/>
+                                 <strong> Color: </strong> <?php echo $obj->Model;; ?> <br/>
+                                 <strong> Price: </strong> <?php echo $obj->Price; ?> <br/>
 
                                 <div class="cl">&nbsp;</div>
-                            <?php }
+                            <?php
+                            }
                         }
                         ?>
                     </div>
@@ -150,11 +165,11 @@ include("config.php");
                             <h2>Location</h2>
                             <div class="brands">
 
-                                Location: <?php echo $productName; ?> <br/> 
-                                Street: <?php echo $productName; ?> <br/>
-                                Building: <?php echo $productName; ?> <br/>
-                                Floor: <?php echo $productName; ?> <br/>
-                                Boutique Name: <?php echo $productName; ?> <br/>
+                                <strong>Location: </strong> <?php echo $city." ( ".$coutry." )"; ?> <br/> 
+                                <strong>Street: </strong> <?php echo $street; ?> <br/>
+                                <strong>Building: </strong> <?php echo $building; ?> <br/>
+                                <strong>Floor: </strong> <?php echo $floor; ?> <br/>
+                                <strong>Boutique: </strong> <?php echo $boutique; ?> <br/>
 
                                 <div class="cl">&nbsp;</div>
                             </div>
@@ -178,14 +193,13 @@ include("config.php");
                     <div class="section group">
 
                         <?php
-                        $id = $_GET['id'];
+                       // $id = $_GET['id'];
 //current URL of the Page. cart_update.php redirects back to this URL
                         $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+                        //echo $cat_id;
+                        $results = $mysqli->query("SELECT * FROM product p, category c,sub_category s, boutique b where p.Category_ID = '" . $cat_id . "'  and p.Category_ID = s.sub_category_id and c.Category_ID = s.Category_ID and p.Warehouse_ID = b.Warehouse_ID  ORDER BY Product_ID ASC");
 
 
-                        $results = $mysqli->query("SELECT * FROM product where Product_ID = '".$id."'  ORDER BY Product_ID ASC");
-
-                        
                         if ($results) {
 
                             //fetch results set as object and output HTML
