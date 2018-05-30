@@ -21,33 +21,32 @@ include("../config.php");
         <script type="text/javascript">
             $(document).ready(function()
             {
-                $(".tablesorter").tablesorter();
+            $(".tablesorter").tablesorter();
             }
             );
             $(document).ready(function() {
 
-                //When page loads...
-                $(".tab_content").hide(); //Hide all content
-                $("ul.tabs li:first").addClass("active").show(); //Activate first tab
-                $(".tab_content:first").show(); //Show first tab content
+            //When page loads...
+            $(".tab_content").hide(); //Hide all content
+            $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+            $(".tab_content:first").show(); //Show first tab content
 
-                //On Click Event
-                $("ul.tabs li").click(function() {
+            //On Click Event
+            $("ul.tabs li").click(function() {
 
-                    $("ul.tabs li").removeClass("active"); //Remove any "active" class
-                    $(this).addClass("active"); //Add "active" class to selected tab
-                    $(".tab_content").hide(); //Hide all tab content
+            $("ul.tabs li").removeClass("active"); //Remove any "active" class
+            $(this).addClass("active"); //Add "active" class to selected tab
+            $(".tab_content").hide(); //Hide all tab content
 
-                    var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-                    $(activeTab).fadeIn(); //Fade in the active ID content
-                    return false;
-                });
-
+            var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+            $(activeTab).fadeIn(); //Fade in the active ID content
+            return false;
+            });
             });
         </script>
         <script type="text/javascript">
             $(function() {
-                $('.column').equalHeight();
+            $('.column').equalHeight();
             });
         </script>
 
@@ -65,7 +64,7 @@ include("../config.php");
 
                 <div id="logo-banner">
 
-                    
+
                     <div id="banner">
 
                     </div>
@@ -76,7 +75,7 @@ include("../config.php");
 
             <div id="content-wrap">	
 
-               <?php
+                <?php
                 if ($_SESSION['role'] == 'admin') {
                     include_once 'includes/navigation_admin.php';
                     include_once 'includes/side_menu_admin.php';
@@ -88,31 +87,29 @@ include("../config.php");
 
 
                 <section id="main" class="column">
-
-                    <h4 class="alert_info">Welcome To <strong>"OFS"</strong> Admin Panel As: <?php echo "  " . "<font color='#f90'><big><b>" . $login_session . "</b></big></font>"; ?>  </h4>
-
+                    <?php include_once 'includes/login_type.php'; ?>
                     <script type="text/javascript">
                         function validateForm()
                         {
-                            var a = document.forms["addemployee"]["fullname"].value;
-                            if (a == null || a == "")
-                            {
-                                alert("Pls. Employee Full Name IS Missing !!!");
-                                return false;
-                            }
-                            var b = document.forms["addemployee"]["username"].value;
-                            if (b == null || b == "")
-                            {
-                                alert("Pls. Your User Name Is Missing !!!");
-                                return false;
-                            }
+                        var a = document.forms["addemployee"]["fullname"].value;
+                        if (a == null || a == "")
+                        {
+                        alert("Pls. Employee Full Name IS Missing !!!");
+                        return false;
+                        }
+                        var b = document.forms["addemployee"]["username"].value;
+                        if (b == null || b == "")
+                        {
+                        alert("Pls. Your User Name Is Missing !!!");
+                        return false;
+                        }
 
-                            var c = document.forms["addemployee"]["password"].value;
-                            if (c == null || c == "")
-                            {
-                                alert("Pls. Your Password Is MIsssing !!!");
-                                return false;
-                            }
+                        var c = document.forms["addemployee"]["password"].value;
+                        if (c == null || c == "")
+                        {
+                        alert("Pls. Your Password Is MIsssing !!!");
+                        return false;
+                        }
 
                         }
                     </script>	
@@ -121,14 +118,13 @@ include("../config.php");
 
                     <script type="text/javascript">
                         $(function() {
-                            $('#empValid').keyup(function() {
+                        $('#empValid').keyup(function() {
 
-                                if (this.value.match(/[^a-zA-Z]/g)) {
-                                    this.value = this.value.replace(/[^a-zA-Z ]/g, '');
-
-                                }
-                                Alart("Numbers IS NOT Allowed Sir!!!!!! !!!");
-                            });
+                        if (this.value.match(/[^a-zA-Z]/g)) {
+                        this.value = this.value.replace(/[^a-zA-Z ]/g, '');
+                        }
+                        Alart("Numbers IS NOT Allowed Sir!!!!!! !!!");
+                        });
                         });
                     </script>
 
@@ -201,74 +197,74 @@ include("../config.php");
 
 
                     <script>
-                        < script type = "text/javascript" >
-                                $(document).ready(function() {
-                            $("#submit").click(function() {
+                < script type = "text/javascript" >
+$(document).ready(function() {
+                                $("#submit").click(function() {
 
-                                $.ajax({
-                                    cache: false,
-                                    type: 'POST',
-                                    url: 'empRegistration.php',
-                                    data: $("#myForm").serialize(),
-                                    success: function(d) {
-                                        $("#someElement").html(d);
-                                    }
-                                });
-                            });
+                        $.ajax({
+                        cache: false,
+                                type: 'POST',
+                                url: 'empRegistration.php',
+                                data: $("#myForm").serialize(),
+                                success: function(d) {
+                                $("#someElement").html(d);
+                        }
                         });
-
-                    </script>
-
-
-
-
+                        });
+                        });
+                        
+                        </script>
 
 
 
-                    <?php
-                    $result = mysqli_query($mysqli, "SELECT * FROM employee");
-                    ?>
-                    <div id="tab1" class="tab_content">
-                        <table class="tablesorter" cellspacing="0"> 
 
 
-                            <thead><tr> <th colspan="7"> Employee Data Record</th>  </tr> <thead>
-                            <thead>
-                                <tr>
-                                    <th>Check</th> 
-                                    <th>Employee ID</th>
-                                    <th> Employee Name</th>			  
-                                    <th>User Name</th>
-                                    <th>Password</th>
-                                    <th>Picture</th>			
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php while ($row = mysqli_fetch_array($result)) {
-                                    ?>
 
+
+                        <?php
+                        $result = mysqli_query($mysqli, "SELECT * FROM employee");
+                        ?>
+                        <div id="tab1" class="tab_content">
+                            <table class="tablesorter" cellspacing="0"> 
+
+
+                                <thead><tr> <th colspan="7"> Employee Data Record</th>  </tr> <thead>
+                                <thead>
                                     <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td><?Php echo $row['Employee_ID']; ?></td>
-                                        <td><?php echo $row['Employee_Name']; ?></td>
-                                        <td><?php echo $row['Username']; ?></td>
-                                        <td><?php echo $row['Password']; ?></td>
-                                        <td><img src="../images/<?php echo $row['Picture']; ?>" width="40" height="40"></td>
-                                        <td> <a href="empViewUpdate.php?update=<?php echo $row['Employee_ID']; ?>"  onClick="edit(this);" title="empEdit" >  <input type="image" src="images/icn_edit.png" title="Edit"> </a>
-                                            <a href="empDelete.php?delete=<?php echo $row['Employee_ID']; ?>" onClick="del(this);" title="Delete"><input type="image" src="images/icn_trash.png" title="Trash"/>  </a></td>
+                                        <th>Check</th> 
+                                        <th>Employee ID</th>
+                                        <th> Employee Name</th>			  
+                                        <th>User Name</th>
+                                        <th>Password</th>
+                                        <th>Picture</th>			
+                                        <th>Actions</th>
                                     </tr>
+                                </thead>
+                                <tbody>
+                                    <?php while ($row = mysqli_fetch_array($result)) {
+                                        ?>
 
-                                <?php }mysqli_close($mysqli); ?>
-                            </tbody>
-                        </table>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td><?Php echo $row['Employee_ID']; ?></td>
+                                            <td><?php echo $row['Employee_Name']; ?></td>
+                                            <td><?php echo $row['Username']; ?></td>
+                                            <td><?php echo $row['Password']; ?></td>
+                                            <td><img src="../images/<?php echo $row['Picture']; ?>" width="40" height="40"></td>
+                                            <td> <a href="empViewUpdate.php?update=<?php echo $row['Employee_ID']; ?>"  onClick="edit(this);" title="empEdit" >  <input type="image" src="images/icn_edit.png" title="Edit"> </a>
+                                                <a href="empDelete.php?delete=<?php echo $row['Employee_ID']; ?>" onClick="del(this);" title="Delete"><input type="image" src="images/icn_trash.png" title="Trash"/>  </a></td>
+                                        </tr>
 
-                    </div> 
+                                    <?php }mysqli_close($mysqli); ?>
+                                </tbody>
+                            </table>
 
-                </section>
+                        </div> 
+
+                    </section>
+                </div>
             </div>
-        </div>
 
-    </body>
+        </body>
 
-</html>
+    </html>

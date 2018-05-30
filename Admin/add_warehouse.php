@@ -89,8 +89,7 @@ include("../config.php");
 
 
                 <section id="main" class="column">
-                    <h4 class="alert_info">Welcome To <strong>"SomStore"</strong> Admin Panel As: <?php echo "  " . "<font color='#f90'><big><b>" . $login_session . "</b></big></font>"; ?>  </h4>
-
+                    <?php include_once 'includes/login_type.php'; ?>
 
                     <script type="text/javascript">
                         function validateForm()
