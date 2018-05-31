@@ -113,7 +113,7 @@ include("config.php");
             <div id="main" class="shell">
                 <!-- Begin Content -->
                 <div id="content">
-                    
+
                 </div
                 <!-- End Content -->
                 <!-- Begin Sidebar -->
@@ -150,19 +150,19 @@ include("config.php");
 
                     <div class="section group">
 
-                        <?php
-                        $id = $_GET['page'];
+                        <?php 
+                        $id = $_GET['id'];
 //current URL of the Page. cart_update.php redirects back to this URL
                         $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
-                        $results = $mysqli->query("SELECT * FROM product where Category_ID = '".$id."'  ORDER BY Product_ID ASC");
+                        $results = $mysqli->query("SELECT * FROM product where Category_ID = '" . $id . "'  ORDER BY Product_ID ASC");
                         if ($results) {
 
                             //fetch results set as object and output HTML
                             while ($obj = $results->fetch_object()) {
                                 echo '<div class="grid_1_of_4 images_1_of_4">';
                                 echo '<form method="post" action="cart_update.php">';
-                                echo '<div class="product-thumb"><a href="product_detail.php?id='.$obj->Product_ID.'" ><img src="Admin/images/products/' . $obj->Picture . '"></a></div>';
+                                echo '<div class="product-thumb"><a href="product_detail.php?id=' . $obj->Product_ID . '" ><img src="Admin/images/products/' . $obj->Picture . '"></a></div>';
                                 echo '<div class="product-content"><h2><b>' . $obj->productName . '</b> </h2>';
                                 echo '<div class="product-desc">' . $obj->Description . '</div>';
                                 echo '<div class="product-info"></div>';
@@ -208,7 +208,7 @@ include("config.php");
                         <ul>
                             <li><a href="#" title="Facebook"><img src="images/social-icon1.png" alt="Facebook" /><span>Facebook</span><span class="cl">&nbsp;</span></a></li>
                             <li><a href="#" title="Twitter"><img src="images/social-icon2.png" alt="Twitter" /><span>Twitter</span><span class="cl">&nbsp;</span></a></li>							
-                             </ul>
+                        </ul>
                         <div class="cl">&nbsp;</div>
                     </div>
                     <div class="box">
@@ -224,10 +224,10 @@ include("config.php");
                     <div class="box last-box">
                         <h2>Categories</h2>
                         <ul>
-                            <li><a href="#" title="Clothes">Dresses</a></li>
-                            <li><a href="#" title="Cleaning Material">skirts</a></li>
-                            <li><a href="#" title="Fizzi Drinks">Jeans</a></li>
-                            <li><a href="#" title="Food Stuff">Jumpsuits</a></li>
+                            <li><a href="#" title="Dresses">Dresses</a></li>
+                            <li><a href="#" title="skirts">skirts</a></li>
+                            <li><a href="#" title="Fizzi Jeans">Jeans</a></li>
+                            <li><a href="#" title="Jumpsuits">Jumpsuits</a></li>
                         </ul>
                     </div>
                     <div class="cl">&nbsp;</div>
@@ -247,24 +247,24 @@ include("config.php");
                     </div>	<p>&copy; OFS Groups <a href="index.php"><i><font color="fefefe"> Welcome To OFS Online Shopping Site </font></i></a></p>
                     <div class="cl">&nbsp;</div>
                     Copyright © 2018 OFS
-                <!-- End Shell -->
+                    <!-- End Shell -->
+                </div>
             </div>
-        </div>
-        <!-- End Footer -->
+            <!-- End Footer -->
 
-        <div class="shout_box">
-            <div class="header"> live Discussion of OFS <div class="close_btn">&nbsp;</div></div>
-            <div class="toggle_chat">
-                <div class="message_box">
-                </div>
-                <div class="user_info">
-                    <input name="shout_username" id="shout_username" type="text" placeholder="Your Name" maxlength="15" />
-                    <input name="shout_message" id="shout_message" type="text" placeholder="Type Message Hit Enter" maxlength="100" /> 
+            <div class="shout_box">
+                <div class="header"> live Discussion of OFS <div class="close_btn">&nbsp;</div></div>
+                <div class="toggle_chat">
+                    <div class="message_box">
+                    </div>
+                    <div class="user_info">
+                        <input name="shout_username" id="shout_username" type="text" placeholder="Your Name" maxlength="15" />
+                        <input name="shout_message" id="shout_message" type="text" placeholder="Type Message Hit Enter" maxlength="100" /> 
+                    </div>
                 </div>
             </div>
-        </div>
 
         </div>
         <!-- End Wrapper -->
     </body>
- </html>
+</html>

@@ -226,10 +226,10 @@ include("config.php");
                     <div class="box last-box">
                         <h2>Categories</h2>
                         <ul>
-                            <li><a href="#" title="Clothes">Dresses</a></li>
-                            <li><a href="#" title="Cleaning Material">skirts</a></li>
-                            <li><a href="#" title="Fizzi Drinks">jeans</a></li>
-                            <li><a href="#" title="Food Stuff">jumpsuits</a></li>
+                           <li><a href="#" title="Dresses">Dresses</a></li>
+                            <li><a href="#" title="skirts">skirts</a></li>
+                            <li><a href="#" title="Fizzi Jeans">Jeans</a></li>
+                            <li><a href="#" title="Jumpsuits">Jumpsuits</a></li>
                         </ul>
                     </div>
                     <div class="cl">&nbsp;</div>

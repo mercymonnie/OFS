@@ -5,7 +5,7 @@ include("usersession.php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
     <head>
-        <title> Somstore Group </title>
+        <title> OFS Group </title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <link rel="shortcut icon" href="images/favicon.png" />
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -120,7 +120,7 @@ include("usersession.php");
             <div id="header">
                 <!-- Begin Shell -->
                 <div class="shell">
-                    <h1 id="logo"><a class="notext" href="#" title="Suncart">Somstore</a></h1>
+                    <h1 id="logo"><a class="notext" href="#" title="Suncart">OFS</a></h1>
                     <div id="top-nav">
                         <ul>
                             <li><a href="#" title="Login Email"> <span class="janan"> <?php echo "Your Email Is: " . "<i><b>" . $login_session . "</b></i>"; ?> </span></a></li>
@@ -356,7 +356,7 @@ include("usersession.php");
                     <div class="post">
                         <h2>Welcome!</h2>
                         <img src="images/logo.png" alt="Post Image" height="160" width="260"/>
-                        You can be confident when you're shopping online with SomStore. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
+                        You can be confident when you're shopping online with OFS. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
                         such as personal information, in an encrypted envelope, making it extremely difficult for this information to be intercepted.. <a href="#" class="more" title="Read More">Read More</a></p>
                         <div class="cl">&nbsp;</div>
                     </div>
@@ -455,10 +455,10 @@ while ($row = mysqli_fetch_array($result)) {
                     <!-- Begin Shell -->
                     <div class="shell">
                         <div class="box post-box">
-                            <h2>About SomStore</h2>
+                            <h2>About OFS</h2>
                             <div class="box-entry">
-                                <img src="images/logo.png" alt="SomStore" width="160" height="80"/>
-                                <p>You can be confident when you're shopping online with SomStore. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
+                                <img src="images/logo.png" alt="OFS" width="160" height="80"/>
+                                <p>You can be confident when you're shopping online with OFS. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
                                     such as personal information, in an encrypted envelope, making it extremely difficult for this information to be intercepted. </p>
                                 <div class="cl">&nbsp;</div>
                             </div>
@@ -468,8 +468,7 @@ while ($row = mysqli_fetch_array($result)) {
                             <ul>
                                 <li><a href="#" title="Facebook"><img src="images/social-icon1.png" alt="Facebook" /><span>Facebook</span><span class="cl">&nbsp;</span></a></li>
                                 <li><a href="#" title="Twitter"><img src="images/social-icon2.png" alt="Twitter" /><span>Twitter</span><span class="cl">&nbsp;</span></a></li>							
-                                <li><a href="#" title="RSS"><img src="images/social-icon4.png" alt="RSS" /><span>RSS</span><span class="cl">&nbsp;</span></a></li>
-                                <li><a href="#" title="Blogger"><img src="images/social-icon7.png" alt="Blogger" /><span>Blogger</span><span class="cl">&nbsp;</span></a></li>
+                                
                             </ul>
                             <div class="cl">&nbsp;</div>
                         </div>
@@ -486,10 +485,10 @@ while ($row = mysqli_fetch_array($result)) {
                         <div class="box last-box">
                             <h2>Categories</h2>
                             <ul>
-                                <li><a href="#" title="Clothes">Clothes</a></li>
-                                <li><a href="#" title="Cleaning Material">Cleaning Material</a></li>
-                                <li><a href="#" title="Fizzi Drinks">Fizzy Drinks</a></li>
-                                <li><a href="#" title="Food Stuff">Food Stuff</a></li>
+                               <li><a href="#" title="Dresses">Dresses</a></li>
+                            <li><a href="#" title="skirts">skirts</a></li>
+                            <li><a href="#" title="Fizzi Jeans">Jeans</a></li>
+                            <li><a href="#" title="Jumpsuits">Jumpsuits</a></li>
                             </ul>
                         </div>
                         <div class="cl">&nbsp;</div>
@@ -503,10 +502,10 @@ while ($row = mysqli_fetch_array($result)) {
                             <ul>
                                 <li><span>We accept</span></li>
                                 <li><a href="#" title="Zaad service"><img src="images/zaad.png" alt="Zaad Service" /></a></li>
-                                <li><a href="#" title="Somstore"><img src="images/suncart.png" alt="Somstore" /></a></li>
+                                <li><a href="#" title="ofs"><img src="images/suncart.png" alt="ofs" /></a></li>
 
                             </ul>
-                        </div>	<p>&copy; Somstore.com. Groups <a href="index.php"><i><font color="fefefe"> Welcome To Somstore Online Shopping Site </font></i></a></p>
+                        </div>	<p>&copy; OFS. Groups <a href="index.php"><i><font color="fefefe"> Welcome To OFS Online Shopping Site </font></i></a></p>
                         <div class="cl">&nbsp;</div>
                     </div>
                     <!-- End Shell -->
@@ -515,7 +514,7 @@ while ($row = mysqli_fetch_array($result)) {
             <!-- End Footer -->
 
             <div class="shout_box">
-                <div class="header"> live Discussion of Somstore <div class="close_btn">&nbsp;</div></div>
+                <div class="header"> live Discussion of OFS <div class="close_btn">&nbsp;</div></div>
                 <div class="toggle_chat">
                     <div class="message_box">
                     </div>
