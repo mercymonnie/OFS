@@ -305,21 +305,21 @@ include("config.php");
                         </div>
                         <div class="company_address">
                             <h2>Company Information :</h2>
-                            <p><big> SomStore</big> Is A Online Sales System Company Established In SOMALILAND</p>
+                            <p><big> OFS</big> Is A Online Sales System Company Established In MBARARA</p>
                             <p>  </p>
-                            <p> ADMAS UNIVERSITY COLLEGE</p>
-                            <p>SOMALILAND</p>
+                            <p> UGANDA MARTYRS UNIVERSITY </p>
+                            <p>MBARARA</p>
                             <p>HARGEISA</p>
                             <BIG>PHONE</BIG>
-                            <p>+252-(63)-4138440</p>
-                            <p>+252-(63)-4188000</p>
+                            <p>+256-7138440</p>
+                            <p>+256-7418800</p>
                             <BIG>EMAIL</BIG>
-                            <p>somstore@gmail.com</p>
+                            <p>ofs@gmail.com</p>
                             <p>mucad33@gmail.com</p>
                             <p>jananalibritish@gmail.com</p>
                             <BIG>FOLLOW US</BIG>
                             <span>Facebook</span>, <span>Twitter</span></p>
-                            <p>somstore@gmail.com</p>
+                            <p>ofs@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -337,10 +337,10 @@ include("config.php");
                     <!-- Begin Shell -->
                     <div class="shell">
                         <div class="box post-box">
-                            <h2>About SomStore</h2>
+                            <h2>About OFS</h2>
                             <div class="box-entry">
-                                <img src="images/logo.png" alt="SomStore" width="160" height="80"/>
-                                <p>You can be confident when you're shopping online with SomStore. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
+                                <img src="images/logo.png" alt="OFS" width="160" height="80"/>
+                                <p>You can be confident when you're shopping online with OFS. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
                                     such as personal information, in an encrypted envelope, making it extremely difficult for this information to be intercepted. </p>
                                 <div class="cl">&nbsp;</div>
                             </div>
@@ -350,8 +350,7 @@ include("config.php");
                             <ul>
                                 <li><a href="#" title="Facebook"><img src="images/social-icon1.png" alt="Facebook" /><span>Facebook</span><span class="cl">&nbsp;</span></a></li>
                                 <li><a href="#" title="Twitter"><img src="images/social-icon2.png" alt="Twitter" /><span>Twitter</span><span class="cl">&nbsp;</span></a></li>							
-                                <li><a href="#" title="RSS"><img src="images/social-icon4.png" alt="RSS" /><span>RSS</span><span class="cl">&nbsp;</span></a></li>
-                                <li><a href="#" title="Blogger"><img src="images/social-icon7.png" alt="Blogger" /><span>Blogger</span><span class="cl">&nbsp;</span></a></li>
+                               
                             </ul>
                             <div class="cl">&nbsp;</div>
                         </div>
@@ -385,10 +384,10 @@ include("config.php");
                             <ul>
                                 <li><span>We accept</span></li>
                                 <li><a href="#" title="Zaad service"><img src="images/zaad.png" alt="Zaad Service" /></a></li>
-                                <li><a href="#" title="Somstore"><img src="images/suncart.png" alt="Somstore" /></a></li>
+                                <li><a href="#" title="OFS"><img src="images/suncart.png" alt="OFS" /></a></li>
 
                             </ul>
-                        </div>	<p>&copy; Somstore.com. Groups <a href="index.php"><i><font color="fefefe"> Welcome To Somstore Online Shopping Site </font></i></a></p>
+                        </div>	<p>&copy; OFS. Groups <a href="index.php"><i><font color="fefefe"> Welcome To OFS Online Shopping Site </font></i></a></p>
                         <div class="cl">&nbsp;</div>
                     </div>
                     <!-- End Shell -->
@@ -397,7 +396,7 @@ include("config.php");
             <!-- End Footer -->
 
             <div class="shout_box">
-                <div class="header"> live Discussion of Somstore <div class="close_btn">&nbsp;</div></div>
+                <div class="header"> live Discussion of OFS <div class="close_btn">&nbsp;</div></div>
                 <div class="toggle_chat">
                     <div class="message_box">
                     </div>

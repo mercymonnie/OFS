@@ -154,12 +154,7 @@ include("config.php");
                         $id = $_GET['page'];
 //current URL of the Page. cart_update.php redirects back to this URL
                         $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-
-<<<<<<< HEAD
                         $results = $mysqli->query("SELECT * FROM product where Warehouse_ID = '".$id."'  ORDER BY Product_ID ASC");
-=======
-                        $results = $mysqli->query("SELECT * FROM product where Warehouse_ID = '" . $id . "'  ORDER BY Product_ID ASC");
->>>>>>> 4581257d53424b741edbd11a34703b07beebb618
                         if ($results) {
 
                             //fetch results set as object and output HTML
@@ -226,10 +221,10 @@ include("config.php");
                     <div class="box last-box">
                         <h2>Categories</h2>
                         <ul>
-                            <li><a href="#" title="Clothes">Dresses</a></li>
-                            <li><a href="#" title="Cleaning Material">skirts</a></li>
-                            <li><a href="#" title="Fizzi Drinks">jeans</a></li>
-                            <li><a href="#" title="Food Stuff">jumpsuits</a></li>
+                           <li><a href="#" title="Dresses">Dresses</a></li>
+                            <li><a href="#" title="skirts">skirts</a></li>
+                            <li><a href="#" title="Fizzi Jeans">Jeans</a></li>
+                            <li><a href="#" title="Jumpsuits">Jumpsuits</a></li>
                         </ul>
                     </div>
                     <div class="cl">&nbsp;</div>
