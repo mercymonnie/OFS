@@ -19,7 +19,7 @@
                             $category_id = $res['Category_ID'];
                             ?>
                             <li>
-                                <a href="warehouse_4.php"> <?php echo $category; ?></a>
+                                <a href="#"> <?php echo $category; ?></a>
                                 <div class="dd">
 
                                     <?php

@@ -27,12 +27,12 @@ include("config.php");
         <!-- WAA DHAMAADKA JQueryga CHaTTIng Ka-->
 
         <script type="text/javascript">
-            $(document).ready(function () {
+            $(document).ready(function() {
 
                 // load messages every 1000 milliseconds from server.
                 load_data = {'fetch': 1};
-                window.setInterval(function () {
-                    $.post('shout.php', load_data, function (data) {
+                window.setInterval(function() {
+                    $.post('shout.php', load_data, function(data) {
                         $('.message_box').html(data);
                         var scrolltoh = $('.message_box')[0].scrollHeight;
                         $('.message_box').scrollTop(scrolltoh);
@@ -40,14 +40,14 @@ include("config.php");
                 }, 1000);
 
                 //method to trigger when user hits enter key
-                $("#shout_message").keypress(function (evt) {
+                $("#shout_message").keypress(function(evt) {
                     if (evt.which == 13) {
                         var iusername = $('#shout_username').val();
                         var imessage = $('#shout_message').val();
                         post_data = {'username': iusername, 'message': imessage};
 
                         //send data to "shout.php" using jQuery $.post()
-                        $.post('shout.php', post_data, function (data) {
+                        $.post('shout.php', post_data, function(data) {
 
                             //append data into messagebox with jQuery fade effect!
                             $(data).hide().appendTo('.message_box').fadeIn();
@@ -59,7 +59,7 @@ include("config.php");
                             //reset value of message box
                             $('#shout_message').val('');
 
-                        }).fail(function (err) {
+                        }).fail(function(err) {
 
                             //alert HTTP server error
                             alert(err.statusText);
@@ -68,7 +68,7 @@ include("config.php");
                 });
 
                 //toggle hide/show shout box
-                $(".close_btn").click(function (e) {
+                $(".close_btn").click(function(e) {
                     //get CSS display state of .toggle_chat element
                     var toggleState = $('.toggle_chat').css('display');
 
@@ -115,7 +115,6 @@ include("config.php");
                 <div id="content">
                     <div class="post">
                         <?php
-                        
                         $id = $_GET['id'];
                         $cat_id = 0;
                         $bout_id = 0;
@@ -132,26 +131,29 @@ include("config.php");
                                 $Product_ID = $obj->Product_ID;
                                 $cat_id = $obj->Category_ID;
                                 $bout_id = $obj->Warehouse_ID;
-                                
+
                                 $boutique = $obj->Warehouse;
                                 $street = $obj->street;
                                 $building = $obj->building;
-                                $floor = $obj->	floor;
+                                $floor = $obj->floor;
                                 $city = $obj->City;
                                 $coutry = $obj->Country;
-                                
                                 ?>
                                 <h2><?php echo $productName; ?> Details!</h2>
                                 <?php echo '<img src="Admin/images/products/' . $obj->Picture . '" alt="Post Image" height="160" width="260"/>'; ?> 
                                 <strong> Name: </strong> <?php echo $productName; ?> <br/>
-                                 
-                                 <strong> Descriptions: </strong> <?php echo $obj->Description; ?> <br/>
-                                 <strong> Size: </strong> <?php echo $obj->Type;; ?> <br/>
-                                 <strong> Color: </strong> <?php echo $obj->Model;; ?> <br/>
-                                 <strong> Price: </strong> <?php echo $obj->Price; ?> <br/>
+
+                                <strong> Descriptions: </strong> <?php echo $obj->Description; ?> <br/>
+                                <strong> Size: </strong> <?php echo $obj->Type;
+                        ;
+                                ?> <br/>
+                                <strong> Color: </strong> <?php echo $obj->Model;
+                        ;
+                        ?> <br/>
+                                <strong> Price: </strong> <?php echo $obj->Price; ?> <br/>
 
                                 <div class="cl">&nbsp;</div>
-                            <?php
+                                <?php
                             }
                         }
                         ?>
@@ -165,7 +167,7 @@ include("config.php");
                             <h2>Location</h2>
                             <div class="brands">
 
-                                <strong>Location: </strong> <?php echo $city." ( ".$coutry." )"; ?> <br/> 
+                                <strong>Location: </strong> <?php echo $city . " ( " . $coutry . " )"; ?> <br/> 
                                 <strong>Street: </strong> <?php echo $street; ?> <br/>
                                 <strong>Building: </strong> <?php echo $building; ?> <br/>
                                 <strong>Floor: </strong> <?php echo $floor; ?> <br/>
@@ -193,7 +195,7 @@ include("config.php");
                     <div class="section group">
 
                         <?php
-                       // $id = $_GET['id'];
+                        // $id = $_GET['id'];
 //current URL of the Page. cart_update.php redirects back to this URL
                         $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
                         //echo $cat_id;
@@ -265,10 +267,10 @@ include("config.php");
                     <div class="box last-box">
                         <h2>Categories</h2>
                         <ul>
-                            <li><a href="#" title="Clothes">Dresses</a></li>
-                            <li><a href="#" title="Cleaning Material">Skirts</a></li>
-                            <li><a href="#" title="Fizzi Drinks">jeans</a></li>
-                            <li><a href="#" title="Food Stuff">jumpsuits</a></li>
+                            <li><a href="#" title="Dresses">Dresses</a></li>
+                            <li><a href="#" title="skirts">skirts</a></li>
+                            <li><a href="#" title="Fizzi Jeans">Jeans</a></li>
+                            <li><a href="#" title="Jumpsuits">Jumpsuits</a></li>
                         </ul>
                     </div>
                     <div class="cl">&nbsp;</div>

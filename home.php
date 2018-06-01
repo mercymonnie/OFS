@@ -385,7 +385,8 @@ include("usersession.php");
                 <!-- Begin Products -->
 
                 <div id="products">
-                    <h2>Featured Products</h2>
+                    <h2>Featured Products</h2> 
+                    
 
                     <div class="section group">
 

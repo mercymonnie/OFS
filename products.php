@@ -150,8 +150,8 @@ include("config.php");
 
                     <div class="section group">
                         <?php
-                        if ($_GET['id']) {
-                            $id = $_GET['id'];
+                        if (@$_GET['page']) {
+                            $id = $_GET['page'];
 //current URL of the Page. cart_update.php redirects back to this URL
                             $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 

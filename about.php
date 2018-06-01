@@ -6,7 +6,7 @@ include("config.php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
     <head>
-        <title> SomStore Group </title>
+        <title> OFS Group </title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <link rel="shortcut icon" href="images/favicon.png" />
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -109,7 +109,7 @@ include("config.php");
                     <div class="post">
                         <h2>Welcome!</h2>
                         <img src="images/logo.png" alt="Post Image" height="160" width="260"/>
-                        You can be confident when you're shopping online with SomStore. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
+                        You can be confident when you're shopping online with OFS. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
                         such as personal information, in an encrypted envelope, making it extremely difficult for this information to be intercepted.. <a href="#" class="more" title="Read More">Read More</a></p>
                         <div class="cl">&nbsp;</div>
                     </div>
@@ -119,15 +119,15 @@ include("config.php");
 
                         <h1 align="center"><font color="blue">About The Project Developers</font></h1><br>
                             <h2>Developer</h2>
-                            <img src="images/xogmo.jpg" alt="Post Image" width="140" height="159" />
-                            <p>Abdirahman Osman Sheikh farah. </p>
+                            <img src= alt="Post Image" width="140" height="159" />
+                            <p>Kabazarwe Mercy. </p>
                             <p>. <a href="#" class="more" title="Read More">Read More</a></p>
                             <div class="cl">&nbsp;</div>
                     </div>
                     <div class="post">
                         <h2>Developer</h2>
-                        <img src="images/jananka.jpg" alt="Post Image" width="140" height="159" />
-                        <p>Abdirahman Ali Abdi. </p>
+                        <img src="55.png" alt="Post Image" width="140" height="159" />
+                        <p>OPM. </p>
                         <p>. <a href="#" class="more" title="Read More">Read More</a></p>
                         <div class="cl">&nbsp;</div>
                     </div>
@@ -177,7 +177,7 @@ include("config.php");
                                 </div>
                             </div>
 
-                        </div>	<p align="center">&copy; SomStore.com. Groups <a href="index.php"><i><font color="fefefe"> Welcome To <strong> SomStore</strong> Online Shopping Site </font></i></a></p>
+                        </div>	<p align="center">&copy; OFS. Groups <a href="index.php"><i><font color="fefefe"> Welcome To <strong> OFS</strong> Online Shopping Site </font></i></a></p>
                         <div class="cl">&nbsp;</div>
                     </div>
                     <!-- End Shell -->

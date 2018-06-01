@@ -1,3 +1,3 @@
 # OFS
 
-Online Fashion System (OFS) is a web based platform developed by team from Mbarara University..
+Online Fashion System (OFS) is a web based platform developed by Mercy K from UMUNC..

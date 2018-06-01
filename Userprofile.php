@@ -8,7 +8,7 @@ include("session.php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 <head>
-	<title> Suncart Groups </title>
+	<title> OFS Groups </title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 		<link rel="shortcut icon" href="images/favicon.png" />
@@ -96,150 +96,14 @@ $(document).ready(function() {
 </head>
 <body>
 	<!-- Begin Wrapper -->
-	<div id="wrapper">
-		<!-- Begin Header -->
-		<div id="header">
-			<!-- Begin Shell -->
-			<div class="shell">
-				<h1 id="logo"><a class="notext" href="#" title="Somstore">Somstore</a></h1>
-				<div id="top-nav">
-					<ul>
-					
-						<li><a href="contact.php" title="Contact"><span>Contact</span></a></li>
-						<li><a href="Sign In.php" title="Sign In"><span>Sign In</span></a></li>
-					</ul>
-				</div>
-				<div class="cl">&nbsp;</div>
-	<div class="shopping-cart"  id="cart" id="right" >
-<dl id="acc">	
-<dt class="active">								
-<p class="shopping" >Shopping Cart &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-</dt>
-<dd class="active" style="display: block;">
-<?php
-   //current URL of the Page. cart_update.php redirects back to this URL
-	$current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+	
+		<?php include_once 'includes/header.php'; ?>
+            <!-- End Header -->
+            <!-- Begin Navigation -->
 
-if(isset($_SESSION["cart_session"]))
-{
-    $total = 0;
-    echo '<ul>';
-    foreach ($_SESSION["cart_session"] as $cart_itm)
-    {
-        echo '<li class="cart-itm">';
-        echo '<span class="remove-itm"><a href="cart_update.php?removep='.$cart_itm["code"].'&return_url='.$current_url.'">&times;</a></span>'."</br>";
-        echo '<h3  style="color: green" ><big> '.$cart_itm["name"].' </big></h3>';
-        echo '<div class="p-code"><b><i>ID:</i></b><strong style="color: #d7565b" ><big> '.$cart_itm["code"].' </big></strong></div>';
-		echo '<span><b><i>Shopping Cart</i></b>( <strong style="color: #d7565b" ><big> '.$cart_itm["TiradaProductTiga"].'</big></strong>) </span>';
-        echo '<div class="p-price"><b><i>Price:</b></i> <strong style="color: #d7565b" ><big>'.$currency.$cart_itm["Qiimaha"].'</big></strong></div>';
-        echo '</li>';
-        $subtotal = ($cart_itm["Qiimaha"]*$cart_itm["TiradaProductTiga"]);
-        $total = ($total + $subtotal) ."</br>"; 
-    }
-    echo '</ul>';
-    echo '<span class="check-out-txt"><strong style="color:green" ><i>Total:</i> <big style="color:green" >'.$currency.$total.'</big></strong> <a   class="a-btnjanan"  href="view_cart.php"> <span class="a-btn-text">Check Out</span></a></span>';
-	echo '&nbsp;&nbsp;<a   class="a-btnjanan"  href="cart_update.php?emptycart=1&return_url='.$current_url.'"><span class="a-btn-text">Clear Cart</span></a>';
-}else{
-    echo ' <h4>(Your Shopping Cart Is Empty!!!)</h4>';
-}
-?>
 
-</dd>
-</dl>
-</div>
- <div class="clear"></div>
-			</div>
-			<!-- End Shell -->
-		</div>
-		<!-- End Header -->
-		<!-- Begin Navigation -->
-		<div id="navigation">
-			<!-- Begin Shell -->
-			<div class="shell">
-				<ul>
-					<li class="active"><a href="#" title="index.php">Home</a></li>
-					<li>
-						<a href="products.php">Category</a>
-						<div class="dd">
-							<ul>
-								<li>
-									 <a href="products.php"> FoodStuff</a>
-									<div class="dd">
-										<ul>
-											<li><a href="products.php">Fruits</a></li>
-                                            <li><a href="products.php">Biscuits</a></li>
-										</ul>
-									</div>
-								</li>
-								
-								<li>
-									 <a href="products.php"> Beverage</a>
-									<div class="dd">
-										<ul>
-											  <li><a href="products.php">Bavaria</a></li>
-                                             <li><a href="products.php">Reddbull</a></li>
-										</ul>
-									</div>
-								</li>
-								
-								<li>
-									<a href="products.php"> Cleaning Material</a>
-									<div class="dd">
-										<ul>
-											<li><a href="products.php">Fairy</a></li>
-                                            <li><a href="products.php">Harpic</a></li>
-										</ul>
-									</div>
-								</li>
-								
-								<li>
-									<a href="products.php"> Clothes</a>
-									<div class="dd">
-										<ul>
-											  <li><a href="products.php">Suit</a></li>
-                                              <li><a href="products.php">T.shirts</a></li>
-										</ul>
-									</div>
-								</li>
-								
-							</ul>
-						</div>
-					</li>
-					   <li><a href="products.php"> Products</a></li>
-					   	   <li>
-						<a href="products.php">Warehouse</a>
-						<div class="dd">
-							<ul>
-								<li>
-									 <a href="warehouse_1.php"> Warehouse A</a>
-									
-								</li>
-								
-								<li>
-									 <a href="warehouse_2.php"> Warehouse B</a>
-									
-								</li>
-								
-								<li>
-									<a href="warehouse_3.php"> Warehouse C</a>
-									
-								</li>
-								
-								<li>
-									<a href="warehouse_4.php"> Warehouse D</a>
-									
-								</li>
-								
-							</ul>
-						</div>
-					</li>
-					  <li><a href="about.php">About Us</a></li>
-					  <li><a href="customer.php">Free Sign Up</a> </li>
-				</ul>
-				<div class="cl">&nbsp;</div>
-			</div>
-			<!-- End Shell -->
-		</div>
+            <?php include_once 'includes/navigation.php'; ?>
+		
 		<!-- End Navigation -->
 
 		<!-- Begin Main -->
@@ -335,7 +199,7 @@ $result = mysqli_query($mysqli,"SELECT * FROM warehouse");
 				<div class="shell">
 					<div class="carts">
 								<div class="shout_box">
-      <div class="header"> live Discussion of Somstore <div class="close_btn">&nbsp;</div></div>
+      <div class="header"> live Discussion of OFS <div class="close_btn">&nbsp;</div></div>
      <div class="toggle_chat">
      <div class="message_box">
     </div>
@@ -346,7 +210,7 @@ $result = mysqli_query($mysqli,"SELECT * FROM warehouse");
     </div>
 	</div>
 	
-					</div>	<p align="center">&copy; SomStore.com. Groups <a href="index.php"><i><font color="fefefe"> Welcome To <strong> SomStore</strong> Online Shopping Site </font></i></a></p>
+					</div>	<p align="center">&copy; SomStore.com. Groups <a href="index.php"><i><font color="fefefe"> Welcome To <strong> OFS</strong> Online Shopping Site </font></i></a></p>
 					<div class="cl">&nbsp;</div>
 				</div>
 				<!-- End Shell -->
