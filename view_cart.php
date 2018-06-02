@@ -29,14 +29,14 @@ include("config.php");
         <!-- Begin Wrapper -->
         <div id="wrapper">
             <!-- Begin Header -->
-            
-           <?php include_once 'includes/header.php'; ?>
+
+            <?php include_once 'includes/header.php'; ?>
             <!-- End Header -->
             <!-- Begin Navigation -->
 
 
             <?php include_once 'includes/navigation.php'; ?>
-            
+
             <!-- End Navigation -->
 
             <!-- Begin Main -->
@@ -44,73 +44,73 @@ include("config.php");
                 <br>
 
                     <div class="viewcart">
-<?php
-$current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-if (isset($_SESSION["cart_session"])) {
-    $total = 0;
+                        <?php
+                        $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+                        if (isset($_SESSION["cart_session"])) {
+                            $total = 0;
 
-    echo '<form method="post" action="cart_update.php">';
-    echo '<table cellspacing="0">';
-    echo '<thead>';
-    echo '<tr>';
-    echo '<td>Check:</td>';
-    echo '<td>Product:</td>';
-    echo '<td>Quantity:</td>';
-    echo ' <td>Description:</td>';
-    echo '<td>Price:</td>';
-    echo '<td>Action:</td>';
-    echo '</tr>';
-    echo '</thead>';
+                            echo '<form method="post" action="cart_update.php">';
+                            echo '<table cellspacing="0">';
+                            echo '<thead>';
+                            echo '<tr>';
+                            echo '<td>Check:</td>';
+                            echo '<td>Product:</td>';
+                            echo '<td>Quantity:</td>';
+                            echo ' <td>Description:</td>';
+                            echo '<td>Price:</td>';
+                            echo '<td>Action:</td>';
+                            echo '</tr>';
+                            echo '</thead>';
 
-    $cart_items = 0;
-    foreach ($_SESSION["cart_session"] as $cart_itm) {
-        $Product_ID = $cart_itm["code"];
-        $results = $mysqli->query("SELECT productName,Description, Price FROM product  WHERE Product_ID='$Product_ID'");
-        if ($results) {
-
-
-
-            //fetch results set as object and output HTML
-            while ($obj = $results->fetch_object()) {
-
-
-                echo '<tr class="cart-itm">';
-                echo '<td><input type="checkbox"></td>';
-                echo '<td><h3>' . $obj->productName . ' (Code :' . $Product_ID . ')</h3></td> ';
-                echo '<td class="p-qty">Qty :<input type="text" name="product_qty" value="' . $cart_itm["TiradaProductTiga"] . '" size="2"   maxlength="5" /></td>';
-                echo '<td>' . $obj->Description . '</td>';
-                echo '<td class="p-price" style="color:green"><b>' . $currency . $obj->Price . '</b></td>';
-                echo '<td><span class="remove-check"><a href="cart_update.php?removep=' . $cart_itm["code"] . '&return_url=' . $current_url . '">&times;</a></span></td>';
-                echo '</tr>';
-                $subtotal = ($cart_itm["Qiimaha"] * $cart_itm["TiradaProductTiga"]);
-                $total = ($total + $subtotal);
+                            $cart_items = 0;
+                            foreach ($_SESSION["cart_session"] as $cart_itm) {
+                                $Product_ID = $cart_itm["code"];
+                                $results = $mysqli->query("SELECT productName,Description, Price FROM product  WHERE Product_ID='$Product_ID'");
+                                if ($results) {
 
 
 
-                echo '<input type="hidden" name="item_name[' . $cart_items . ']" value="' . $obj->productName . '" />';
-                echo '<input type="hidden" name="item_code[' . $cart_items . ']" value="' . $Product_ID . '" />';
-                echo '<input type="hidden" name="item_desc[' . $cart_items . ']" value="' . $obj->Description . '" />';
-                echo '<input type="hidden" name="item_qty[' . $cart_items . ']" value="' . $cart_itm["TiradaProductTiga"] . '"/>';
-                $cart_items ++;
-            }
-        }
-    }
+                                    //fetch results set as object and output HTML
+                                    while ($obj = $results->fetch_object()) {
 
 
-    echo '<span class="midigta"><a  class="a-btn" href="products.php?emptycart=1&return_url=' . $current_url . '"><span class="a-btn-text">Continue Shopping</span></a></span>';
-    echo '<span class="check-out-txt">';
+                                        echo '<tr class="cart-itm">';
+                                        echo '<td><input type="checkbox"></td>';
+                                        echo '<td><h3>' . $obj->productName . ' (Code :' . $Product_ID . ')</h3></td> ';
+                                        echo '<td class="p-qty">Qty :<input type="text" name="product_qty" value="' . $cart_itm["TiradaProductTiga"] . '" size="2"   maxlength="5" /></td>';
+                                        echo '<td>' . $obj->Description . '</td>';
+                                        echo '<td class="p-price" style="color:green"><b>' . $currency . $obj->Price . '</b></td>';
+                                        echo '<td><span class="remove-check"><a href="cart_update.php?removep=' . $cart_itm["code"] . '&return_url=' . $current_url . '">&times;</a></span></td>';
+                                        echo '</tr>';
+                                        $subtotal = ($cart_itm["Qiimaha"] * $cart_itm["TiradaProductTiga"]);
+                                        $total = ($total + $subtotal);
 
-    echo '</table>';
-    echo '<span> <h4 class="pricewayn"> Grand Total : <big style="color:green">' . $currency . $total . '</big> </h4></span> ';
-    echo '<spa class="midigta"><a  class="a-btn" href="Somstore checkout/zaadprocess.php"><span class="a-btn-text">Proced On Airtel Money</span> </a></span>';
 
-    echo '<span class="midigta"> <a  class="a-btn" href="Somstore checkout/process.php"> <span class="a-btn-text"> Pay On MTN Mobile money</span></a></span>';
-    echo '</span>';
-    echo '</form>';
-} else {
-    echo '<span class="wacwayn"><i>Your Cart is empty</i></span>';
-}
-?>
+
+                                        echo '<input type="hidden" name="item_name[' . $cart_items . ']" value="' . $obj->productName . '" />';
+                                        echo '<input type="hidden" name="item_code[' . $cart_items . ']" value="' . $Product_ID . '" />';
+                                        echo '<input type="hidden" name="item_desc[' . $cart_items . ']" value="' . $obj->Description . '" />';
+                                        echo '<input type="hidden" name="item_qty[' . $cart_items . ']" value="' . $cart_itm["TiradaProductTiga"] . '"/>';
+                                        $cart_items ++;
+                                    }
+                                }
+                            }
+
+
+                            echo '<span class="midigta"><a  class="a-btn" href="products.php?emptycart=1&return_url=' . $current_url . '"><span class="a-btn-text">Continue Shopping</span></a></span>';
+                            echo '<span class="check-out-txt">';
+
+                            echo '</table>';
+                            echo '<span> <h4 class="pricewayn"> Grand Total : <big style="color:green">' . $currency . $total . '</big> </h4></span> ';
+                            echo '<spa class="midigta"><a  class="a-btn" href="OFS checkout/zaadprocess.php"><span class="a-btn-text">Proced On Airtel Money</span> </a></span>';
+
+                            echo '<span class="midigta"> <a  class="a-btn" href="OFS checkout/process.php"> <span class="a-btn-text"> Pay On MTN Mobile money</span></a></span>';
+                            echo '</span>';
+                            echo '</form>';
+                        } else {
+                            echo '<span class="wacwayn"><i>Your Cart is empty</i></span>';
+                        }
+                        ?>
                     </div><br><br><br>
 
 
@@ -119,10 +119,10 @@ if (isset($_SESSION["cart_session"])) {
                                     <h2>Best Products</h2>
                                     <ul>
 
-<?php
-$result = mysqli_query($mysqli, "select * from product") or die(mysqli_error());
-while ($row = mysqli_fetch_array($result)) {
-    ?>
+                                        <?php
+                                        $result = mysqli_query($mysqli, "select * from product") or die(mysqli_error());
+                                        while ($row = mysqli_fetch_array($result)) {
+                                            ?>
                                             <li>
                                                 <a href="products.php" title="Product Link"><img src="images/<?php echo $row['Picture'] ?>" alt="IMAGES" /></a>
                                                 <div class="info">
@@ -133,7 +133,7 @@ while ($row = mysqli_fetch_array($result)) {
 
                                                 </div>
                                             </li>
-<?php } ?>
+                                        <?php } ?>
                                     </ul>
                                     <div class="cl">&nbsp;</div>
                                 </div>
@@ -144,7 +144,7 @@ while ($row = mysqli_fetch_array($result)) {
                                                     <div class="post">
                                                         <h2>Welcome!</h2>
                                                         <img src="images/logo.png" alt="Post Image" height="160" width="260"/>
-                                                        You can be confident when you're shopping online with SomStore. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
+                                                        You can be confident when you're shopping online with OFS. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
                                                         such as personal information, in an encrypted envelope, making it extremely difficult for this information to be intercepted.. <a href="#" class="more" title="Read More">Read More</a></p>
                                                         <div class="cl">&nbsp;</div>
                                                     </div>

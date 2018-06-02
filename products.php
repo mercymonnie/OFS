@@ -27,12 +27,12 @@ include("config.php");
         <!-- WAA DHAMAADKA JQueryga CHaTTIng Ka-->
 
         <script type="text/javascript">
-            $(document).ready(function () {
+            $(document).ready(function() {
 
                 // load messages every 1000 milliseconds from server.
                 load_data = {'fetch': 1};
-                window.setInterval(function () {
-                    $.post('shout.php', load_data, function (data) {
+                window.setInterval(function() {
+                    $.post('shout.php', load_data, function(data) {
                         $('.message_box').html(data);
                         var scrolltoh = $('.message_box')[0].scrollHeight;
                         $('.message_box').scrollTop(scrolltoh);
@@ -40,14 +40,14 @@ include("config.php");
                 }, 1000);
 
                 //method to trigger when user hits enter key
-                $("#shout_message").keypress(function (evt) {
+                $("#shout_message").keypress(function(evt) {
                     if (evt.which == 13) {
                         var iusername = $('#shout_username').val();
                         var imessage = $('#shout_message').val();
                         post_data = {'username': iusername, 'message': imessage};
 
                         //send data to "shout.php" using jQuery $.post()
-                        $.post('shout.php', post_data, function (data) {
+                        $.post('shout.php', post_data, function(data) {
 
                             //append data into messagebox with jQuery fade effect!
                             $(data).hide().appendTo('.message_box').fadeIn();
@@ -59,7 +59,7 @@ include("config.php");
                             //reset value of message box
                             $('#shout_message').val('');
 
-                        }).fail(function (err) {
+                        }).fail(function(err) {
 
                             //alert HTTP server error
                             alert(err.statusText);
@@ -68,7 +68,7 @@ include("config.php");
                 });
 
                 //toggle hide/show shout box
-                $(".close_btn").click(function (e) {
+                $(".close_btn").click(function(e) {
                     //get CSS display state of .toggle_chat element
                     var toggleState = $('.toggle_chat').css('display');
 
@@ -150,36 +150,40 @@ include("config.php");
 
                     <div class="section group">
                         <?php
-                        if (@$_GET['page']) {
-                            $id = $_GET['page'];
+                        //if (@$_GET['page']) {
 //current URL of the Page. cart_update.php redirects back to this URL
-                            $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+                        $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
+                        if (@$_GET['page']) {
+                            $id = @$_GET['page'];
                             $results = $mysqli->query("SELECT * FROM product where Category_ID = '" . $id . "'  ORDER BY Product_ID ASC");
-                            if ($results) {
+                        } else {
+                            $results = $mysqli->query("SELECT * FROM product  ORDER BY Product_ID ASC");
+                        }
+                        if ($results) {
 
-                                //fetch results set as object and output HTML
-                                while ($obj = $results->fetch_object()) {
-                                    echo '<div class="grid_1_of_4 images_1_of_4">';
-                                    echo '<form method="post" action="cart_update.php">';
-                                    echo '<div class="product-thumb"><a href="product_detail.php?id=' . $obj->Product_ID . '" ><img src="Admin/images/products/' . $obj->Picture . '"></a></div>';
-                                    echo '<div class="product-content"><h2><b>' . $obj->productName . '</b> </h2>';
-                                    echo '<div class="product-desc">' . $obj->Description . '</div>';
-                                    echo '<div class="product-info"></div>';
-                                    echo '<div class="product-info">';
+                            //fetch results set as object and output HTML
+                            while ($obj = $results->fetch_object()) {
+                                echo '<div class="grid_1_of_4 images_1_of_4">';
+                                echo '<form method="post" action="cart_update.php">';
+                                echo '<div class="product-thumb"><a href="product_detail.php?id=' . $obj->Product_ID . '" ><img src="Admin/images/products/' . $obj->Picture . '"></a></div>';
+                                echo '<div class="product-content"><h2><b>' . $obj->productName . '</b> </h2>';
+                                echo '<div class="product-desc">' . $obj->Description . '</div>';
+                                echo '<div class="product-info"></div>';
+                                echo '<div class="product-info">';
 
-                                    echo '<p><span class="price"> Price:<big style="color:green">' . $currency . $obj->Price . '</big></span></p>';
-                                    echo 'Qty <input type="text" name="product_qty" value="1" size="3" />';
-                                    echo '<div class="button"><span><img src="images/cart.jpg" alt="" /><button class="cart-button"  class="add_to_cart">Add to Cart</button></span> </div>';
-                                    echo '</div></div>';
-                                    echo '<input type="hidden" name="Product_ID" value="' . $obj->Product_ID . '" />';
-                                    echo '<input type="hidden" name="type" value="add" />';
-                                    echo '<input type="hidden" name="return_url" value="' . $current_url . '" />';
-                                    echo '</form>';
-                                    echo '</div>';
-                                }
+                                echo '<p><span class="price"> Price:<big style="color:green">' . $currency . $obj->Price . '</big></span></p>';
+                                echo 'Qty <input type="text" name="product_qty" value="1" size="3" />';
+                                echo '<div class="button"><span><img src="images/cart.jpg" alt="" /><button class="cart-button"  class="add_to_cart">Add to Cart</button></span> </div>';
+                                echo '</div></div>';
+                                echo '<input type="hidden" name="Product_ID" value="' . $obj->Product_ID . '" />';
+                                echo '<input type="hidden" name="type" value="add" />';
+                                echo '<input type="hidden" name="return_url" value="' . $current_url . '" />';
+                                echo '</form>';
+                                echo '</div>';
                             }
                         }
+                        //}
                         ?>
                     </div>
                 </div>

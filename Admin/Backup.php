@@ -44,7 +44,7 @@ mkdir($folder, 0777, true);
 chmod($folder, 0777);
 
 $date = date('m-d-Y'); 
-$filename = $folder."Database Of SomStore Online Sales System".$date; 
+$filename = $folder."Database Of ofs Online Sales System".$date; 
 
 $handle = fopen($filename.'.sql','w+');
 fwrite($handle,$result);
