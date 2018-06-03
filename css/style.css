@@ -69,7 +69,7 @@ h2 { font-size: 18px; color: #fa5400; border-bottom: 1px solid #c5c4be; margin-b
 
 h1#logo { float: left; display: inline; padding: 3px 0 10px 27px; }
 
-#top-nav { float: right; display: inline; padding-top: 36px; padding-right: 13px; }
+#top-nav { float: center; display: inline; padding-top: 36px; padding-right: 13px; }
 #top-nav li { float: left; display: inline; padding-left: 22px; list-style: none; }
 #top-nav li a { background: url('../images/top-nav-left.png') no-repeat 0 -4000px; font-family: Verdana, arial, sans-serif; }
 #top-nav li a { text-transform: uppercase; display: inline; float: left; color: blue; line-height: 26px; font-size: 10px; }

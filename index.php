@@ -115,9 +115,7 @@ include("config.php");
         <!-- WAA DHAMAADKA JQueryga CHaTTIng Ka-->
     </head>
     <body>
-        <header>
-                <h1><p> <a href="Sign In.php"><img src="images/logo.png" alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>ONLINE FASHION SHOPPING<span> </span></p> </h1>
-            </header>
+        
         <!-- Begin Wrapper -->
         <div id="wrapper">
             <!-- Begin Header -->
