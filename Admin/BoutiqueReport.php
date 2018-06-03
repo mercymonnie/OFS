@@ -54,7 +54,7 @@ class PDF extends FPDF {
             $this->Cell(20, 6, $eachResult["City"], 1);
             $this->Cell(38, 6, $eachResult["Phone"], 1);
             $this->Cell(30, 6, $eachResult["Dilivery_Address"], 1);
-            $this->Cell(20, 6, number_format($eachResult["Total_Amount"]), 1);
+            $this->Cell(20, 6, $eachResult["Total_Amount"], 1);
             $this->Ln();
         }
     }
@@ -79,9 +79,9 @@ class PDF extends FPDF {
             $count ++;
             $this->Cell(15, 6, $count, 1);
             $this->Cell(40, 6, $eachResult["item"], 1);
-            $this->Cell(20, 6, number_format($eachResult["unit_price"]), 1);
+            $this->Cell(20, 6, $eachResult["unit_price"], 1);
             $this->Cell(15, 6, $eachResult["qty"], 1);
-            $this->Cell(20, 6, number_format($eachResult["price"]), 1);
+            $this->Cell(20, 6, $eachResult["price"], 1);
             $this->Cell(38, 6, $eachResult["date"], 1);
             $this->Cell(30, 6, $eachResult["time"], 1);
             $this->Cell(20, 6, $eachResult["order_ID"], 1);
@@ -99,12 +99,9 @@ $pdf = new PDF();
 $header = array('Order ID', 'Full_Name', 'Address', 'Country', 'City', 'Phone', 'Delivery Address', 'Ammount');
 
 $header2 = array('#', 'item', 'unit_price', 'qty', 'price', 'Date', 'Time', 'OrderID');
-
 //Data loading
 //*** Load MySQL Data ***//
 //db settings
-
-
 $currMonth = date('m');
 $strSQL = "Select* From  payment";
 $objQuery = mysqli_query($mysqli, $strSQL);
@@ -155,7 +152,7 @@ $pdf->Cell(54);
 $pdf->Ln(-1);
 
 //display numbers of reports
-$result = mysqli_query($mysqli, "SELECT * FROM payment ") or die("Database query failed: $query" . mysql_error());
+$result = mysqli_query($mysqli, "SELECT * FROM payment") or die("Database query failed: $query" . mysql_error());
 
 $count = mysqli_num_rows($result);
 

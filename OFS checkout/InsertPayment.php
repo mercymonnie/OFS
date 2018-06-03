@@ -26,8 +26,8 @@ if ($results) {
                 $qty = $cart_itm["TiradaProductTiga"];
                 $tax = 0;
                 $price = $unit * $qty;
-                $sql2 = "INSERT INTO invoice_items (invoice, item, unit_price, qty,tax, price, order_ID) 
-                                 VALUES ('$inv', '$id', '$unit', '$qty', '$tax', '$price', '$last_id')";
+                $sql2 = "INSERT INTO invoice_items (invoice, item, unit_price, qty,tax, price, order_ID,date,time ) 
+                                 VALUES ('$inv', '$id', '$unit', '$qty', '$tax', '$price', '$last_id','$today',NOW())";
                 if (!mysqli_query($mysqli, $sql2)) {
                     die('Error: ' . mysqli_error($mysqli));
                 }
@@ -37,7 +37,7 @@ if ($results) {
 }
 session_start();
 if (session_destroy()) {
-    header("location: process.php?msg=Thank you! Your purchase has been initiated successfull..!");
+    header("location: process.php?payment_mode=Thank you! Your purchase has been initiated successfull..!");
     echo "1 payment method has been processed";
 }
 

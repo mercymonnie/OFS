@@ -15,8 +15,11 @@ session_start(); {
 
     $fetch = mysqli_query($mysqli, "select Cust_Id from customer where Email='$magaca' and Password= '$furaha'");
     $count = mysqli_num_rows($fetch);
+    
     if ($count != "") {
         $_SESSION['login_username'] = $magaca;
+        $check=$_SESSION['login_username'];
+
         header("location: home.php");
     } else {
         header('Location: Sign In.php');

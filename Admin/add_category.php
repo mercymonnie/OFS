@@ -8,6 +8,12 @@ include("../config.php");
     <head>
         <meta charset="utf-8"/>
         <title>OFS|Admin|Category </title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
+        <link rel="shortcut icon" href="images/favicon.png" />
+        <link rel="stylesheet" href="css/chatStyle.css" type="text/css" media="screen" />
+
 
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
         <!--[if lt IE 9]>
@@ -63,9 +69,7 @@ include("../config.php");
 
                 <div id="logo-banner">
 
-                    <div id="logo">
-                        <a href="index.php"><img src="images/logo.png" alt="" /></a>
-                    </div>
+                    
 
                     <div id="banner">
 

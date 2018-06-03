@@ -60,9 +60,7 @@ include("../config.php");
     <body>
         <!-- Begin Wrapper -->
 
-        <?php if (@$_GET['msg']) { ?>
-            alert("Thank you, Your purchase has been initiated successfully.\n Please wait for the confirmation from the Boutique owner..!");
-        <?php } ?>
+        
         <div id="wrapper">
             <!-- Begin Header -->
             <div id="header">
@@ -136,7 +134,7 @@ include("../config.php");
                     <br><br>
 
                             <div id="kcontent">
-                                <h1> <?php echo $_GET['payment_mode']; ?> Payment Method</h1>
+                                <h1> <?php echo @$_GET['payment_mode']; ?> </h1>
                                 <div id="wwrapper">
                                     <div id="steps">
 
@@ -157,7 +155,7 @@ include("../config.php");
 
                                                             $subtotal = ($cart_itm["Qiimaha"] * $cart_itm["TiradaProductTiga"]);
                                                             $total = ($total + $subtotal) . "</br>";
-                                                            $tot = ($total + $subtotal);
+                                                            $tot = ($tot + $subtotal);
                                                         }
                                                         echo '</ol>';
                                                         echo '<h4 Align="right">Total : <big style="color:green">' . $currency . number_format($total) . '</big></h4>';
@@ -303,66 +301,64 @@ include("../config.php");
                                                     }
                                                     ?>
                                                 </legend>
-                                                
-                                                    <?php
-                                                    if (isset($_SESSION["cart_session"])) {
-                                                        $total = 0;
-                                                        $bOwner = array();
-                                                        $bid = array();
-                                                        $mtn = array();
-                                                        $airtel = array();
-                                                        $total = array();
-                                                        foreach ($_SESSION["cart_session"] as $cart_itm) {
-                                                            $inv = "INV-" . $last_id;
-                                                            $id = $cart_itm["code"];
-                                                            $unit = $cart_itm["Qiimaha"];
-                                                            $qty = $cart_itm["TiradaProductTiga"];
-                                                            $tax = 0;
-                                                            $price = $unit * $qty;
-                                                            //GET THE LATEST ID>>>>>>>>>>>
-                                                            $results = $mysqli->query("SELECT * FROM product p,employee e WHERE Product_ID = '" . $id . "' AND p.Employee_ID = e.Employee_ID  ORDER BY Product_ID DESC LIMIT 1");
-                                                            if ($results) {
-                                                                if ($obj = $results->fetch_object()) {
-                                                                    $bid[] = $obj->Employee_ID;
-                                                                    $bOwner[] = $obj->Employee_Name;
-                                                                    $mtn[] = $obj->mtn;
-                                                                    $airtel[] = $obj->airtel;
-                                                                    $total[] = $price;
-                                                                }
-                                                            }
-                                                        }
-                                                        $unique_data = array_unique($bid);
-                                                        foreach ($unique_data as $id) {
-                                                            $t_price = 0;
-                                                            $i = 0;
-                                                            $mtn_ = "";
-                                                            $air_ = "";
-                                                            $name = "";
-                                                            foreach ($bid as $id2) {
-                                                                if ($id == $id2) {
-                                                                    $t_price += $total[$i];
-                                                                    $mtn_ = $mtn[$i];
-                                                                    $air_ = $airtel[$i];
-                                                                    $name = $bOwner[$i];
-                                                                }
-                                                                $i ++;
-                                                            }
 
-                                                            echo "<p><strong>B-OWNER: </strong>" . $name . " " . "<br/>";
-                                                            echo "<strong>MTN-MONEY: </strong>" . $mtn_ ."<br/>";
-                                                            echo "<strong>AIRTEL-MONEY: </strong>" . $air_ . "<br/>";
-                                                                    echo "<strong>AMOUNT: </strong>" . number_format($t_price) . "<br/>";
-                                                                    
-                                                             
+                                                <?php
+                                                if (isset($_SESSION["cart_session"])) {
+                                                    $total = 0;
+                                                    $bOwner = array();
+                                                    $bid = array();
+                                                    $mtn = array();
+                                                    $airtel = array();
+                                                    $total = array();
+                                                    foreach ($_SESSION["cart_session"] as $cart_itm) {
+                                                        $inv = "INV-" . $last_id;
+                                                        $id = $cart_itm["code"];
+                                                        $unit = $cart_itm["Qiimaha"];
+                                                        $qty = $cart_itm["TiradaProductTiga"];
+                                                        $tax = 0;
+                                                        $price = $unit * $qty;
+                                                        //GET THE LATEST ID>>>>>>>>>>>
+                                                        $results = $mysqli->query("SELECT * FROM product p,employee e WHERE Product_ID = '" . $id . "' AND p.Employee_ID = e.Employee_ID  ORDER BY Product_ID DESC LIMIT 1");
+                                                        if ($results) {
+                                                            if ($obj = $results->fetch_object()) {
+                                                                $bid[] = $obj->Employee_ID;
+                                                                $bOwner[] = $obj->Employee_Name;
+                                                                $mtn[] = $obj->mtn;
+                                                                $airtel[] = $obj->airtel;
+                                                                $total[] = $price;
+                                                            }
                                                         }
                                                     }
-                                                    ?>
-                                                    .
-                                                
-                                                <p class="submit">
+                                                    $unique_data = array_unique($bid);
+                                                    foreach ($unique_data as $id) {
+                                                        $t_price = 0;
+                                                        $i = 0;
+                                                        $mtn_ = "";
+                                                        $air_ = "";
+                                                        $name = "";
+                                                        foreach ($bid as $id2) {
+                                                            if ($id == $id2) {
+                                                                $t_price += $total[$i];
+                                                                $mtn_ = $mtn[$i];
+                                                                $air_ = $airtel[$i];
+                                                                $name = $bOwner[$i];
+                                                            }
+                                                            $i ++;
+                                                        }
 
-                                                    <button id="registerButton" type="submit"   name="submit"  title="Click On Payment Method"> Proceed</button>
-                                                </p>
+                                                        echo "<p><strong>B-OWNER: </strong>" . $name . " " . "<br/>";
+                                                        echo "<strong>MTN-MONEY: </strong>" . $mtn_ . "<br/>";
+                                                        echo "<strong>AIRTEL-MONEY: </strong>" . $air_ . "<br/>";
+                                                        echo "<strong>AMOUNT: </strong>" . number_format($t_price) . "<br/>";
+                                                    }
+                                                }
+
+                                                if (isset($_SESSION["cart_session"])) {
+                                                    ?>
+                                                    <p class="submit">
+                                                        <button id="registerButton" type="submit"   name="submit"  title="Click On Payment Method"> Proceed</button>
+                                                    </p>
+                                                <?php } ?>
                                             </fieldset>
                                         </form>
                                     </div>

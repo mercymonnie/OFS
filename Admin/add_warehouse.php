@@ -9,6 +9,12 @@ include("../config.php");
     <head>
         <meta charset="utf-8"/>
         <title>OFS|Admin|Boutique </title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
+        <link rel="shortcut icon" href="images/favicon.png" />
+        <link rel="stylesheet" href="css/chatStyle.css" type="text/css" media="screen" />
+
 
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
         <!--[if lt IE 9]>
