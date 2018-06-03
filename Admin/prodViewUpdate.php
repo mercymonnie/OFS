@@ -8,7 +8,7 @@ include("../config.php");
 <html lang="en">
     <head>
         <meta charset="utf-8"/>
-        <title>OFS|Product </title>
+        <title>OFS|Admin|Product </title>
 
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
         <!--[if lt IE 9]>
@@ -141,23 +141,23 @@ include("../config.php");
                                         <td>   
 
                                             <label>Color:</label>
-                                            
+
                                             <select name="color" class="ed">
-                                                    <option value="<?php echo $row['Model']; ?>"><?php echo $row['Model']; ?></option>
-                                                    <option value="blue">Black</option>
-                                                    <option value="blue">White</option>
-                                                    <option value="blue">Orange</option>
-                                                    <option value="blue">Yellow</option>
-                                                    <option value="blue">red</option>
-                                                    <option value="blue">gray</option>
-                                                    <option value="blue">maroon</option>
-                                                    <option value="blue">purple</option>
-                                                    <option value="blue">brown</option>
-                                                    <option value="blue">green</option>
-                                                    <option value="blue">beige</option>
+                                                <option value="<?php echo $row['Model']; ?>"><?php echo $row['Model']; ?></option>
+                                                <option value="blue">Black</option>
+                                                <option value="blue">White</option>
+                                                <option value="blue">Orange</option>
+                                                <option value="blue">Yellow</option>
+                                                <option value="blue">red</option>
+                                                <option value="blue">gray</option>
+                                                <option value="blue">maroon</option>
+                                                <option value="blue">purple</option>
+                                                <option value="blue">brown</option>
+                                                <option value="blue">green</option>
+                                                <option value="blue">beige</option>
 
 
-                                                </select>
+                                            </select>
 
                                             <span class="error">This is an error</span>
                                         </td>
