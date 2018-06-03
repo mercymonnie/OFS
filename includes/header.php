@@ -2,16 +2,20 @@
 <div id="header">
     <!-- Begin Shell -->
     <div class="shell">
-        <h1 id="logo"><a class="notext" href="#" title="Suncart">OFS</a></h1>
-
+       
         <div id="top-nav">
             <ul>
 
                 <li><a href="contact.php" title="Contact"><span>Contact</span></a></li>
                 <li><a href="Sign In.php" title="Sign In"><span>Sign In</span></a></li>
             </ul>
+            
         </div>
-        <div class="cl">&nbsp;</div>
+        <div id="left"><header>
+                <h1><p> <a href="Sign In.php"><img src="images/logo.png" alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>ONLINE FASHION SHOPPING<span> </span></p> </h1>
+            </header></div>
+        
+        <div class="cl">&nbsp; </div>
         <div class="cl">&nbsp;</div>
         <div class="cl">&nbsp;</div>
         <br/>
