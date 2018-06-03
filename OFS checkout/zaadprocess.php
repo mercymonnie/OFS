@@ -103,7 +103,7 @@ include("../config.php");
                                     }
                                     echo '</ol>';
                                     echo '<span class="check-out-txt"><strong style="color:green" >Total <big style="color:green" >: ' . $currency . $total . '</big></strong> <a   class="a-btnjanan"  href="view_cart.php"> <span class="a-btn-text">Continue</span></a></span>';
-                                    echo ' <span class="empty-cart"><a   class="a-btnjanan"  href="cart_update.php?emptycart=1&return_url=' . $current_url . '"><span class="a-btn-text">Clear Cart</span></a></span>';
+                                    echo ' <span class="empty-cart"><a   class="a-btnjanan"  href="../cart_update.php?emptycart=1&return_url=' . $current_url . '"><span class="a-btn-text">Clear Cart</span></a></span>';
                                 } else {
                                     echo ' <h4>(Your Shopping Cart Is Empty!!!)</h4>';
                                 }
@@ -135,7 +135,7 @@ include("../config.php");
                     <br><br>
 
                             <div id="kcontent">
-                                <h1> Airtel Money payment </h1>
+                                <h1> <?php echo $_GET['payment_mode']; ?> payment </h1>
                                 <div id="wwrapper">
                                     <div id="steps">
 

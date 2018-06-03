@@ -3,6 +3,7 @@
     <!-- Begin Shell -->
     <div class="shell">
 
+        
         <div id="top-nav">
             
             <ul>
@@ -11,9 +12,9 @@
                 <li><a href="Sign In.php" title="Sign In"><span>Sign In</span></a></li>
             </ul>
 
-            <header>
+            <li>
                 <h1><p> <a href="Sign In.php"><img src="images/logo.png" alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <font color="grey">ONLINE FASHION SHOPPING </font> <span> </span></p> </h1>
-            </header>
+            </li>
         </div>
         <div id="left"></div>
 
