@@ -79,7 +79,7 @@ include("config.php");
                                         echo '<td><h3>' . $obj->productName . ' (Code :' . $Product_ID . ')</h3></td> ';
                                         echo '<td class="p-qty">Qty :<input type="text" name="product_qty" value="' . $cart_itm["TiradaProductTiga"] . '" size="2"   maxlength="5" /></td>';
                                         echo '<td>' . $obj->Description . '</td>';
-                                        echo '<td class="p-price" style="color:green"><b>' . $currency . $obj->Price . '</b></td>';
+                                        echo '<td class="p-price" style="color:green"><b>' . $currency . number_format($obj->Price) . '</b></td>';
                                         echo '<td><span class="remove-check"><a href="cart_update.php?removep=' . $cart_itm["code"] . '&return_url=' . $current_url . '">&times;</a></span></td>';
                                         echo '</tr>';
                                         $subtotal = ($cart_itm["Qiimaha"] * $cart_itm["TiradaProductTiga"]);
@@ -101,10 +101,10 @@ include("config.php");
                             echo '<span class="check-out-txt">';
 
                             echo '</table>';
-                            echo '<span> <h4 class="pricewayn"> Grand Total : <big style="color:green">' . $currency . $total . '</big> </h4></span> ';
-                            echo '<spa class="midigta"><a  class="a-btn" href="OFS checkout/zaadprocess.php"><span class="a-btn-text">Proced On Airtel Money</span> </a></span>';
+                            echo '<span> <h4 class="pricewayn"> Grand Total : <big style="color:green">' . $currency . number_format($total) . '</big> </h4></span> ';
+                            echo '<spa class="midigta"><a  class="a-btn" href="OFS checkout/process.php?payment_mode=Airtel Money"><span class="a-btn-text">Proced On Airtel Money</span> </a></span>';
 
-                            echo '<span class="midigta"> <a  class="a-btn" href="OFS checkout/process.php"> <span class="a-btn-text"> Pay On MTN Mobile money</span></a></span>';
+                            echo '<span class="midigta"> <a  class="a-btn" href="OFS checkout/process.php?payment_mode=MTN Money"> <span class="a-btn-text"> Pay On MTN Mobile money</span></a></span>';
                             echo '</span>';
                             echo '</form>';
                         } else {
@@ -124,10 +124,10 @@ include("config.php");
                                         while ($row = mysqli_fetch_array($result)) {
                                             ?>
                                             <li>
-                                                <a href="products.php" title="Product Link"><img src="images/<?php echo $row['Picture'] ?>" alt="IMAGES" /></a>
+                                                <a href="products.php" title="Product Link"><img src="Admin/images/products/<?php echo $row['Picture'] ?>" alt="IMAGES" /></a>
                                                 <div class="info">
                                                     <h4><b><?php echo $row['productName'] ?></b></h4>
-                                                    <span class="number"><span>Price:<big style="color:green">$<?php echo $row['Price'] ?></big></span></span>
+                                                    <span class="number"><span>Price:<big style="color:green">Ugx<?php echo number_format($row['Price']); ?></big></span></span>
 
                                                     <div class="cl">&nbsp;</div>
 
@@ -140,15 +140,7 @@ include("config.php");
                                 <!-- End Products Slider -->		
                                 <br> <br> <br> <br> 
                                                 <!-- Begin Content -->
-                                                <div id="content">
-                                                    <div class="post">
-                                                        <h2>Welcome!</h2>
-                                                        <img src="images/logo.png" alt="Post Image" height="160" width="260"/>
-                                                        You can be confident when you're shopping online with OFS. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
-                                                        such as personal information, in an encrypted envelope, making it extremely difficult for this information to be intercepted.. <a href="#" class="more" title="Read More">Read More</a></p>
-                                                        <div class="cl">&nbsp;</div>
-                                                    </div>
-                                                </div>
+
                                                 <!-- End Content -->
 
                                                 <div class="cl">&nbsp;</div>

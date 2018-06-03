@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 session_start();
 include("../config.php");
 ?>
@@ -58,6 +59,10 @@ include("../config.php");
 
     <body>
         <!-- Begin Wrapper -->
+
+        <?php if (@$_GET['msg']) { ?>
+            alert("Thank you, Your purchase has been initiated successfully.\n Please wait for the confirmation from the Boutique owner..!");
+        <?php } ?>
         <div id="wrapper">
             <!-- Begin Header -->
             <div id="header">
@@ -95,14 +100,14 @@ include("../config.php");
                                         echo '<h3  style="color: green" ><big> ' . $cart_itm["name"] . ' </big></h3>';
                                         echo '<div class="p-code"><b><i>ID:</i></b><strong style="color: #d7565b" ><big> ' . $cart_itm["code"] . ' </big></strong></div>';
                                         echo '<span><b><i>Shopping Cart</i></b>( <strong style="color: #d7565b" ><big> ' . $cart_itm["TiradaProductTiga"] . '</big></strong>) </span>';
-                                        echo '<div class="p-price"><b><i>Price:</b></i> <strong style="color: #d7565b" ><big>' . $currency . $cart_itm["Qiimaha"] . '</big></strong></div>';
+                                        echo '<div class="p-price"><b><i>Price:</b></i> <strong style="color: #d7565b" ><big>' . $currency . number_format($cart_itm["Qiimaha"]) . '</big></strong></div>';
                                         echo '</li>';
                                         $subtotal = ($cart_itm["Qiimaha"] * $cart_itm["TiradaProductTiga"]);
                                         $total = ($total + $subtotal) . "</br>";
                                     }
                                     echo '</ul>';
-                                    echo '<span class="check-out-txt"><strong style="color:green" ><i>Total:</i> <big style="color:green" >' . $currency . $total . '</big></strong> <a   class="a-btnjanan"  href="view_cart.php"> <span class="a-btn-text">Continue</span></a></span>';
-                                    echo '&nbsp;&nbsp;<a   class="a-btnjanan"  href="cart_update.php?emptycart=1&return_url=' . $current_url . '"><span class="a-btn-text">Clear Cart</span></a>';
+                                    echo '<span class="check-out-txt"><strong style="color:green" ><i>Total:</i> <big style="color:green" >' . $currency . number_format($total) . '</big></strong> <a   class="a-btnjanan"  href="../view_cart.php"> <span class="a-btn-text">Continue</span></a></span>';
+                                    echo '&nbsp;&nbsp;<a   class="a-btnjanan"  href="../cart_update.php?emptycart=1&return_url=' . $current_url . '"><span class="a-btn-text">Clear Cart</span></a>';
                                 } else {
                                     echo ' <h4>(Your Shopping Cart Is Empty!!!)</h4>';
                                 }
@@ -131,7 +136,7 @@ include("../config.php");
                     <br><br>
 
                             <div id="kcontent">
-                                <h1> OFS Payment Method</h1>
+                                <h1> <?php echo $_GET['payment_mode']; ?> Payment Method</h1>
                                 <div id="wwrapper">
                                     <div id="steps">
 
@@ -144,6 +149,7 @@ include("../config.php");
 //current URL of the Page. cart_update.php redirects back to this URL
                                                     $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
+                                                    $tot = 0;
                                                     if (isset($_SESSION["cart_session"])) {
                                                         $total = 0;
                                                         echo '<ol>';
@@ -151,9 +157,10 @@ include("../config.php");
 
                                                             $subtotal = ($cart_itm["Qiimaha"] * $cart_itm["TiradaProductTiga"]);
                                                             $total = ($total + $subtotal) . "</br>";
+                                                            $tot = ($total + $subtotal);
                                                         }
                                                         echo '</ol>';
-                                                        echo '<h4 Align="right">Total : <big style="color:green">' . $currency . $total . '</big></h4>';
+                                                        echo '<h4 Align="right">Total : <big style="color:green">' . $currency . number_format($total) . '</big></h4>';
                                                     } else {
                                                         
                                                     }
@@ -169,8 +176,9 @@ include("../config.php");
                                                     <input id="email" name="email" placeholder="mercymonnie123@gmail.com" type="email" AUTOCOMPLETE=OFF />
                                                 </p>
                                                 <p>
-                                                    <label for="country">Postal Code</label>
-                                                    <input id="pcode" name="pcode" type="text" AUTOCOMPLETE=OFF />
+                                                    <label for="country">Password</label>
+                                                    <input id="pcode" name="pcode" type="password" AUTOCOMPLETE=OFF />
+                                                    <input type="hidden" name="total" value="<?php echo $tot; ?>"/>
                                                 </p>
 
                                             </fieldset>
@@ -191,7 +199,7 @@ include("../config.php");
                                                             $total = ($total + $subtotal) . "</br>";
                                                         }
                                                         echo '</ol>';
-                                                        echo '<h4 Align="right">Total: <big style="color:green">' . $currency . $total . '</big></h4>';
+                                                        echo '<h4 Align="right">Total: <big style="color:green">' . $currency . number_format($total) . '</big></h4>';
                                                     } else {
                                                         
                                                     }
@@ -236,7 +244,7 @@ include("../config.php");
                                                             $total = ($total + $subtotal) . "</br>";
                                                         }
                                                         echo '</ol>';
-                                                        echo '<h4 Align="right">Total: <big style="color:green">' . $currency . $total . '</big></h4>';
+                                                        echo '<h4 Align="right">Total: <big style="color:green">' . $currency . number_format($total) . '</big></h4>';
                                                     } else {
                                                         
                                                     }
@@ -248,7 +256,7 @@ include("../config.php");
 
                                                 <p>
                                                     <label for="phone">Delivery Address</label>
-                                                    <input id="delivery" name="delivery" placeholder="e.g. Arabsiyo" type=" text" AUTOCOMPLETE=OFF />
+                                                    <input id="delivery" name="delivery" placeholder="e.g. Mbarara" type=" text" AUTOCOMPLETE=OFF />
                                                 </p>
 
 
@@ -266,7 +274,7 @@ include("../config.php");
                                                         $total = ($total + $subtotal);
                                                     }
 
-                                                    echo ' <p> <label for="Address">Total Amount:</label> <input id="paid" class="tAmount" name="Totalka"  value=" ' . $currency . $total . '"  type="text"  disabled></p>';
+                                                    echo ' <p> <label for="Address">Total Amount:</label> <input id="paid" class="tAmount" name="Totalka"  value=" ' . $currency . number_format($total) . '"  type="text"  disabled></p>';
                                                 } else {
                                                     
                                                 }
@@ -289,15 +297,68 @@ include("../config.php");
                                                             $total = ($total + $subtotal) . "</br>";
                                                         }
                                                         echo '</ol>';
-                                                        echo '<h4 Align="right">Your Total Amount: <big style="color:green">' . $currency . $total . '</big></h4>';
+                                                        echo '<h4 Align="right">Your Total Amount: <big style="color:green">' . $currency . number_format($total) . '</big></h4>';
                                                     } else {
                                                         
                                                     }
                                                     ?>
                                                 </legend>
-                                                <p>
-                                                    Remember Sir If You Proceed it Now You Can Find Your Sales Voucher Or Payment Voucher In Your Mail Box In A View Minutes.
-                                                </p>
+                                                
+                                                    <?php
+                                                    if (isset($_SESSION["cart_session"])) {
+                                                        $total = 0;
+                                                        $bOwner = array();
+                                                        $bid = array();
+                                                        $mtn = array();
+                                                        $airtel = array();
+                                                        $total = array();
+                                                        foreach ($_SESSION["cart_session"] as $cart_itm) {
+                                                            $inv = "INV-" . $last_id;
+                                                            $id = $cart_itm["code"];
+                                                            $unit = $cart_itm["Qiimaha"];
+                                                            $qty = $cart_itm["TiradaProductTiga"];
+                                                            $tax = 0;
+                                                            $price = $unit * $qty;
+                                                            //GET THE LATEST ID>>>>>>>>>>>
+                                                            $results = $mysqli->query("SELECT * FROM product p,employee e WHERE Product_ID = '" . $id . "' AND p.Employee_ID = e.Employee_ID  ORDER BY Product_ID DESC LIMIT 1");
+                                                            if ($results) {
+                                                                if ($obj = $results->fetch_object()) {
+                                                                    $bid[] = $obj->Employee_ID;
+                                                                    $bOwner[] = $obj->Employee_Name;
+                                                                    $mtn[] = $obj->mtn;
+                                                                    $airtel[] = $obj->airtel;
+                                                                    $total[] = $price;
+                                                                }
+                                                            }
+                                                        }
+                                                        $unique_data = array_unique($bid);
+                                                        foreach ($unique_data as $id) {
+                                                            $t_price = 0;
+                                                            $i = 0;
+                                                            $mtn_ = "";
+                                                            $air_ = "";
+                                                            $name = "";
+                                                            foreach ($bid as $id2) {
+                                                                if ($id == $id2) {
+                                                                    $t_price += $total[$i];
+                                                                    $mtn_ = $mtn[$i];
+                                                                    $air_ = $airtel[$i];
+                                                                    $name = $bOwner[$i];
+                                                                }
+                                                                $i ++;
+                                                            }
+
+                                                            echo "<p><strong>B-OWNER: </strong>" . $name . " " . "<br/>";
+                                                            echo "<strong>MTN-MONEY: </strong>" . $mtn_ ."<br/>";
+                                                            echo "<strong>AIRTEL-MONEY: </strong>" . $air_ . "<br/>";
+                                                                    echo "<strong>AMOUNT: </strong>" . number_format($t_price) . "<br/>";
+                                                                    
+                                                             
+                                                        }
+                                                    }
+                                                    ?>
+                                                    .
+                                                
                                                 <p class="submit">
 
                                                     <button id="registerButton" type="submit"   name="submit"  title="Click On Payment Method"> Proceed</button>
@@ -356,33 +417,11 @@ include("../config.php");
 
 
                             <!-- Begin Sidebar -->
-                            <div id="sidebar">
-                                <ul>
-                                    <li class="widget">
-                                        <h2>TOP Brands</h2>
-                                        <div class="brands">
-                                            <ul>
-                                                <li><a href="#" title="Brand 1"><img src="../images/brand-img1.jpg" alt="Brand 1" /></a></li>
-                                                <li><a href="#" title="Brand 2"><img src="../images/brand-img2.jpg" alt="Brand 2" /></a></li>
-                                                <li><a href="#" title="Brand 3"><img src="../images/brand-img3.jpg" alt="Brand 3" /></a></li>
-                                                <li><a href="#" title="Brand 4"><img src="../images/brand-img4.jpg" alt="Brand 4" /></a></li>
-                                            </ul>
-                                            <div class="cl">&nbsp;</div>
-                                        </div>
-                                        <a href="#" class="more" title="More Brands">More Brands</a>
-                                    </li>
-                                </ul>
-                            </div>
+
                             <!-- End Sidebar -->
                             <div class="cl">&nbsp;</div>
                             <br><br>
-                                    <div class="post">
-                                        <h2>Welcome!</h2>
-                                        <img src="../images/post-img.jpg" alt="Post Image" />
-                                        <p>Lestibulum vel libero posuere velit faucibus pellentesque. Duis eleifend libero vitae justo porta eget interdum ligula porta. Fusce tristique, ante sit amet hendrerit suscipit, leo metus vehicula sem, eget scelerisque felis leo id magna. Proin imperdiet ullamcorper tellus sed consectetur. Aliquam erat volutpat. Integer orci urna, posuere sed bibendum id, tincidunt non augue. </p>
-                                        <p>Cras mauris sem, posuere vel semper sed, condimentum non dui. Suspendisse vestibulum ligula eget urna posuere sagittis. Suspendisse sed nisl massa. <a href="#" class="more" title="Read More">Read More</a></p>
-                                        <div class="cl">&nbsp;</div>
-                                    </div>
+
                                     </div>
                                     <!-- End Main -->
 
@@ -393,11 +432,11 @@ include("../config.php");
                                             <div class="shell">
                                                 <div class="carts">
 
-                                                </div>	<p align="center">&copy; SomStore.com. Groups <a href="index.php"><i><font color="fefefe"> Welcome To <strong> SomStore</strong> Online Shopping Site </font></i></a></p>
-                                                <div class="cl">&nbsp;</div>
-                                            </div>
-                                            <!-- End Shell -->
+                                            </div>	<p align="center">&copy; OFS Groups <a href="index.php"><i><font color="fefefe">   </font></i></a></p>
+                                            <div class="cl">&nbsp;</div>
                                         </div>
+                                        <!-- End Shell -->
+                                    </div>
                                     </div>
 
                                     <!-- End Wrapper -->
