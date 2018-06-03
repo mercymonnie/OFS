@@ -70,6 +70,10 @@ include("../config.php");
                             <li><a href="../contact.php" title="Contact"><span>Contact</span></a></li>
                             <li><a href="../Sign In.php" title="Sign In"><span>Sign In</span></a></li>
                         </ul>
+
+                        <header>
+                            <h1><p> <a href="Sign In.php"><img src="images/logo.png" alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>ONLINE FASHION SHOPPING<span> </span></p> </h1>
+                        </header>
                     </div>
                     <div class="cl">&nbsp;</div>
                     <br/>
@@ -325,23 +329,23 @@ include("../config.php");
                                 </div>
                             </div>
                             <script>
-                                < script type = "text/javascript" >
-                                        $(document).ready(function() {
-                                    $("#registerButton").click(function() {
+        < script type = "text/javascript" >
+        $(document).ready(function() {
+                                        $("#registerButton").click(function() {
 
-                                        $.ajax({
-                                            cache: false,
-                                            type: 'POST',
-                                            url: 'InsertPayment.php',
-                                            data: $(".myForm").serialize(),
-                                            success: function(d) {
-                                                $("#someElement").html(d);
-                                            }
-                                        });
-                                    });
-                                });
-
-                            </script>	
+                                $.ajax({
+                                cache: false,
+                                        type: 'POST',
+                                        url: 'InsertPayment.php',
+                                        data: $(".myForm").serialize(),
+                                        success: function(d) {
+                                        $("#someElement").html(d);
+        }
+        });
+        });
+        });
+        
+        </script>	
 
                             </div>
                             <!-- End Content -->

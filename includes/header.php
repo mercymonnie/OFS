@@ -2,24 +2,26 @@
 <div id="header">
     <!-- Begin Shell -->
     <div class="shell">
-       
+
         <div id="top-nav">
+            
             <ul>
 
                 <li><a href="contact.php" title="Contact"><span>Contact</span></a></li>
                 <li><a href="Sign In.php" title="Sign In"><span>Sign In</span></a></li>
             </ul>
-            
+
+            <header>
+                <h1><p> <a href="Sign In.php"><img src="images/logo.png" alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <font color="grey">ONLINE FASHION SHOPPING </font> <span> </span></p> </h1>
+            </header>
         </div>
-        <div id="left"><header>
-                <h1><p> <a href="Sign In.php"><img src="images/logo.png" alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>ONLINE FASHION SHOPPING<span> </span></p> </h1>
-            </header></div>
-        
+        <div id="left"></div>
+
         <div class="cl">&nbsp; </div>
         <div class="cl">&nbsp;</div>
         <div class="cl">&nbsp;</div>
         <br/>
-        
+
         <div class="shopping-cart"  id="cart" id="right" >
             <dl id="acc">	
                 <dt class="active">								
