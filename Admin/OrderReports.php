@@ -31,6 +31,7 @@ class PDF extends FPDF {
     }
 
 //Simple table
+
     function BasicTable($header, $data) {
 
         $this->SetFillColor(200, 255, 255);
@@ -45,6 +46,7 @@ class PDF extends FPDF {
         $this->Ln();
 
         //Data
+
         $this->SetFont('Arial', '', 12);
         foreach ($data as $eachResult) { //width
             $this->Cell(15, 6, $eachResult["order_ID"], 1);
@@ -63,7 +65,7 @@ class PDF extends FPDF {
 
         $this->SetFillColor(200, 255, 255);
 //$this->SetDrawColor(255, 0, 0);
-        $w = array(15, 40, 20, 15, 20, 38, 30, 20, 18, 15, 15, 15, 15);
+        $w = array(10, 10, 25, 25, 30, 30, 10, 25, 25);
 
 
         //Header
@@ -75,18 +77,49 @@ class PDF extends FPDF {
         //Data
         $this->SetFont('Arial', '', 12);
         $count = 0;
+
+        $total = 0;
+        $cost = 0;
+        $tqty = 0;
         foreach ($data as $eachResult) { //width
             $count ++;
-            $this->Cell(15, 6, $count, 1);
-            $this->Cell(40, 6, $eachResult["item"], 1);
-            $this->Cell(20, 6, number_format($eachResult["unit_price"]), 1);
-            $this->Cell(15, 6, $eachResult["qty"], 1);
-            $this->Cell(20, 6, number_format($eachResult["price"]), 1);
-            $this->Cell(38, 6, $eachResult["date"], 1);
-            $this->Cell(30, 6, $eachResult["time"], 1);
-            $this->Cell(20, 6, $eachResult["order_ID"], 1);
+            $this->Cell(10, 6, $count, 1);
+            $this->Cell(10, 6, $eachResult["order_ID"], 1);
+            $this->Cell(25, 6, $eachResult["date"], 1);
+            $this->Cell(25, 6, $eachResult["time"], 1);
+            include('../config.php');
+            $qqqry = mysqli_query($mysqli, "SELECT * FROM invoice_items i, product p, category c, sub_category s, boutique b "
+                    . " WHERE i.item = p.Product_ID AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID GROUP BY date");
+            if ($qqqry) {
+                if ($obj = $qqqry->fetch_object()) {
+                    $pname = $obj->productName;
+                    //$scategory = $obj->sub_name;
+                    //$category = $obj->Category_Name;
+                    $bal = $obj->balance;
+                    $cp = $obj->cost_price;
+                    $bname = $obj->Warehouse;
+                    $this->Cell(30, 6, $pname, 1);
+                    $this->Cell(30, 6, $bname, 1);
+                    $cost += ($bal * $cp) ;
+                }
+            }
+
+
+            $this->Cell(10, 6, $eachResult["qty"], 1);
+            $this->Cell(25, 6, number_format($eachResult["unit_price"]), 1);
+            $this->Cell(25, 6, number_format($eachResult["price"]), 1);
+            $total += $eachResult["price"];
+            $tqty += $eachResult["qty"];
             $this->Ln();
         }
+
+        $this->Ln();
+        $this->Ln();
+        $this->Write(5, ' Qty:       ' . $tqty . '');
+        $this->Ln();
+        $this->Write(5, ' T-Price:  ' . number_format($total) . '');
+        $this->Ln();
+        $this->Write(5, ' T-Profit:  ' . number_format($total - $cost) . '');
     }
 
 //Better table
@@ -98,7 +131,7 @@ $pdf = new PDF();
 
 $header = array('Order ID', 'Full_Name', 'Address', 'Country', 'City', 'Phone', 'Delivery Address', 'Ammount');
 
-$header2 = array('#', 'item', 'unit_price', 'qty', 'price', 'Date', 'Time', 'OrderID');
+$header2 = array('#', 'Order', 'Date', 'Time', 'item', "Boutique", 'qty', 'unit_price(Ugx)', 'TotalPrice(UGX)');
 
 //Data loading
 //*** Load MySQL Data ***//
@@ -159,7 +192,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM payment ") or die("Database query
 
 $count = mysqli_num_rows($result);
 
-$result2 = mysqli_query($mysqli, "SELECT * FROM invoice_items") or die("Database query failed: $query" . mysql_error());
+$result2 = mysqli_query($mysqli, "SELECT * FROM invoice_items") or die("Database query failed: " . mysql_error());
 $count2 = mysqli_num_rows($result2);
 
 $pdf->Cell(0);
@@ -170,6 +203,8 @@ $pdf->Ln(5);
 
 $pdf->Ln(0);
 $pdf->BasicTable($header, $resultData);
+$pdf->Ln();
+$pdf->Write(5, ' Items Table : ' . $count2 . '');
 $pdf->Ln();
 $pdf->Ln();
 $pdf->BasicTable2($header2, $resultData2);
