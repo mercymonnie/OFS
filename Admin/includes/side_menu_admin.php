@@ -15,16 +15,7 @@
         <li class="icn_folder"><a href="Backup.php">Backup Database</a></li>
     </ul>
 
-    <h3>Reports:</h3>
-    <ul class="toggle">
-        <li class="icn_settings"><a target="_blank" href="OrderReports.php">Order Report</a></li>
-        <li class="icn_settings"><a target="_blank" href="CustomerReport.php">Customer Report</a></li>
-        <li class="icn_settings"><a target="_blank" href="ProductReport.php"> Product Report</a></li>
-
-    </ul>
-
-
-
+    
     <h3>Administrator:</h3>
     <ul class="toggle">
          <li class="icn_photo"><a href="Employee.php">Add Boutique Owner</a></li>
@@ -32,7 +23,7 @@
 
     <h3>Tables:</h3>
     <ul class="toggle">
-        <li class="icn_categories"><a href="order.php">Order Detial</a></li>
+       
         <li class="icn_categories"><a href="customerTable.php">Customer Detail</a></li>
     </ul>
 

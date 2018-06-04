@@ -277,7 +277,7 @@ $(document).ready(function() {
                                             <td><?php echo $row['mtn']; ?></td>
                                             <td><?php echo $row['airtel']; ?></td>
                                             
-                                            <td> <a href="empViewUpdate.php?update=<?php echo $row['Employee_ID']; ?>"  onClick="edit(this);" title="empEdit" >  <input type="image" src="images/icn_edit.png" title="Edit"> </a>
+                                            <td> 
                                                 <a href="empDelete.php?delete=<?php echo $row['Employee_ID']; ?>" onClick="del(this);" title="Delete"><input type="image" src="images/icn_trash.png" title="Trash"/>  </a></td>
                                         </tr>
 
