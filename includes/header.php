@@ -2,12 +2,8 @@
 <div id="header">
     <!-- Begin Shell -->
     <div class="shell">
-
-
         <div id="top-nav">
-
             <ul>
-
                 <li><a href="contact.php" title="Contact"><span>Contact</span></a></li>
                 <li><a href="Sign In.php" title="Sign In"><span>Sign In</span></a></li>
             </ul>
@@ -65,11 +61,9 @@
                                         foreach ($_SESSION["cart_session"] as $cart_itm) { //loop through session array var
                                             if ($cart_itm["code"] != $id) { //item does,t exist in the list
                                                 $product[] = array('name' => $cart_itm["name"], 'code' => $cart_itm["code"], 'TiradaProductTiga' => $cart_itm["TiradaProductTiga"], 'Qiimaha' => $cart_itm["Qiimaha"]);
-                                            
                                                 //create a new product list for cart
-                                            $_SESSION["cart_session"] = $product;
+                                                $_SESSION["cart_session"] = $product;
                                             }
-                                            
                                         }
                                     }
                                 }
