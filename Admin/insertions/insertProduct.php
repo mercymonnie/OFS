@@ -1,7 +1,7 @@
 
 
 <?php
-
+include("../../session.php");
 include('../../config.php');
 
 $emp_id   = $_SESSION['user_id'];

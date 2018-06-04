@@ -82,6 +82,7 @@ include("../config.php");
             <div id="content-wrap">	
 
                 <?php
+                //echo "ROLE::: ".$_SESSION['role']." -- ".$_SESSION['user_id'];
                 if ($_SESSION['role'] == 'admin') {
                     include_once 'includes/navigation_admin.php';
                     include_once 'includes/side_menu_admin.php';
@@ -172,17 +173,17 @@ include("../config.php");
                                                 <label> Color:</label>
                                                 <select name="color" class="ed">
                                                     <option value="blue">Blue</option>
-                                                    <option value="blue">Black</option>
-                                                    <option value="blue">White</option>
-                                                    <option value="blue">Orange</option>
-                                                    <option value="blue">Yellow</option>
-                                                    <option value="blue">red</option>
-                                                    <option value="blue">gray</option>
-                                                    <option value="blue">maroon</option>
-                                                    <option value="blue">purple</option>
-                                                    <option value="blue">brown</option>
-                                                    <option value="blue">green</option>
-                                                    <option value="blue">beige</option>
+                                                    <option value="black">Black</option>
+                                                    <option value="white">White</option>
+                                                    <option value="orange">Orange</option>
+                                                    <option value="yellow">Yellow</option>
+                                                    <option value="red">red</option>
+                                                    <option value="grey">gray</option>
+                                                    <option value="maroon">maroon</option>
+                                                    <option value="purple">purple</option>
+                                                    <option value="browm">brown</option>
+                                                    <option value="green">green</option>
+                                                    <option value="beige">beige</option>
 
 
                                                 </select>

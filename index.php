@@ -134,6 +134,7 @@ include("config.php");
 
                         <?php
                         include("config.php");
+                       
                         $result = mysqli_query($mysqli, "SELECT * FROM product order by Product_ID desc limit 5");
                         ?>
                         <?php while ($row = mysqli_fetch_array($result)) {

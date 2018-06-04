@@ -186,12 +186,7 @@ error_reporting(0);
                                         $qty_sold += $row['qty'];
                                         $costp = $row['cost_price'];
                                         $bl = $row['balance'];
-                                        if ($costp == 0){
-                                            $costp =  $row['Price'];
-                                        }
-                                        if ($bl == 0){
-                                            $bl =  $row['qty'];
-                                        }
+         
                                         $bal += $bl;
                                         $cost_p += $costp*$row['qty'];
                                         ?>

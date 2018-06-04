@@ -37,7 +37,7 @@ if ($results) {
 }
 session_start();
 if (session_destroy()) {
-    header("location: process.php?payment_mode=Thank you! Your purchase has been initiated successfull..!");
+    header("location: process.php?payment_mode=Thanks for Your purchase..!");
     echo "1 payment method has been processed";
 }
 
