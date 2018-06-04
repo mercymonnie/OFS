@@ -1,6 +1,7 @@
 <?php
 include("../config.php");
 include("../session.php");
+error_reporting(0);
 ?>
 
 <!doctype html>
