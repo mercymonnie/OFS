@@ -214,21 +214,10 @@ include("../session.php");
                             <th> <h4><strong>Qty Sold:</strong>  <?php echo "        ".$qty_sold; ?></h4> 
                                 <h4><strong>Cost Price:</strong>  <?php echo  "        ".number_format($cost_p); ?></h4> 
                                 <h2><strong>Profit:</strong>  <?php echo "        ". number_format($total_amount - $cost_p); ?> </h2> <br/></th>
-                            
                             </tfoot>
                         </table>
-
-
                     </div><!-- end of #tab2 -->
-
-
-
-
-
                     <div class="clear"></div>
-
-
-
                     <div class="spacer"></div>
                 </section>
             </div>
