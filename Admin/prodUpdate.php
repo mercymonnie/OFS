@@ -10,7 +10,7 @@ $id=$_POST['ID'];
 
 echo $fullname=$_POST['fname'];
 echo  $cname =$_POST['category'];
-echo $model   =$_POST['Model'];
+echo $model   =$_POST['color'];
 echo $type   =$_POST['type'];
 echo  $whouse  =$_POST['boutique'];
 echo $desp     =$_POST['desp'];

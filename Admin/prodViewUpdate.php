@@ -128,7 +128,7 @@ include("../config.php");
                                                 $name = mysqli_query($mysqli, "select * from sub_category ");
 
 //echo '<select  name="select"  id="ml" class="ed">';
-                                                echo '<option value=' . $row['Category_ID'] . '> ' . $row['sub_name'] . '</option>';
+                                                echo '<option value=' . $row['sub_category_id'] . '> ' . $row['sub_name'] . '</option>';
                                                 while ($res = mysqli_fetch_assoc($name)) {
                                                     echo '<option value=' . $res['sub_category_id'] . '>' . $res['sub_name'] . '</option>';
                                                 }
@@ -144,17 +144,17 @@ include("../config.php");
 
                                             <select name="color" class="ed">
                                                 <option value="<?php echo $row['Model']; ?>"><?php echo $row['Model']; ?></option>
-                                                <option value="blue">Black</option>
-                                                <option value="blue">White</option>
-                                                <option value="blue">Orange</option>
-                                                <option value="blue">Yellow</option>
-                                                <option value="blue">red</option>
-                                                <option value="blue">gray</option>
-                                                <option value="blue">maroon</option>
-                                                <option value="blue">purple</option>
-                                                <option value="blue">brown</option>
-                                                <option value="blue">green</option>
-                                                <option value="blue">beige</option>
+                                                <option value="black">Black</option>
+                                                <option value="white">White</option>
+                                                <option value="orange">Orange</option>
+                                                <option value="yellow">Yellow</option>
+                                                <option value="red">red</option>
+                                                <option value="grey">gray</option>
+                                                <option value="maroon">maroon</option>
+                                                <option value="purple">purple</option>
+                                                <option value="brown">brown</option>
+                                                <option value="green">green</option>
+                                                <option value="beige">beige</option>
 
 
                                             </select>

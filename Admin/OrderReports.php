@@ -89,7 +89,7 @@ class PDF extends FPDF {
             $this->Cell(25, 6, $eachResult["time"], 1);
             include('../config.php');
             $qqqry = mysqli_query($mysqli, "SELECT * FROM invoice_items i, product p, category c, sub_category s, boutique b "
-                    . " WHERE i.item = p.Product_ID AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID GROUP BY date");
+                    . " WHERE i.item = p.Product_ID AND p.Product_ID = '".$eachResult["item"]."' AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID GROUP BY date");
             if ($qqqry) {
                 if ($obj = $qqqry->fetch_object()) {
                     $pname = $obj->productName;
@@ -100,7 +100,7 @@ class PDF extends FPDF {
                     $bname = $obj->Warehouse;
                     $this->Cell(30, 6, $pname, 1);
                     $this->Cell(30, 6, $bname, 1);
-                    $cost += ($bal * $cp) ;
+                    $cost += ($eachResult["qty"] * $cp) ;
                 }
             }
 
