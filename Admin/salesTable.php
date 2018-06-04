@@ -1,6 +1,7 @@
 <?php
 include("../config.php");
 include("../session.php");
+error_reporting(0);
 ?>
 
 <!doctype html>
@@ -88,7 +89,8 @@ include("../session.php");
                     </div>
                     <?php
                     include("../config.php");
-                    $result = mysqli_query($mysqli, "SELECT * FROM payment");
+                    $emp_id = $_SESSION['user_id'];
+                    $result = mysqli_query($mysqli, "SELECT * FROM payment p,invoice_items i,product pd WHERE p.order_ID = i.order_ID AND i.item = pd.Product_ID AND pd.Employee_ID = '".$emp_id."' GROUP BY i.order_ID ");
                     ?>
                     <div id="tab2" class="tab_content">
 
@@ -137,7 +139,7 @@ include("../session.php");
                                 <?php }mysqli_close($mysqli); ?>
                             </tbody>
                             <tfoot>
-                            <th> <h2>  <strong>Total Sales:</strong>  <?php echo $total_amount; ?> </h2> </th>
+                            <th> <h2>  <strong>Total Sales:</strong>  <?php echo number_format($total_amount); ?> </h2> </th>
                             </tfoot>
                         </table>
 
@@ -161,8 +163,9 @@ include("../session.php");
                             <tbody>
                                 <?php
                                 include("../config.php");
+                                $emp_id = $_SESSION['user_id'];
                                 $result1 = mysqli_query($mysqli, "SELECT * FROM invoice_items i, product p, category c, sub_category s, boutique b "
-                                        . " WHERE i.item = p.Product_ID AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID GROUP BY date");
+                                        . " WHERE i.item = p.Product_ID AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND p.Employee_ID = '".$emp_id."' GROUP BY date");
                                 $no = 0;
                                 $qty_sold = 0;
                                 $cost_p = 0;

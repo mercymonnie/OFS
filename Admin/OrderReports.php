@@ -3,6 +3,7 @@
 require('../fpdf.php');
 $d = date('d_m_Y');
 include('../config.php');
+include("../session.php");
 
 class PDF extends FPDF {
 
@@ -117,7 +118,9 @@ class PDF extends FPDF {
         $this->Ln();
         $this->Write(5, ' Qty:       ' . $tqty . '');
         $this->Ln();
+        $this->Ln();
         $this->Write(5, ' T-Price:  ' . number_format($total) . '');
+        $this->Ln();
         $this->Ln();
         $this->Write(5, ' T-Profit:  ' . number_format($total - $cost) . '');
     }
@@ -188,11 +191,13 @@ $pdf->Cell(54);
 $pdf->Ln(-1);
 
 //display numbers of reports
-$result = mysqli_query($mysqli, "SELECT * FROM payment ") or die("Database query failed: $query" . mysql_error());
+$emp_id = $_SESSION['user_id'];
+$result = mysqli_query($mysqli, "SELECT * FROM payment p,invoice_items i,product pd WHERE p.order_ID = i.order_ID AND i.item = pd.Product_ID AND pd.Employee_ID = '".$emp_id."' GROUP BY i.order_ID ") or die("Database query failed: $query" . mysql_error());
 
 $count = mysqli_num_rows($result);
 
-$result2 = mysqli_query($mysqli, "SELECT * FROM invoice_items") or die("Database query failed: " . mysql_error());
+$result2 = mysqli_query($mysqli, "SELECT * FROM invoice_items i, product p, category c, sub_category s, boutique b "
+                                        . " WHERE i.item = p.Product_ID AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND p.Employee_ID = '".$emp_id."'") or die("Database query failed: " . mysql_error());
 $count2 = mysqli_num_rows($result2);
 
 $pdf->Cell(0);

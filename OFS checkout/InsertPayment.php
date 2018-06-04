@@ -20,7 +20,7 @@ if ($results) {
         if (isset($_SESSION["cart_session"])) {
             $total = 0;
             foreach ($_SESSION["cart_session"] as $cart_itm) {
-                $inv = "INV-".$last_id;
+                $inv = "INV-" . $last_id;
                 $id = $cart_itm["code"];
                 $unit = $cart_itm["Qiimaha"];
                 $qty = $cart_itm["TiradaProductTiga"];
@@ -28,8 +28,21 @@ if ($results) {
                 $price = $unit * $qty;
                 $sql2 = "INSERT INTO invoice_items (invoice, item, unit_price, qty,tax, price, order_ID,date,time ) 
                                  VALUES ('$inv', '$id', '$unit', '$qty', '$tax', '$price', '$last_id','$today',NOW())";
+
                 if (!mysqli_query($mysqli, $sql2)) {
                     die('Error: ' . mysqli_error($mysqli));
+                }
+
+                $r = $mysqli->query("SELECT * FROM product WHERE Product_ID=$id");
+                if ($r) {
+                    //fetch results set as object and output HTML
+                    if ($obj2 = $r->fetch_object()) {
+                        $p_id = $obj2->Product_ID;
+                        $p_bal = $obj2->balance;
+                        $bb = $p_bal - $qty;
+                        $upd = "update product  set balance='$bb'  where Product_ID=$id ";
+                        $rows = mysqli_query($mysqli, $upd);
+                    }
                 }
             }
         }
@@ -37,7 +50,7 @@ if ($results) {
 }
 session_start();
 if (session_destroy()) {
-    header("location: process.php?payment_mode=Thank you! Your purchase has been initiated successfull..!");
+    header("location: process.php?payment_mode=Thanks for Your purchase..!");
     echo "1 payment method has been processed";
 }
 

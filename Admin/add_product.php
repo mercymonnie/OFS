@@ -82,6 +82,7 @@ include("../config.php");
             <div id="content-wrap">	
 
                 <?php
+                //echo "ROLE::: ".$_SESSION['role']." -- ".$_SESSION['user_id'];
                 if ($_SESSION['role'] == 'admin') {
                     include_once 'includes/navigation_admin.php';
                     include_once 'includes/side_menu_admin.php';
@@ -302,7 +303,8 @@ include("../config.php");
                             </div>
 
                             <?php
-                            $result = mysqli_query($mysqli, "SELECT * FROM product");
+                            $emp_id = $_SESSION['user_id'];
+                            $result = mysqli_query($mysqli, "SELECT * FROM product WHERE Employee_ID = '".$emp_id."' ");
                             ?>
                             <div id="tab1" class="tab_content">
                                 <table class="tablesorter" cellspacing="0"> 
