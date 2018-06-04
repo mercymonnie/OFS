@@ -149,6 +149,7 @@ include("../session.php");
 
             <div id="content-wrap">	
                 <?php
+                //echo "ROLE::: ".$_SESSION['role']." -- ".$_SESSION['user_id'];
                 if ($_SESSION['role'] == 'admin') {
                     include_once 'includes/navigation_admin.php';
                     include_once 'includes/side_menu_admin.php';
@@ -161,7 +162,7 @@ include("../session.php");
 
                 <section id="main" class="column">
 
-                    <h4 class="alert_info">Welcome To <strong>"OFS"</strong> Admin Panel As: <?php echo "  " . "<font color='#f90'><big><b>" . $login_session . "</b></big></font>"; ?>  </h4> 
+                    <h4 class="alert_info">Welcome To <strong>"OFS"</strong> <?php echo $_SESSION['role']; ?> Panel As: <?php echo "  " . "<font color='#f90'><big><b>" . $login_session . "</b></big></font>"; ?>  </h4> 
 
                     <article class="module width_full">
                         <header><h3>Stats</h3></header>

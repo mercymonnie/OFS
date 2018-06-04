@@ -7,7 +7,13 @@ include("../config.php");
 <html lang="en">
     <head>
         <meta charset="utf-8"/>
-        <title>Suncart I Admin </title>
+        <title>OFS|Admin|Owner </title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
+        <link rel="shortcut icon" href="images/favicon.png" />
+        <link rel="stylesheet" href="css/chatStyle.css" type="text/css" media="screen" />
+
 
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
         <!--[if lt IE 9]>
@@ -154,6 +160,15 @@ include("../config.php");
                                         <input type="text" id="username" name="username" placeholder="User name" />
                                         <span class="error">This is an error</span>
                                     </td>
+                                    
+                                    <td>  
+
+                                        <label> MTN Money Number:</label>
+
+                                        <input type="text" id="username" name="mtn" placeholder="078*****" >
+                                       <span class="error">This is an error</span>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>  
@@ -168,8 +183,16 @@ include("../config.php");
 
                                         <label> Enter Password:</label>
 
-                                        <input type="password" id="password" name="password" placeholder="*****" >
+                                        <input type="password" id="password" name="password" placeholder="****" >
                                         <span id="pass-info"> </span>
+
+                                    </td>
+                                    <td>  
+
+                                        <label> Airtel Money Number:</label>
+
+                                        <input type="text" id="empValid" name="airtel" placeholder="075/070****" >
+                                        <span class="error">This is an error</span>
 
                                     </td>
 
@@ -228,15 +251,16 @@ $(document).ready(function() {
                             <table class="tablesorter" cellspacing="0"> 
 
 
-                                <thead><tr> <th colspan="7"> Employee Data Record</th>  </tr> <thead>
+                                <thead><tr> <th colspan="7"> Registered Users Data Record</th>  </tr> <thead>
                                 <thead>
                                     <tr>
                                         <th>Check</th> 
                                         <th>Employee ID</th>
                                         <th> Employee Name</th>			  
                                         <th>User Name</th>
-                                        <th>Password</th>
-                                        <th>Picture</th>			
+                                        <th>ROLE</th>
+                                        <th>MTN</th>
+                                        <th>Airtel</th>			
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -249,8 +273,10 @@ $(document).ready(function() {
                                             <td><?Php echo $row['Employee_ID']; ?></td>
                                             <td><?php echo $row['Employee_Name']; ?></td>
                                             <td><?php echo $row['Username']; ?></td>
-                                            <td><?php echo $row['Password']; ?></td>
-                                            <td><img src="../images/<?php echo $row['Picture']; ?>" width="40" height="40"></td>
+                                            <td><?php echo $row['role']; ?></td>
+                                            <td><?php echo $row['mtn']; ?></td>
+                                            <td><?php echo $row['airtel']; ?></td>
+                                            
                                             <td> <a href="empViewUpdate.php?update=<?php echo $row['Employee_ID']; ?>"  onClick="edit(this);" title="empEdit" >  <input type="image" src="images/icn_edit.png" title="Edit"> </a>
                                                 <a href="empDelete.php?delete=<?php echo $row['Employee_ID']; ?>" onClick="del(this);" title="Delete"><input type="image" src="images/icn_trash.png" title="Trash"/>  </a></td>
                                         </tr>

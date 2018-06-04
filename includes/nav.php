@@ -39,7 +39,7 @@
                     </ul>
                 </div>
             </li>
-            <li><a href="#"> Products</a></li>
+           
             <li>
                 <a href="#">Boutique</a>
                 <div class="dd">

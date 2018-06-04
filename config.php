@@ -1,5 +1,8 @@
 <?php
 
+date_default_timezone_set('Africa/Nairobi');
+//$today = date("Y-m-d");
+$today = date("Y-m-d");
 $currency = 'UGX'; //Currency sumbol or code
 //db settings
 $db_username = 'root';

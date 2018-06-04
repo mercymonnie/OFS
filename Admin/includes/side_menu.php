@@ -20,6 +20,7 @@
         <li class="icn_settings"><a target="_blank" href="OrderReports.php">Order Report</a></li>
         <li class="icn_settings"><a target="_blank" href="CustomerReport.php">Customer Report</a></li>
         <li class="icn_settings"><a target="_blank" href="ProductReport.php"> Product Report</a></li>
+        
 
     </ul>
 
@@ -38,6 +39,7 @@
     <ul class="toggle">
         <li class="icn_categories"><a href="order.php">Order Detial</a></li>
         <li class="icn_categories"><a href="customerTable.php">Customer Detail</a></li>
+         <li class="icn_categories"><a href="salesTable.php">Sales Detail</a></li>
     </ul>
 
     <h3>Admin</h3>
