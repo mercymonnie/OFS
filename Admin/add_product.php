@@ -126,13 +126,7 @@ include("../config.php");
 
 
                                         <tr>
-                                            <td>  
-
-                                                <label> Name:</label>
-                                                <input type="text" name="name" id="name"  class="user" required>
-                                                <span class="error">This is an error</span>
-
-                                            </td>
+                                            
                                             <td>   
                                                 <label>Sub-Category:</label>
 
