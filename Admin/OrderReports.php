@@ -89,6 +89,7 @@ class PDF extends FPDF {
             $this->Cell(25, 6, $eachResult["date"], 1);
             $this->Cell(25, 6, $eachResult["time"], 1);
             include('../config.php');
+            $emp_id = $_SESSION['user_id'];
             $qqqry = mysqli_query($mysqli, "SELECT * FROM invoice_items i, product p, category c, sub_category s, boutique b "
                     . " WHERE i.item = p.Product_ID AND p.Product_ID = '".$eachResult["item"]."' AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID GROUP BY date");
             if ($qqqry) {
@@ -106,8 +107,11 @@ class PDF extends FPDF {
             }
 
 
+            
             $this->Cell(10, 6, $eachResult["qty"], 1);
             $this->Cell(25, 6, number_format($eachResult["unit_price"]), 1);
+            
+            
             $this->Cell(25, 6, number_format($eachResult["price"]), 1);
             $total += $eachResult["price"];
             $tqty += $eachResult["qty"];
@@ -134,7 +138,7 @@ $pdf = new PDF();
 
 $header = array('Order ID', 'Full_Name', 'Address', 'Country', 'City', 'Phone', 'Delivery Address', 'Ammount');
 
-$header2 = array('#', 'Order', 'Date', 'Time', 'item', "Boutique", 'qty', 'unit_price(Ugx)', 'TotalPrice(UGX)');
+$header2 = array('#', 'Order ID', 'Date', 'Time', 'item', "Boutique" ,'qty', 'unit_price(Ugx)', 'TotalPrice(UGX)');
 
 //Data loading
 //*** Load MySQL Data ***//
@@ -162,7 +166,7 @@ for ($i = 0; $i < mysqli_num_rows($objQuery2); $i++) {
 //************************//
 //***********************///	
 //*** Table 1 ***//
-$pdf->AddPage();
+$pdf->AddPage('L');
 
 $pdf->SetFont('Helvetica', 'b', 14);
 $pdf->Cell(50);
@@ -189,6 +193,7 @@ $pdf->Cell(54);
 //$get_user = $_GET['username'];
 //$pdf->Write(5, 'Printed By: '.$get_user.'');
 $pdf->Ln(-1);
+//$pdf->addPage('L');
 
 //display numbers of reports
 $emp_id = $_SESSION['user_id'];

@@ -122,7 +122,7 @@ for ($i = 0; $i < mysqli_num_rows($objQuery); $i++) {
 }
 //************************//
 //*** Table 1 ***//
-$pdf->AddPage();
+$pdf->AddPage('L');
 $pdf->SetFont('Helvetica', 'b', 14);
 $pdf->Cell(55);
 $pdf->Write(5, ' OFS PRODUCT DATA REPORT ');

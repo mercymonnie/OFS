@@ -134,7 +134,7 @@ include("../session.php");
 
                 <div id="logo-banner">
 
-                    <h1 align="center"><strong><font color="red"> Your</font><br/>  Closest<font color="green"> Online store</font></strong> </h1>
+                    <h1 align="center"><strong><font color="red"> </font><br/> ONLINE FASHION SHOPPING</font></strong> </h1>
                     <div id="logo">
                         <a href="index.php"><img src="images/lg.png" alt="" /></a>
                     </div>

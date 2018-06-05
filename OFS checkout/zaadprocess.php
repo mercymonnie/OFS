@@ -377,13 +377,7 @@ include("../config.php");
                             <!-- End Sidebar -->
                             <div class="cl">&nbsp;</div>
                             <br><br>
-                                    <div class="post">
-                                        <h2>Welcome!</h2>
-                                        <img src="../images/post-img.jpg" alt="Post Image" />
-                                        <p>Lestibulum vel libero posuere velit faucibus pellentesque. Duis eleifend libero vitae justo porta eget interdum ligula porta. Fusce tristique, ante sit amet hendrerit suscipit, leo metus vehicula sem, eget scelerisque felis leo id magna. Proin imperdiet ullamcorper tellus sed consectetur. Aliquam erat volutpat. Integer orci urna, posuere sed bibendum id, tincidunt non augue. </p>
-                                        <p>Cras mauris sem, posuere vel semper sed, condimentum non dui. Suspendisse vestibulum ligula eget urna posuere sagittis. Suspendisse sed nisl massa. <a href="#" class="more" title="Read More">Read More</a></p>
-                                        <div class="cl">&nbsp;</div>
-                                    </div>
+                                    
                                     </div>
                                     <!-- End Main -->
 
@@ -394,7 +388,7 @@ include("../config.php");
                                             <div class="shell">
                                                 <div class="carts">
 
-                                                </div>	<p align="center">&copy; SomStore.com. Groups <a href="index.php"><i><font color="fefefe"> Welcome To <strong> SomStore</strong> Online Shopping Site </font></i></a></p>
+                                                </div>	<p align="center">&copy; OFS. Groups <a href="index.php"><i><font color="fefefe"> Welcome To <strong> OFS</strong> Online Shopping Site </font></i></a></p>
                                                 <div class="cl">&nbsp;</div>
                                             </div>
                                             <!-- End Shell -->

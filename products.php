@@ -119,19 +119,7 @@ include("config.php");
                 <!-- Begin Sidebar -->
                 <div id="sidebar">
                     <ul>
-                        <li class="widget">
-                            <h2>TOP boutique</h2>
-                            <div class="brands">
-                                <ul>
-                                    <li><a href="warehouse_1.php" title="Brand 1"><img src="images/k.png" width="103" height="51" alt="Brand 1" /></a></li>
-                                    <li><a href="warehouse_2.php" title="Brand 2"><img src="images/b.png" width="103" height="51" alt="Brand 2" /></a></li>
-                                    <li><a href="warehouse_3.php" title="Brand 3"><img src="images/ab.png" width="103" height="51" alt="Brand 3" /></a></li>
-                                    <li><a href="warehouse_4.php" title="Brand 4"><img src="images/33.png" width="103" height="51" alt="Brand 4" /></a></li>
-                                </ul>
-                                <div class="cl">&nbsp;</div>
-                            </div>
-                            <a href="products.php" class="more" title="More Brands">All Products</a>
-                        </li>
+                       
                     </ul>
                 </div>
                 <!-- End Sidebar -->

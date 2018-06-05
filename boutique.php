@@ -120,17 +120,8 @@ include("config.php");
                 <div id="sidebar">
                     <ul>
                         <li class="widget">
-                            <h2>TOP Boutique</h2>
-                            <div class="brands">
-                                <ul>
-                                    <li><a href="warehouse_1.php" title="Brand 1"><img src="images/k.png" width="103" height="51" alt="Brand 1" /></a></li>
-                                    <li><a href="warehouse_2.php" title="Brand 2"><img src="images/b.png" width="103" height="51" alt="Brand 2" /></a></li>
-                                    <li><a href="warehouse_3.php" title="Brand 3"><img src="images/ab.png" width="103" height="51" alt="Brand 3" /></a></li>
-                                    <li><a href="warehouse_4.php" title="Brand 4"><img src="images/33.png" width="103" height="51" alt="Brand 4" /></a></li>
-                                </ul>
-                                <div class="cl">&nbsp;</div>
-                            </div>
-                            <a href="products.php" class="more" title="More Brands">All Products</a>
+                            
+                            <h2><a href="products.php" class="more" title="More Brands">All Products</a> </h2>
                         </li>
                     </ul>
                 </div>
@@ -194,9 +185,7 @@ include("config.php");
                     <div class="box post-box">
                         <h2>About OFS</h2>
                         <div class="box-entry">
-                            <img src="images/favicon.png" alt="IShop Logo" width="160" height="80"/>
-                            <p>You can be confident when you're shopping online with SomStore. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
-                                such as personal information, in an encrypted envelope, making it extremely difficult for this information to be intercepted. </p>
+                            <img src="images/logo_1.png" alt="IShop Logo" width="160" height="80"/>
                             <div class="cl">&nbsp;</div>
                         </div>
                     </div>

@@ -20,7 +20,7 @@ session_start(); {
         $_SESSION['login_username'] = $magaca;
         $check=$_SESSION['login_username'];
 
-        header("location: home.php");
+        header("location: index.php");
     } else {
         header('Location: Sign In.php');
     }

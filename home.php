@@ -49,65 +49,65 @@ include("usersession.php");
         <!-- WAA DHAMAADKA JQueryga CHaTTIng Ka-->
 
         <script type="text/javascript">
-                            $(document).ready(function() {
+            $(document).ready(function() {
 
-                                // load messages every 1000 milliseconds from server.
-                                load_data = {'fetch': 1};
-                                window.setInterval(function() {
-                                    $.post('shout.php', load_data, function(data) {
-                                        $('.message_box').html(data);
-                                        var scrolltoh = $('.message_box')[0].scrollHeight;
-                                        $('.message_box').scrollTop(scrolltoh);
-                                    });
-                                }, 1000);
+                // load messages every 1000 milliseconds from server.
+                load_data = {'fetch': 1};
+                window.setInterval(function() {
+                    $.post('shout.php', load_data, function(data) {
+                        $('.message_box').html(data);
+                        var scrolltoh = $('.message_box')[0].scrollHeight;
+                        $('.message_box').scrollTop(scrolltoh);
+                    });
+                }, 1000);
 
-                                //method to trigger when user hits enter key
-                                $("#shout_message").keypress(function(evt) {
-                                    if (evt.which == 13) {
-                                        var iusername = $('#shout_username').val();
-                                        var imessage = $('#shout_message').val();
-                                        post_data = {'username': iusername, 'message': imessage};
+                //method to trigger when user hits enter key
+                $("#shout_message").keypress(function(evt) {
+                    if (evt.which == 13) {
+                        var iusername = $('#shout_username').val();
+                        var imessage = $('#shout_message').val();
+                        post_data = {'username': iusername, 'message': imessage};
 
-                                        //send data to "shout.php" using jQuery $.post()
-                                        $.post('shout.php', post_data, function(data) {
+                        //send data to "shout.php" using jQuery $.post()
+                        $.post('shout.php', post_data, function(data) {
 
-                                            //append data into messagebox with jQuery fade effect!
-                                            $(data).hide().appendTo('.message_box').fadeIn();
+                            //append data into messagebox with jQuery fade effect!
+                            $(data).hide().appendTo('.message_box').fadeIn();
 
-                                            //keep scrolled to bottom of chat!
-                                            var scrolltoh = $('.message_box')[0].scrollHeight;
-                                            $('.message_box').scrollTop(scrolltoh);
+                            //keep scrolled to bottom of chat!
+                            var scrolltoh = $('.message_box')[0].scrollHeight;
+                            $('.message_box').scrollTop(scrolltoh);
 
-                                            //reset value of message box
-                                            $('#shout_message').val('');
+                            //reset value of message box
+                            $('#shout_message').val('');
 
-                                        }).fail(function(err) {
+                        }).fail(function(err) {
 
-                                            //alert HTTP server error
-                                            alert(err.statusText);
-                                        });
-                                    }
-                                });
+                            //alert HTTP server error
+                            alert(err.statusText);
+                        });
+                    }
+                });
 
-                                //toggle hide/show shout box
-                                $(".close_btn").click(function(e) {
-                                    //get CSS display state of .toggle_chat element
-                                    var toggleState = $('.toggle_chat').css('display');
+                //toggle hide/show shout box
+                $(".close_btn").click(function(e) {
+                    //get CSS display state of .toggle_chat element
+                    var toggleState = $('.toggle_chat').css('display');
 
-                                    //toggle show/hide chat box
-                                    $('.toggle_chat').slideToggle();
+                    //toggle show/hide chat box
+                    $('.toggle_chat').slideToggle();
 
-                                    //use toggleState var to change close/open icon image
-                                    if (toggleState == 'block')
-                                    {
-                                        $(".header div").attr('class', 'open_btn');
-                                    } else {
-                                        $(".header div").attr('class', 'close_btn');
-                                    }
+                    //use toggleState var to change close/open icon image
+                    if (toggleState == 'block')
+                    {
+                        $(".header div").attr('class', 'open_btn');
+                    } else {
+                        $(".header div").attr('class', 'close_btn');
+                    }
 
 
-                                });
-                            });
+                });
+            });
 
         </script>
 
@@ -117,149 +117,14 @@ include("usersession.php");
         <!-- Begin Wrapper -->
         <div id="wrapper">
             <!-- Begin Header -->
-            <div id="header">
-                <!-- Begin Shell -->
-                <div class="shell">
-                    <h1 id="logo"><a class="notext" href="#" title="Suncart">OFS</a></h1>
-                    <div id="top-nav">
-                        <ul>
-                            <li><a href="#" title="Login Email"> <span class="janan"> <?php echo "Your Email Is: " . "<i><b>" . $login_session . "</b></i>"; ?> </span></a></li>
-
-                            <li > <a href="contact.php" title="Contact"> <span class="jananalibritish"> Contact  </span></a>  </li>
-                            <li class="janan"><a href="logout.php"><span class="jananalibritish">Logout </span></a></li>
-                        </ul>
-                    </div>
-                    <div class="cl">&nbsp;</div>
-                    <div class="shopping-cart"  id="cart" id="right" >
-                        <dl id="acc">	
-                            <dt class="active">								
-                                <p class="shopping" >Shopping Cart &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                            </dt>
-                            <dd class="active" style="display: block;">
-                                <?php
-                                //current URL of the Page. cart_update.php redirects back to this URL
-                                $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-
-                                if (isset($_SESSION["cart_session"])) {
-                                    $total = 0;
-                                    echo '<ul>';
-                                    foreach ($_SESSION["cart_session"] as $cart_itm) {
-                                        echo '<li class="cart-itm">';
-                                        echo '<span class="remove-itm"><a href="cart_update.php?removep=' . $cart_itm["code"] . '&return_url=' . $current_url . '">&times;</a></span>' . "</br>";
-                                        echo '<h3  style="color: green" ><big> ' . $cart_itm["name"] . ' </big></h3>';
-                                        echo '<div class="p-code"><b><i>ID:</i></b><strong style="color: #d7565b" ><big> ' . $cart_itm["code"] . ' </big></strong></div>';
-                                        echo '<span><b><i>Shopping Cart</i></b>( <strong style="color: #d7565b" ><big> ' . $cart_itm["TiradaProductTiga"] . '</big></strong>) </span>';
-                                        echo '<div class="p-price"><b><i>Price:</b></i> <strong style="color: #d7565b" ><big>' . $currency . $cart_itm["Qiimaha"] . '</big></strong></div>';
-                                        echo '</li>';
-                                        $subtotal = ($cart_itm["Qiimaha"] * $cart_itm["TiradaProductTiga"]);
-                                        $total = ($total + $subtotal) . "</br>";
-                                    }
-                                    echo '</ul>';
-                                    echo '<span class="check-out-txt"><strong style="color:green" ><i>Total:</i> <big style="color:green" >' . $currency . $total . '</big></strong> <a   class="a-btnjanan"  href="view_cart.php"> <span class="a-btn-text">Check Out</span></a></span>';
-                                    echo '&nbsp;&nbsp;<a   class="a-btnjanan"  href="cart_update.php?emptycart=1&return_url=' . $current_url . '"><span class="a-btn-text">Clear Cart</span></a>';
-                                } else {
-                                    echo ' <h4>(Your Shopping Cart Is Empty!!!)</h4>';
-                                }
-                                ?>
-
-                            </dd>
-                        </dl>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <!-- End Shell -->
-            </div>
+            
+            <?php include_once 'includes/header.php'; ?>
             <!-- End Header -->
             <!-- Begin Navigation -->
-            <div id="navigation">
-                <!-- Begin Shell -->
-                <div class="shell">
-                    <ul>
-                        <li class="active"><a href="home.php" title="Home">Home</a></li>
 
-                        <li><a href="profile.php" title="Profile">Profile</a></li>
-                        <li>
-                            <a href="products.php">Category</a>
-                            <div class="dd">
-                                <ul>
-                                    <li>
-                                        <a href="warehouse_1.php"> Tony fashions</a>
-                                        <div class="dd">
-                                            <ul>
-                                                <li><a href="warehouse_1.php">Fruits</a></li>
-                                                <li><a href="warehouse_1.php">Biscuits</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
 
-                                    <li>
-                                        <a href="warehouse_2.php"> jk fashions</a>
-                                        <div class="dd">
-                                            <ul>
-                                                <li><a href="warehouse_2.php">Bavaria</a></li>
-                                                <li><a href="warehouse_2.php">Reddbull</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <a href="warehouse_3.php"> Essy fashions</a>
-                                        <div class="dd">
-                                            <ul>
-                                                <li><a href="warehouse_3.php">Fairy</a></li>
-                                                <li><a href="warehouse_3.php">Harpic</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <a href="warehouse_4.php"> Loisricher designs</a>
-                                        <div class="dd">
-                                            <ul>
-                                                <li><a href="warehouse_4.php">Suit</a></li>
-                                                <li><a href="warehouse_4.php">T.shirts</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="products.php"> Products</a></li>
-                        <li>
-                            <a href="products.php">Boutique</a>
-                            <div class="dd">
-                                <ul>
-                                    <li>
-                                        <a href="warehouse_1.php">Tony fashions</a>
-
-                                    </li>
-
-                                    <li>
-                                        <a href="warehouse_2.php">jk fashions</a>
-
-                                    </li>
-
-                                    <li>
-                                        <a href="warehouse_3.php">Essy Fashions</a>
-
-                                    </li>
-
-                                    <li>
-                                        <a href="warehouse_4.php">Loisricher designs</a>
-
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="about.php">About Us</a></li>
-
-                    </ul>
-                    <div class="cl">&nbsp;</div>
-                </div>
-                <!-- End Shell -->
-            </div>
+            <?php include_once 'includes/navigation.php'; ?>
+            
             <!-- End Navigation -->
             <!-- Begin Slider -->
             <div id="slider">
@@ -386,37 +251,37 @@ include("usersession.php");
 
                 <div id="products">
                     <h2>Featured Products</h2> 
-                    
+
 
                     <div class="section group">
 
-<?php
+                        <?php
 //current URL of the Page. cart_update.php redirects back to this URL
-$current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+                        $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
-$results = $mysqli->query("SELECT * FROM product ORDER BY Product_ID ASC");
-if ($results) {
+                        $results = $mysqli->query("SELECT * FROM product ORDER BY Product_ID ASC");
+                        if ($results) {
 
-    //fetch results set as object and output HTML
-    while ($obj = $results->fetch_object()) {
-        echo '<div class="grid_1_of_4 images_1_of_4">';
-        echo '<form method="post" action="cart_update.php">';
-        echo '<div class="product-thumb"><img src="images/' . $obj->Picture . '"></div>';
-        echo '<div class="product-content"><h2><b>' . $obj->productName . '</b> </h2>';
-        echo '<div class="product-desc">' . $obj->Description . '</div>';
-        echo '<div class="product-info">';
-        echo '<p><span class="price"> Price:<big style="color:green">' . $currency . $obj->Price . '</big></span></p>';
-        echo 'Qty <input type="text" name="product_qty" value="1" size="3" />';
-        echo '<div class="button"><span><img src="images/cart.jpg" alt="" /><button class="cart-button"  class="add_to_cart">Add to Cart</button></span> </div>';
-        echo '</div></div>';
-        echo '<input type="hidden" name="Product_ID" value="' . $obj->Product_ID . '" />';
-        echo '<input type="hidden" name="type" value="add" />';
-        echo '<input type="hidden" name="return_url" value="' . $current_url . '" />';
-        echo '</form>';
-        echo '</div>';
-    }
-}
-?>
+                            //fetch results set as object and output HTML
+                            while ($obj = $results->fetch_object()) {
+                                echo '<div class="grid_1_of_4 images_1_of_4">';
+                                echo '<form method="post" action="cart_update.php">';
+                                echo '<div class="product-thumb"><img src="images/' . $obj->Picture . '"></div>';
+                                echo '<div class="product-content"><h2><b>' . $obj->productName . '</b> </h2>';
+                                echo '<div class="product-desc">' . $obj->Description . '</div>';
+                                echo '<div class="product-info">';
+                                echo '<p><span class="price"> Price:<big style="color:green">' . $currency . $obj->Price . '</big></span></p>';
+                                echo 'Qty <input type="text" name="product_qty" value="1" size="3" />';
+                                echo '<div class="button"><span><img src="images/cart.jpg" alt="" /><button class="cart-button"  class="add_to_cart">Add to Cart</button></span> </div>';
+                                echo '</div></div>';
+                                echo '<input type="hidden" name="Product_ID" value="' . $obj->Product_ID . '" />';
+                                echo '<input type="hidden" name="type" value="add" />';
+                                echo '<input type="hidden" name="return_url" value="' . $current_url . '" />';
+                                echo '</form>';
+                                echo '</div>';
+                            }
+                        }
+                        ?>
                     </div>
                     <div class="cl">&nbsp;</div>
                 </div>
@@ -428,10 +293,10 @@ if ($results) {
                     <h2>Best Products</h2>
                     <ul>
 
-<?php
-$result = mysqli_query($mysqli, "select * from product") or die(mysqli_error());
-while ($row = mysqli_fetch_array($result)) {
-    ?>
+                        <?php
+                        $result = mysqli_query($mysqli, "select * from product") or die(mysqli_error());
+                        while ($row = mysqli_fetch_array($result)) {
+                            ?>
                             <li>
                                 <a href="products.php" title="Product Link"><img src="images/<?php echo $row['Picture'] ?>" alt="IMAGES" /></a>
                                 <div class="info">
@@ -442,7 +307,7 @@ while ($row = mysqli_fetch_array($result)) {
 
                                 </div>
                             </li>
-<?php } ?>
+                        <?php } ?>
                     </ul>
                     <div class="cl">&nbsp;</div>
                 </div>
@@ -469,7 +334,7 @@ while ($row = mysqli_fetch_array($result)) {
                             <ul>
                                 <li><a href="#" title="Facebook"><img src="images/social-icon1.png" alt="Facebook" /><span>Facebook</span><span class="cl">&nbsp;</span></a></li>
                                 <li><a href="#" title="Twitter"><img src="images/social-icon2.png" alt="Twitter" /><span>Twitter</span><span class="cl">&nbsp;</span></a></li>							
-                                
+
                             </ul>
                             <div class="cl">&nbsp;</div>
                         </div>
@@ -486,10 +351,10 @@ while ($row = mysqli_fetch_array($result)) {
                         <div class="box last-box">
                             <h2>Categories</h2>
                             <ul>
-                               <li><a href="#" title="Dresses">Dresses</a></li>
-                            <li><a href="#" title="skirts">skirts</a></li>
-                            <li><a href="#" title="Fizzi Jeans">Jeans</a></li>
-                            <li><a href="#" title="Jumpsuits">Jumpsuits</a></li>
+                                <li><a href="#" title="Dresses">Dresses</a></li>
+                                <li><a href="#" title="skirts">skirts</a></li>
+                                <li><a href="#" title="Fizzi Jeans">Jeans</a></li>
+                                <li><a href="#" title="Jumpsuits">Jumpsuits</a></li>
                             </ul>
                         </div>
                         <div class="cl">&nbsp;</div>
