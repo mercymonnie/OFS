@@ -63,6 +63,7 @@ include("../config.php");
         <div id="container">
 
 
+            <?php include_once 'includes/header.php';?>
             <div id="content-wrap">	
 
                 <?php

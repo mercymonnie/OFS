@@ -50,6 +50,11 @@ class PDF extends FPDF {
 
         $this->SetFont('Arial', '', 12);
         foreach ($data as $eachResult) { //width
+            $emp_id = $_SESSION['user_id'];
+            $order_id = $eachResult["order_ID"];
+            include('../config.php');
+            $qqqry = mysqli_query($mysqli, "SELECT * FROM invoice_items i, product p, category c, sub_category s, boutique b "
+                    . " WHERE i.item = p.Product_ID AND i.order_ID = '" . $order_id . "' AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND p.Employee_ID = '" . $emp_id . "' GROUP BY date");
             $this->Cell(15, 6, $eachResult["order_ID"], 1);
             $this->Cell(40, 6, $eachResult["Full_Name"], 1);
             $this->Cell(20, 6, $eachResult["Address"], 1);
@@ -57,7 +62,14 @@ class PDF extends FPDF {
             $this->Cell(20, 6, $eachResult["City"], 1);
             $this->Cell(38, 6, $eachResult["Phone"], 1);
             $this->Cell(30, 6, $eachResult["Dilivery_Address"], 1);
-            $this->Cell(20, 6, number_format($eachResult["Total_Amount"]), 1);
+
+            if ($qqqry) {
+                if ($obj = $qqqry->fetch_object()) {
+                    $amount = $obj->price;
+                    $this->Cell(20, 6, number_format($amount), 1);
+                }
+            }
+
             $this->Ln();
         }
     }
@@ -83,16 +95,18 @@ class PDF extends FPDF {
         $cost = 0;
         $tqty = 0;
         foreach ($data as $eachResult) { //width
-            $count ++;
-            $this->Cell(10, 6, $count, 1);
-            $this->Cell(10, 6, $eachResult["order_ID"], 1);
-            $this->Cell(25, 6, $eachResult["date"], 1);
-            $this->Cell(25, 6, $eachResult["time"], 1);
             include('../config.php');
+            $emp_id = $_SESSION['user_id'];
             $qqqry = mysqli_query($mysqli, "SELECT * FROM invoice_items i, product p, category c, sub_category s, boutique b "
-                    . " WHERE i.item = p.Product_ID AND p.Product_ID = '".$eachResult["item"]."' AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID GROUP BY date");
+                    . " WHERE i.item = p.Product_ID AND p.Product_ID = '" . $eachResult["item"] . "' AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND p.Employee_ID = '" . $emp_id . "' GROUP BY date");
             if ($qqqry) {
                 if ($obj = $qqqry->fetch_object()) {
+                    $count ++;
+                    $this->Cell(10, 6, $count, 1);
+                    $this->Cell(10, 6, $eachResult["order_ID"], 1);
+                    $this->Cell(25, 6, $eachResult["date"], 1);
+                    $this->Cell(25, 6, $eachResult["time"], 1);
+
                     $pname = $obj->productName;
                     //$scategory = $obj->sub_name;
                     //$category = $obj->Category_Name;
@@ -101,17 +115,18 @@ class PDF extends FPDF {
                     $bname = $obj->Warehouse;
                     $this->Cell(30, 6, $pname, 1);
                     $this->Cell(30, 6, $bname, 1);
-                    $cost += ($eachResult["qty"] * $cp) ;
+                    $cost += ($eachResult["qty"] * $cp);
+
+
+
+                    $this->Cell(10, 6, $eachResult["qty"], 1);
+                    $this->Cell(25, 6, number_format($eachResult["unit_price"]), 1);
+                    $this->Cell(25, 6, number_format($eachResult["price"]), 1);
+                    $total += $eachResult["price"];
+                    $tqty += $eachResult["qty"];
+                    $this->Ln();
                 }
             }
-
-
-            $this->Cell(10, 6, $eachResult["qty"], 1);
-            $this->Cell(25, 6, number_format($eachResult["unit_price"]), 1);
-            $this->Cell(25, 6, number_format($eachResult["price"]), 1);
-            $total += $eachResult["price"];
-            $tqty += $eachResult["qty"];
-            $this->Ln();
         }
 
         $this->Ln();
@@ -142,12 +157,14 @@ $header2 = array('#', 'Order', 'Date', 'Time', 'item', "Boutique", 'qty', 'unit_
 
 
 $currMonth = date('m');
-$strSQL = "Select* From  payment";
+$emp_id = $_SESSION['user_id'];
+$strSQL = "SELECT * FROM payment p,invoice_items i,product pd WHERE p.order_ID = i.order_ID AND i.item = pd.Product_ID AND pd.Employee_ID = '" . $emp_id . "' GROUP BY i.order_ID";
 $objQuery = mysqli_query($mysqli, $strSQL);
 
 $resultData = array();
 
-$strSQL2 = "Select* From  invoice_items";
+$strSQL2 = "SELECT * FROM invoice_items i, product p, category c, sub_category s, boutique b "
+        . " WHERE i.item = p.Product_ID AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND p.Employee_ID = '" . $emp_id . "'";
 $objQuery2 = mysqli_query($mysqli, $strSQL2);
 $resultData2 = array();
 for ($i = 0; $i < mysqli_num_rows($objQuery); $i++) {
@@ -192,12 +209,12 @@ $pdf->Ln(-1);
 
 //display numbers of reports
 $emp_id = $_SESSION['user_id'];
-$result = mysqli_query($mysqli, "SELECT * FROM payment p,invoice_items i,product pd WHERE p.order_ID = i.order_ID AND i.item = pd.Product_ID AND pd.Employee_ID = '".$emp_id."' GROUP BY i.order_ID ") or die("Database query failed: $query" . mysql_error());
+$result = mysqli_query($mysqli, "SELECT * FROM payment p,invoice_items i,product pd WHERE p.order_ID = i.order_ID AND i.item = pd.Product_ID AND pd.Employee_ID = '" . $emp_id . "' GROUP BY i.order_ID ") or die("Database query failed: $query" . mysql_error());
 
 $count = mysqli_num_rows($result);
 
 $result2 = mysqli_query($mysqli, "SELECT * FROM invoice_items i, product p, category c, sub_category s, boutique b "
-                                        . " WHERE i.item = p.Product_ID AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND p.Employee_ID = '".$emp_id."'") or die("Database query failed: " . mysql_error());
+        . " WHERE i.item = p.Product_ID AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND p.Employee_ID = '" . $emp_id . "'") or die("Database query failed: " . mysql_error());
 $count2 = mysqli_num_rows($result2);
 
 $pdf->Cell(0);

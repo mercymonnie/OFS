@@ -129,22 +129,7 @@ include("../session.php");
         <div id="container">
 
 
-            <div id="header">
-
-
-                <div id="logo-banner">
-
-                    <h1 align="center"><strong><font color="red"> Your</font><br/>  Closest<font color="green"> Online store</font></strong> </h1>
-                    <div id="logo">
-                        <a href="index.php"><img src="images/lg.png" alt="" /></a>
-                    </div>
-
-                    <div id="banner">
-
-                    </div>
-
-                </div>
-            </div> <!--DHAMAADKA hedaerka-->
+            <?php include_once 'includes/header.php';?> <!--DHAMAADKA hedaerka-->
 
 
             <div id="content-wrap">	
