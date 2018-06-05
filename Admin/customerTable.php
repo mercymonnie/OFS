@@ -59,17 +59,7 @@ include("../session.php");
         <div id="container">
 
 
-            <div id="header">
-
-
-                <div id="logo-banner">
-
-                    <div id="banner">
-
-                    </div>
-
-                </div>
-            </div> <!--DHAMAADKA hedaerka-->
+            <?php include_once 'includes/header.php';?> <!--DHAMAADKA hedaerka-->
 
 
             <div id="content-wrap">		

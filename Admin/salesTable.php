@@ -60,17 +60,7 @@ error_reporting(0);
         <div id="container">
 
 
-            <div id="header">
-
-
-                <div id="logo-banner">
-
-                    <div id="banner">
-
-                    </div>
-
-                </div>
-            </div> <!--DHAMAADKA hedaerka-->
+            <?php include_once 'includes/header.php';?> <!--DHAMAADKA hedaerka-->
 
 
             <div id="content-wrap">		
@@ -90,7 +80,7 @@ error_reporting(0);
                     <?php
                     include("../config.php");
                     $emp_id = $_SESSION['user_id'];
-                    $result = mysqli_query($mysqli, "SELECT * FROM payment p,invoice_items i,product pd WHERE p.order_ID = i.order_ID AND i.item = pd.Product_ID AND pd.Employee_ID = '".$emp_id."' GROUP BY i.order_ID ");
+                    $result = mysqli_query($mysqli, "SELECT * FROM payment p,invoice_items i,product pd WHERE p.order_ID = i.order_ID AND i.item = pd.Product_ID AND pd.Employee_ID = '" . $emp_id . "' GROUP BY i.order_ID ");
                     ?>
                     <div id="tab2" class="tab_content">
 
@@ -117,6 +107,11 @@ error_reporting(0);
                                 $total_amount = 0;
                                 while ($row = mysqli_fetch_array($result)) {
                                     $no ++;
+
+                                    $emp_id = $_SESSION['user_id'];
+                                    $order_id = $row['order_ID'];
+                                    $qqqry = mysqli_query($mysqli, "SELECT * FROM invoice_items i, product p, category c, sub_category s, boutique b "
+                                            . " WHERE i.item = p.Product_ID AND i.order_ID = '" . $order_id . "' AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND p.Employee_ID = '" . $emp_id . "' GROUP BY date");
                                     ?>
 
                                     <tr>
@@ -130,13 +125,20 @@ error_reporting(0);
                                         <td><?php echo $row['Address']; ?></td>
                                         <td><?php echo $row['Dilivery_Address']; ?></td>
                                         <td><?php
-                                            echo number_format($row['Total_Amount']);
-                                            $total_amount += $row['Total_Amount'];
+                                            if ($qqqry) {
+                                                if ($obj = $qqqry->fetch_object()) {
+                                                    $amount = $obj->price;
+                                                    echo number_format($obj->price);
+                                                    $total_amount += $obj->price;
+                                                }
+                                            }
                                             ?></td>
 
                                     </tr>
 
-                                <?php }mysqli_close($mysqli); ?>
+                                    <?php
+                                }mysqli_close($mysqli);
+                                ?>
                             </tbody>
                             <tfoot>
                             <th> <h2>  <strong>Total Sales:</strong>  <?php echo number_format($total_amount); ?> </h2> </th>
@@ -164,8 +166,9 @@ error_reporting(0);
                                 <?php
                                 include("../config.php");
                                 $emp_id = $_SESSION['user_id'];
+
                                 $result1 = mysqli_query($mysqli, "SELECT * FROM invoice_items i, product p, category c, sub_category s, boutique b "
-                                        . " WHERE i.item = p.Product_ID AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND p.Employee_ID = '".$emp_id."' GROUP BY date");
+                                        . " WHERE i.item = p.Product_ID AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND p.Employee_ID = '" . $emp_id . "' GROUP BY date");
                                 $no = 0;
                                 $qty_sold = 0;
                                 $cost_p = 0;
@@ -174,23 +177,23 @@ error_reporting(0);
                                 while ($row1 = mysqli_fetch_array($result1)) {
                                     $date = $row1['date'];
                                     $result22 = mysqli_query($mysqli, "SELECT * FROM invoice_items i, product p, category c, sub_category s, boutique b "
-                                            . " WHERE i.item = p.Product_ID AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND date = '" . $date . "' ");
+                                            . " WHERE i.item = p.Product_ID AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND date = '" . $date . "' AND p.Employee_ID = '" . $emp_id . "' ");
                                     $count = mysqli_num_rows($result22);
                                     ?>
                                     <tr><td rowspan="<?php echo $count + 1; ?>"><input type="checkbox"> <?php echo $date; ?></td></tr>
                                     <?php
                                     $result = mysqli_query($mysqli, "SELECT * FROM invoice_items i, product p, category c, sub_category s, boutique b "
-                                            . " WHERE i.item = p.Product_ID AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND date = '" . $date . "' ");
+                                            . " WHERE i.item = p.Product_ID AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND date = '" . $date . "' AND p.Employee_ID = '" . $emp_id . "' ");
                                     $no = 0;
-                                   // $total_amount = 0;
+                                    // $total_amount = 0;
                                     while ($row = mysqli_fetch_array($result)) {
                                         $no ++;
                                         $qty_sold += $row['qty'];
                                         $costp = $row['cost_price'];
                                         $bl = $row['balance'];
-         
+
                                         $bal += $bl;
-                                        $cost_p += $costp*$row['qty'];
+                                        $cost_p += $costp * $row['qty'];
                                         ?>
 
 
@@ -208,15 +211,15 @@ error_reporting(0);
 
                                         </tr>
 
-                                    <?php
+                                        <?php
                                     }mysqli_close($mysqli);
                                 };
                                 ?>
                             </tbody>
                             <tfoot>
-                            <th> <h4><strong>Qty Sold:</strong>  <?php echo "        ".$qty_sold; ?></h4> 
-                                <h4><strong>Cost Price:</strong>  <?php echo  "        ".number_format($cost_p); ?></h4> 
-                                <h2><strong>Profit:</strong>  <?php echo "        ". number_format($total_amount - $cost_p); ?> </h2> <br/></th>
+                            <th> <h4><strong>Qty Sold:</strong>  <?php echo "        " . $qty_sold; ?></h4> 
+                                <h4><strong>Cost Price:</strong>  <?php echo "        " . number_format($cost_p); ?></h4> 
+                                <h2><strong>Profit:</strong>  <?php echo "        " . number_format($total_amount - $cost_p); ?> </h2> <br/></th>
                             </tfoot>
                         </table>
                     </div><!-- end of #tab2 -->

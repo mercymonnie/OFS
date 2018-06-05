@@ -59,18 +59,7 @@ include("../session.php");
         <div id="container">
 
 
-            <div id="header">
-
-
-                <div id="logo-banner">
-
-
-                    <div id="banner">
-
-                    </div>
-
-                </div>
-            </div> <!--DHAMAADKA hedaerka-->
+            <?php include_once 'includes/header.php';?><!--DHAMAADKA hedaerka-->
 
 
             <div id="content-wrap">		
@@ -97,7 +86,8 @@ include("../session.php");
 
 
                     <?php
-                    $result = mysqli_query($mysqli, "SELECT * FROM payment");
+                    $emp_id   = $_SESSION['user_id'];
+                    $result = mysqli_query($mysqli, "SELECT * FROM payment p,invoice_items i,product pd WHERE p.order_ID = i.order_ID AND i.item = pd.Product_ID AND pd.Employee_ID = '".$emp_id."' GROUP BY i.order_ID ");
                     ?>
                     <div id="tab2" class="tab_content">
 
@@ -121,6 +111,11 @@ include("../session.php");
                             </thead>
                             <tbody>
                                 <?php while ($row = mysqli_fetch_array($result)) {
+                                    $emp_id = $_SESSION['user_id'];
+                                    $order_id = $row['order_ID'];
+                                    $qqqry = mysqli_query($mysqli, "SELECT * FROM invoice_items i, product p, category c, sub_category s, boutique b "
+                                            . " WHERE i.item = p.Product_ID AND i.order_ID = '" . $order_id . "' AND p.Category_ID = s.sub_category_id AND s.Category_ID = c.Category_ID AND p.Warehouse_ID = b.Warehouse_ID AND p.Employee_ID = '" . $emp_id . "' GROUP BY date");
+                                    
                                     ?>
 
                                     <tr>
@@ -135,7 +130,16 @@ include("../session.php");
                                        
                                         <td><?php echo $row['Dilivery_Address']; ?></td>
                                    
-                                        <td><?php echo $row['Total_Amount']; ?></td>
+                                        <td><?php 
+                                        if ($qqqry) {
+                                                if ($obj = $qqqry->fetch_object()) {
+                                                    $amount = $obj->price;
+                                                    echo number_format($obj->price);
+                                                    //$total_amount += $obj->price;
+                                                }
+                                            }
+                                            ?>
+                                        </td>
                                         <td> <a href="PaymentDelete.php?delete=<?php echo $row['order_ID']; ?>" onClick="del(this);" title="Delete" ><input type="image" src="images/icn_trash.png" title="Trash">  </a></td>
                                     </tr
 

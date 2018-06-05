@@ -1,8 +1,14 @@
-<?php
+<div id="header">
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
+    <div id="logo-banner">
+
+        <div id="bannerww" align="center">
+
+            <li>
+                <h1><p>  <font color="grey">ONLINE FASHION SHOPPING - (Dashboard) </font> <span> </span></p> </h1>
+            </li>
+        </div>
+
+    </div>
+</div>

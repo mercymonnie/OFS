@@ -3,9 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/XAMPP/htdocs/OFS/OFS%20checkout/process.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/Admin/includes/othe_side_menu.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/Admin/empRegistration.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/Admin/ProductReport.php</file>
             <file>file:/Applications/XAMPP/htdocs/OFS/Admin/OrderReports.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/cart_update.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/view_cart.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/includes/header.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/Admin/add_product.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/OFS%20checkout/process.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/OFS%20checkout/InsertPayment.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/Admin/prodUpdate.php</file>
             <file>file:/Applications/XAMPP/htdocs/OFS/Admin/salesTable.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/Admin/Employee.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/Admin/includes/side_menu.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/index.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/Admin/includes/side_menu_admin.php</file>
+            <file>file:/Applications/XAMPP/htdocs/OFS/Admin/add_warehouse.php</file>
         </group>
     </open-files>
 </project-private>

@@ -129,6 +129,7 @@ include("../session.php");
         <div id="container">
 
 
+<<<<<<< HEAD
             <div id="header">
 
 
@@ -145,6 +146,9 @@ include("../session.php");
 
                 </div>
             </div> <!--DHAMAADKA hedaerka-->
+=======
+            <?php include_once 'includes/header.php';?> <!--DHAMAADKA hedaerka-->
+>>>>>>> 4b5572fdde2e06b243f183020fb66d3fbc7866c5
 
 
             <div id="content-wrap">	
