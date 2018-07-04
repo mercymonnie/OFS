@@ -125,6 +125,7 @@ include("../config.php");
                                 <th colspan="3"><h2>ADD PRODUCT:</h2> </th> 
 
 
+<<<<<<< HEAD
                                 <tr>
                                     <td>  
 
@@ -134,6 +135,12 @@ include("../config.php");
                                     </td>
                                     <td>   
                                         <label>Sub-Category:</label>
+=======
+                                        <tr>
+                                            
+                                            <td>   
+                                                <label>Sub-Category:</label>
+>>>>>>> 6fef205896c0786bdaf560fef4ee774a1cb8d744
 
                                         <select name="category" class="ed">
                                             <?php
