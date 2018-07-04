@@ -6,7 +6,7 @@ include("config.php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
     <head>
-        <title> OFS | Welcome </title>
+        <title> OCS | Welcome </title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <link rel="shortcut icon" href="images/favicon.png" />
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -171,14 +171,7 @@ include("config.php");
                         <li class="widget">
                             <h2>TOP Botique</h2>
                             <div class="brands">
-                                <ul>
-                                    <li><a href="#" title="Brand 1"><img src="images/33.png" width="103" height="51" alt="Brand 1" /></a></li>
-                                    <li><a href="#" title="Brand 1"><img src="images/44.png" width="103" height="51" alt="Brand 1" /></a></li>
-                                    <li><a href="#" title="Brand 1"><img src="images/55.png" width="103" height="51" alt="Brand 1" /></a></li>
-                                    <li><a href="#" title="Brand 1"><img src="images/66.png" width="103" height="51" alt="Brand 1" /></a></li>
-
-
-                                </ul>
+                                
                                 <div class="cl">&nbsp;</div>
                             </div>
                             <a href="products.php" class="more" title="More Brands">All Products</a>
@@ -237,7 +230,7 @@ include("config.php");
             <!-- End Footer -->
 
             <div class="shout_box">
-                <div class="header"> live Discussion of OFS <div class="close_btn">&nbsp;</div></div>
+                <div class="header"> live Discussion of OCS <div class="close_btn">&nbsp;</div></div>
                 <div class="toggle_chat">
                     <div class="message_box">
                     </div>

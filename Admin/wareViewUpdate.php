@@ -8,7 +8,7 @@ include("../config.php");
 
     <head>
         <meta charset="utf-8"/>
-        <title>OFS|Admin|Boutique </title>
+        <title OCS|Admin|Boutique </title>
 
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
         <!--[if lt IE 9]>

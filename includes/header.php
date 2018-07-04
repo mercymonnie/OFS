@@ -9,7 +9,7 @@
             </ul>
 
             <li>
-                <h1><p> <a href="Sign In.php"><img src="images/logo.png" alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <font color="grey">ONLINE FASHION SHOPPING </font> <span> </span></p> </h1>
+                <h1><p> <a href="Sign In.php"><img src="images/logo.png" alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <font color="grey">ONLINE CLOTH SHOPPING </font> <span> </span></p> </h1>
             </li>
         </div>
         <div id="left"></div>

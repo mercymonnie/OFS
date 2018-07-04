@@ -7,7 +7,7 @@ include("config.php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 <head>
-	<title> OFS Groups </title>
+	<title> OCS Groups </title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="images/favicon.png" />
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -123,7 +123,7 @@ $(document).ready(function() {
               <div class="support_desc">
   				<h2>Live Support</h2>
   				<p><span>24 hours | 7 days a week | 365 days a year &nbsp;&nbsp; Welcome To Live Technical Support</span></p>
-  				<p> Admin On behalf on <b>OFS</b> company we have welcome you 24/7 live support 
+  				<p> Admin On behalf on <b>OCS</b> company we have welcome you 24/7 live support 
 				  you can ask what ever you think about our Company.</p>
   			</div>
 
@@ -215,7 +215,7 @@ $(document).ready(function(){
 		<!-- End Main -->
 					
 							 <div class="shout_box">
-     <div class="header"> live Discussion of OFS <div class="close_btn">&nbsp;</div></div>
+     <div class="header"> live Discussion of OCS <div class="close_btn">&nbsp;</div></div>
      <div class="toggle_chat">
      <div class="message_box">
      </div>

@@ -6,7 +6,7 @@ include("config.php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
     <head>
-        <title>OFS | Boutique  </title>
+        <title>OCS | Boutique  </title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <link rel="shortcut icon" href="images/favicon.png" />
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -183,7 +183,7 @@ include("config.php");
                 <!-- Begin Shell -->
                 <div class="shell">
                     <div class="box post-box">
-                        <h2>About OFS</h2>
+                        <h2>About OCS</h2>
                         <div class="box-entry">
                             <img src="images/logo_1.png" alt="IShop Logo" width="160" height="80"/>
                             <div class="cl">&nbsp;</div>
@@ -230,9 +230,9 @@ include("config.php");
                             <li><a href="#" title="VISA"><img src="images/cart-img2.jpg" alt="VISA" /></a></li>
                             <li><a href="#" title="MasterCard"><img src="images/cart-img3.jpg" alt="MasterCard" /></a></li>
                         </ul>
-                    </div>	<p>&copy; OFS. Groups <a href="index.php"><i><font color="fefefe"> Welcome To OFS Online Shopping Site </font></i></a></p>
+                    </div>	<p>&copy; OCS. Groups <a href="index.php"><i><font color="fefefe"> Welcome To OCS Online Shopping Site </font></i></a></p>
                     <div class="cl">&nbsp;</div>
-                    Copyright © 2018 OFS All rights reserved. The information contained in OFS may not be published, broadcast, rewritten, or redistributed without the prior written authority of SomStore.com
+                    Copyright © 2018 OCS All rights reserved. The information contained in OFS may not be published, broadcast, rewritten, or redistributed without the prior written authority of SomStore.com
                 </div>
                 <!-- End Shell -->
             </div>

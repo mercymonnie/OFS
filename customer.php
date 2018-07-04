@@ -6,7 +6,7 @@ include("config.php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
     <head>
-        <title> OFS Groups </title>
+        <title> OCS Groups </title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <link rel="shortcut icon" href="images/favicon.png" />
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -315,7 +315,7 @@ include("config.php");
                             <h2>About OFS</h2>
                             <div class="box-entry">
                                 <img src="images/logo.png" alt="OFS" width="160" height="80"/>
-                                <p>You can be confident when you're shopping online with OFS. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
+                                <p>You can be confident when you're shopping online with OCS. Our Secure online shopping website encrypts your personal and financial information to ensure your order information is protected.We use industry standard 128-bit encryption. Our Secure online shopping website locks all critical information passed from you to us,
                                     such as personal information, in an encrypted envelope, making it extremely difficult for this information to be intercepted. </p>
                                 <div class="cl">&nbsp;</div>
                             </div>
@@ -362,7 +362,7 @@ include("config.php");
                                 <li><a href="#" title="OFS"><img src="images/suncart.png" alt="OFS" /></a></li>
 
                             </ul>
-                        </div>	<p>&copy; OFS. Groups <a href="index.php"><i><font color="fefefe"> Welcome To OFS Online Shopping Site </font></i></a></p>
+                        </div>	<p>&copy; OCS. Groups <a href="index.php"><i><font color="fefefe"> Welcome To OCS Online Shopping Site </font></i></a></p>
                         <div class="cl">&nbsp;</div>
                     </div>
                     <!-- End Shell -->
@@ -371,7 +371,7 @@ include("config.php");
             <!-- End Footer -->
 
             <div class="shout_box">
-                <div class="header"> live Discussion of OFS <div class="close_btn">&nbsp;</div></div>
+                <div class="header"> live Discussion of OCS <div class="close_btn">&nbsp;</div></div>
                 <div class="toggle_chat">
                     <div class="message_box">
                     </div>

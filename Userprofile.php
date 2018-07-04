@@ -8,7 +8,7 @@ include("session.php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 <head>
-	<title> OFS Groups </title>
+	<title> OCS Groups </title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 		<link rel="shortcut icon" href="images/favicon.png" />
@@ -120,7 +120,7 @@ $result = mysqli_query($mysqli,"SELECT * FROM warehouse");
       <div id="tab1" class="tab_content">
   <table class="tablesorter" cellspacing="0"> 
 
-		<thead>  <th Colspan="9">  SomStore Warehouse Data Table </th></thead>
+		<thead>  <th Colspan="9">  OCS Warehouse Data Table </th></thead>
 		<thead>
 		<thead>
 			</tr>

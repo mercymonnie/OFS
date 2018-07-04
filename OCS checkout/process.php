@@ -7,7 +7,7 @@ include("../config.php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
     <head>
-        <title> OFS | Charts </title>
+        <title> OCS | Charts </title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <link rel="shortcut icon" href="images/favicon.png" />
         <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
@@ -66,7 +66,7 @@ include("../config.php");
             <div id="header">
                 <!-- Begin Shell -->
                 <div class="shell">
-                    <h1 id="logo"><a class="notext" href="#" title="Somstore">OFS</a></h1>
+                    <h1 id="logo"><a class="notext" href="#" title="Somstore">OCS</a></h1>
                     <div id="top-nav">
                         <ul>
 
@@ -74,7 +74,7 @@ include("../config.php");
                             <li><a href="../Sign In.php" title="Sign In"><span>Sign In</span></a></li>
                         </ul>
                         <header>
-                            <h1><p> <a href="Sign In.php"><img src="images/logo.png" alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>ONLINE FASHION SHOPPING<span> </span></p> </h1>
+                            <h1><p> <a href="Sign In.php"><img src="images/logo.png" alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>ONLINE CLOTH SHOPPING<span> </span></p> </h1>
                         </header>
                     </div>
                     <div class="cl">&nbsp;</div>
@@ -136,91 +136,7 @@ include("../config.php");
                                                     }
                                                     ?>
 
-                                                </legend>
-                                                <p>
-                                                    <label for="username">Full Name</label>
-                                                    <input id="fullname" name="fullname" />
-                                                </p>
-                                                <p>
-                                                    <label for="email">Email</label>
-                                                    <input id="email" name="email" placeholder="mercymonnie123@gmail.com" type="email" AUTOCOMPLETE=OFF />
-                                                </p>
-                                                <p>
-                                                    <label for="country">Password</label>
-                                                    <input id="pcode" name="pcode" type="password" AUTOCOMPLETE=OFF />
-                                                    <input type="hidden" name="total" value="<?php echo $tot; ?>"/>
-                                                </p>
-
-                                            </fieldset>
-                                            <fieldset class="step">
-
-                                                <legend>Personal Details
-
-                                                    <?php
-//current URL of the Page. cart_update.php redirects back to this URL
-                                                    $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-
-                                                    if (isset($_SESSION["cart_session"])) {
-                                                        $total = 0;
-                                                        echo '<ol>';
-                                                        foreach ($_SESSION["cart_session"] as $cart_itm) {
-
-                                                            $subtotal = ($cart_itm["Qiimaha"] * $cart_itm["TiradaProductTiga"]);
-                                                            $total = ($total + $subtotal) . "</br>";
-                                                        }
-                                                        echo '</ol>';
-                                                        echo '<h4 Align="right">Total: <big style="color:green">' . $currency . number_format($total) . '</big></h4>';
-                                                    } else {
-                                                        
-                                                    }
-                                                    ?>
-
-                                                </legend>
-                                                <p>
-                                                    <label for="phone"> Address:</label>
-                                                    <input id="address" name="address" placeholder="e.g. Mbarara" type="text" AUTOCOMPLETE=OFF />
-                                                </p>
-                                                <p>
-                                                    <label for="country">Country</label>
-                                                    <select name="country" id="select">                                       
-                                                        <option value="UG" countrynum="256">Uganda</option>
-                                                    </select>    
-
-                                                </p>
-                                                <p>
-                                                    <label for="phone"> City:</label>
-                                                    <input id="city" name="city" placeholder="e.g. Mbarara" type="text" AUTOCOMPLETE=OFF />
-                                                </p>														 
-
-                                                <p> 
-                                                    <label for="Address"> Phone:</label>
-                                                    <input id="phone" name="phone" placeholder="e.g. +252-63-4138440" type="tel" AUTOCOMPLETE=OFF />
-                                                </p>
-
-                                            </fieldset>
-                                            <fieldset class="step">
-                                                <legend>Payment
-
-                                                    <?php
-//current URL of the Page. cart_update.php redirects back to this URL
-                                                    $current_url = base64_encode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-
-                                                    if (isset($_SESSION["cart_session"])) {
-                                                        $total = 0;
-                                                        echo '<ol>';
-                                                        foreach ($_SESSION["cart_session"] as $cart_itm) {
-
-                                                            $subtotal = ($cart_itm["Qiimaha"] * $cart_itm["TiradaProductTiga"]);
-                                                            $total = ($total + $subtotal) . "</br>";
-                                                        }
-                                                        echo '</ol>';
-                                                        echo '<h4 Align="right">Total: <big style="color:green">' . $currency . number_format($total) . '</big></h4>';
-                                                    } else {
-                                                        
-                                                    }
-                                                    ?>
-
-                                                </legend>
+                                               
 
 
 
@@ -336,12 +252,7 @@ include("../config.php");
                                     </div>
                                     <div id="nav" style="display:none;">
                                         <ul>
-                                            <li class="doortay">
-                                                <a href="#">Account</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Personal Details</a>
-                                            </li>
+                                            
                                             <li>
                                                 <a href="#">Payment</a>
                                             </li>
@@ -400,7 +311,7 @@ include("../config.php");
                                             <div class="shell">
                                                 <div class="carts">
 
-                                            </div>	<p align="center">&copy; OFS Groups <a href="index.php"><i><font color="fefefe">   </font></i></a></p>
+                                            </div>	<p align="center">&copy; OCS Groups <a href="index.php"><i><font color="fefefe">   </font></i></a></p>
                                             <div class="cl">&nbsp;</div>
                                         </div>
                                         <!-- End Shell -->

@@ -147,7 +147,7 @@ $pdf = new PDF();
 
 
 
-$header = array('Order ID', 'Full_Name', 'Address', 'Country', 'City', 'Phone', 'Delivery Address', 'Ammount');
+$header = array('Order ID', 'Full_Name', 'Address', 'Country', 'City', 'Phone', 'Delivery Address', 'Amount');
 
 $header2 = array('#', 'Order', 'Date', 'Time', 'item', "Boutique", 'qty', 'unit_price(Ugx)', 'TotalPrice(UGX)');
 

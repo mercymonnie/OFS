@@ -6,7 +6,7 @@ include("config.php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
     <head>
-        <title> OFS | Chart </title>
+        <title> OCS | Chart </title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
         <link rel="stylesheet" href="css/proStyle.css" type="text/css" media="all" />
@@ -81,8 +81,8 @@ include("config.php");
                             echo '<span class="check-out-txt">';
                             echo '</table>';
                             echo '<span> <h4 class="pricewayn"> Grand Total : <big style="color:green">' . $currency . number_format($total) . '</big> </h4></span> ';
-                            echo '<spa class="midigta"><a  class="a-btn" href="OFS checkout/process.php?payment_mode=Mobile Money"><span class="a-btn-text">Proced On Mobile Money</span> </a></span>';
-                            //echo '<span class="midigta"> <a  class="a-btn" href="OFS checkout/process.php?payment_mode=MTN Money Payment Method"> <span class="a-btn-text"> Pay On MTN Mobile money</span></a></span>';
+                            echo '<spa class="midigta"><a  class="a-btn" href="OCS checkout/process.php?payment_mode=Mobile Money"><span class="a-btn-text">Proced On Mobile Money</span> </a></span>';
+                            //echo '<span class="midigta"> <a  class="a-btn" href="OCS checkout/process.php?payment_mode=MTN Money Payment Method"> <span class="a-btn-text"> Pay On MTN Mobile money</span></a></span>';
                             echo '</span>';
                             echo '</form>';
                         } else {

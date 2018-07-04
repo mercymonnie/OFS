@@ -272,7 +272,7 @@ h3{ color: blue; text-decoration: underline;}
     cursor: pointer;
 }
 
-.form-4 label: hover ~ input {
+.form-4 label:hover ~ input {
     border-color: #333;
 }
 
@@ -340,7 +340,7 @@ h3{ color: blue; text-decoration: underline;}
     display:block;
 }
 
-}
+
 
 .a-btn:hover{
     background:#fff;

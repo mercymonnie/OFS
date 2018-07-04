@@ -7,7 +7,7 @@ include("../session.php");
 
     <head>
         <meta charset="utf-8"/>
-        <title> OFS | Admin </title>
+        <title> OCS | Admin </title>
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
@@ -129,26 +129,10 @@ include("../session.php");
         <div id="container">
 
 
-<<<<<<< HEAD
-            <div id="header">
 
 
-                <div id="logo-banner">
+            <?php include_once 'includes/header.php'; ?> <!--DHAMAADKA hedaerka-->
 
-                    <h1 align="center"><strong><font color="red"> </font><br/> ONLINE FASHION SHOPPING</font></strong> </h1>
-                    <div id="logo">
-                        <a href="index.php"><img src="images/lg.png" alt="" /></a>
-                    </div>
-
-                    <div id="banner">
-
-                    </div>
-
-                </div>
-            </div> <!--DHAMAADKA hedaerka-->
-=======
-            <?php include_once 'includes/header.php';?> <!--DHAMAADKA hedaerka-->
->>>>>>> 4b5572fdde2e06b243f183020fb66d3fbc7866c5
 
 
             <div id="content-wrap">	
@@ -166,7 +150,7 @@ include("../session.php");
 
                 <section id="main" class="column">
 
-                    <h4 class="alert_info">Welcome To <strong>"OFS"</strong> <?php echo $_SESSION['role']; ?> Panel As: <?php echo "  " . "<font color='#f90'><big><b>" . $login_session . "</b></big></font>"; ?>  </h4> 
+                    <h4 class="alert_info">Welcome To <strong>"OCS"</strong> <?php echo $_SESSION['role']; ?> Panel As: <?php echo "  " . "<font color='#f90'><big><b>" . $login_session . "</b></big></font>"; ?>  </h4> 
 
                     <article class="module width_full">
                         <header><h3>Stats</h3></header>
@@ -214,7 +198,7 @@ include("../session.php");
                             <th> ID</th>
                             <th> Name</th>			  
                             <th>Email</th>
-                            <th>TellePhone</th>	
+                            <th>TellPhone</th>	
                             <th>Comment</th>				
                             <th>Actions</th>
                             </tr>
@@ -233,7 +217,7 @@ include("../session.php");
                                         <td> <a href="conDelete.php?delete=<?php echo $row['contact_id']; ?>" onClick="del(this);" title="Delete" ><input type="image" src="images/icn_trash.png" title="Trash">  </a></td>
                                     </tr
 
-<?php }mysqli_close($mysqli); ?>
+                                <?php }mysqli_close($mysqli); ?>
                             </tbody>
                         </table>
 
