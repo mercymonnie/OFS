@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 include("../config.php");
 ?>
 
@@ -72,7 +73,7 @@ include("../config.php");
                         </ul>
 
                         <header>
-                            <h1><p> <a href="Sign In.php"><img src="images/logo.png" alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>ONLINE FASHION SHOPPING<span> </span></p> </h1>
+                            <h1><p> <a href="Sign In.php"><img src="images/logo.png" alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>ONLINE CLOTH SHOPPING<span> </span></p> </h1>
                         </header>
                     </div>
                     <div class="cl">&nbsp;</div>
@@ -102,7 +103,7 @@ include("../config.php");
                                         $total = ($total + $subtotal) . "</br>";
                                     }
                                     echo '</ol>';
-                                    echo '<span class="check-out-txt"><strong style="color:green" >Total <big style="color:green" >: ' . $currency . $total . '</big></strong> <a   class="a-btnjanan"  href="view_cart.php"> <span class="a-btn-text">Continue</span></a></span>';
+                                    echo '<span class="check-out-txt"><strong style="color:green" >Total <big style="color:green" >: ' . $currency . number_format($total) . '</big></strong> <a   class="a-btnjanan"  href="view_cart.php"> <span class="a-btn-text">Continue</span></a></span>';
                                     echo ' <span class="empty-cart"><a   class="a-btnjanan"  href="../cart_update.php?emptycart=1&return_url=' . $current_url . '"><span class="a-btn-text">Clear Cart</span></a></span>';
                                 } else {
                                     echo ' <h4>(Your Shopping Cart Is Empty!!!)</h4>';
@@ -126,16 +127,13 @@ include("../config.php");
 
 
 
-
-
-
                 <!-- Begin Content -->
                 <div id="content">
 
                     <br><br>
 
                             <div id="kcontent">
-                                <h1> <?php echo $_GET['payment_mode']; ?> payment </h1>
+                                <h1> <?php echo @$_GET['payment_mode']; ?> </h1>
                                 <div id="wwrapper">
                                     <div id="steps">
 
@@ -157,7 +155,7 @@ include("../config.php");
                                                             $total = ($total + $subtotal) . "</br>";
                                                         }
                                                         echo '</ol>';
-                                                        echo '<h4 Align="right">Total : <big style="color:green">' . $currency . $total . '</big></h4>';
+                                                        echo '<h4 Align="right">Total : <big style="color:green">' . $currency . number_format($total) . '</big></h4>';
                                                     } else {
                                                         
                                                     }
@@ -166,15 +164,15 @@ include("../config.php");
                                                 </legend>
                                                 <p>
                                                     <label for="username">Full Name</label>
-                                                    <input id="fullname" name="fullname" />
+                                                    <input id="fullname" value="<?php echo @$_SESSION['FullName']; ?>" name="fullname" />
                                                 </p>
                                                 <p>
                                                     <label for="email">Email</label>
-                                                    <input id="email" name="email" placeholder="jananalibritish@gmail.com" type="email" AUTOCOMPLETE=OFF />
+                                                    <input id="email" name="email" value="<?php echo @$_SESSION['Email']; ?>" placeholder="opm@gmail.com" type="email" AUTOCOMPLETE=OFF />
                                                 </p>
                                                 <p>
                                                     <label for="country">Postal Code</label>
-                                                    <input id="pcode" name="pcode" type="text" AUTOCOMPLETE=OFF />
+                                                    <input id="pcode" name="pcode" value="<?php echo @$_SESSION['PostalCode']; ?>" type="text" AUTOCOMPLETE=OFF />
                                                 </p>
 
                                             </fieldset>
@@ -195,7 +193,7 @@ include("../config.php");
                                                             $total = ($total + $subtotal) . "</br>";
                                                         }
                                                         echo '</ol>';
-                                                        echo '<h4 Align="right">Total: <big style="color:green">' . $currency . $total . '</big></h4>';
+                                                        echo '<h4 Align="right">Total: <big style="color:green">' . $currency . number_format($total) . '</big></h4>';
                                                     } else {
                                                         
                                                     }
@@ -204,22 +202,17 @@ include("../config.php");
                                                 </legend>
                                                 <p>
                                                     <label for="phone"> Address:</label>
-                                                    <input id="address" name="address" placeholder="e.g. Mbarara" type="text" AUTOCOMPLETE=OFF />
+                                                    <input id="address" name="address" value="<?php echo @$_SESSION['Adress']; ?>" placeholder="e.g. Mbarara" type="text" AUTOCOMPLETE=OFF />
                                                 </p>
                                                 <p>
                                                     <label for="country">Country</label>
-                                                    <select name="country" id="select">
 
-
-                                                        <option value="UG" countrynum="256">Uganda</option>
-
-
-                                                    </select>    
+                                                    <input id="address"  value="<?php echo @$_SESSION['Country']; ?>"  type="text" AUTOCOMPLETE=OFF />
 
                                                 </p>
                                                 <p>
                                                     <label for="phone"> City:</label>
-                                                    <input id="city" name="city" placeholder="e.g. Mbarara" type="text" AUTOCOMPLETE=OFF />
+                                                    <input id="city" name="city" value="<?php echo @$_SESSION['City']; ?>" placeholder="e.g. Mbarara" type="text" AUTOCOMPLETE=OFF />
                                                 </p>														 
 
 
@@ -240,7 +233,7 @@ include("../config.php");
                                                             $total = ($total + $subtotal) . "</br>";
                                                         }
                                                         echo '</ol>';
-                                                        echo '<h4 Align="right">Total: <big style="color:green">' . $currency . $total . '</big></h4>';
+                                                        echo '<h4 Align="right">Total: <big style="color:green">' . $currency . number_format($total) . '</big></h4>';
                                                     } else {
                                                         
                                                     }
@@ -252,12 +245,12 @@ include("../config.php");
 
                                                 <p>
                                                     <label for="phone">Delivery Address</label>
-                                                    <input id="delivery" name="delivery" placeholder="e.g. Mbarara" type=" text" AUTOCOMPLETE=OFF />
+                                                    <input id="delivery" value="<?php echo @$_SESSION['Adress']; ?>" name="delivery" placeholder="e.g. Mbarara" type=" text" AUTOCOMPLETE=OFF />
                                                 </p>
 
                                                 <p>
                                                     <label for="phone"> Currency:</label>
-                                                    <input id="currency" name="currency" placeholder="e.g. ### ### ### ###" type="text" AUTOCOMPLETE=OFF />
+                                                    <input id="currency" name="currency" value="<?php echo $currency; ?>"placeholder="e.g. #" type="text" AUTOCOMPLETE=OFF />
                                                 </p>
                                                 <?php
                                                 //current URL of the Page. cart_update.php redirects back to this URL
@@ -272,7 +265,7 @@ include("../config.php");
                                                         $total = ($total + $subtotal);
                                                     }
 
-                                                    echo ' <p> <label for="Address">Total Amount:</label><input id="paid" class="tAmount" name="Amount"  value=" ' . $currency . $total . '"  type="text" AUTOCOMPLETE=OFF disabled></p>';
+                                                    echo ' <p> <label for="Address">Total Amount:</label><input id="paid" class="tAmount" name="Amount"  value=" ' . number_format($total) . '"  type="text" AUTOCOMPLETE=OFF disabled></p>';
                                                 } else {
                                                     
                                                 }
@@ -294,18 +287,70 @@ include("../config.php");
                                                             $total = ($total + $subtotal) . "</br>";
                                                         }
                                                         echo '</ol>';
-                                                        echo '<h4 Align="right">Your Total Amount: <big style="color:green">' . $currency . $total . '</big></h4>';
+                                                        echo '<h4 Align="right">Your Total Amount: <big style="color:green">' . $currency . number_format($total) . '</big></h4>';
                                                     } else {
                                                         
                                                     }
                                                     ?>
                                                 </legend>
-                                                <p>
-                                                    Remember Sir If You Proceed it Now You Can Find Your Sales Voucher Or Payment Voucher In Your Mail Box In A View Minutes.
-                                                </p>
-                                                <p class="submit">
-                                                    <button id="registerButton" type="submit"   name="submit"  title="Click On Payment Method"> Proceed</button>
-                                                </p>
+
+                                                <?php
+                                                if (isset($_SESSION["cart_session"])) {
+                                                    $total = 0;
+                                                    $bOwner = array();
+                                                    $bid = array();
+                                                    $mtn = array();
+                                                    $airtel = array();
+                                                    $total = array();
+                                                    foreach ($_SESSION["cart_session"] as $cart_itm) {
+                                                        $inv = "INV-" . $last_id;
+                                                        $id = $cart_itm["code"];
+                                                        $unit = $cart_itm["Qiimaha"];
+                                                        $qty = $cart_itm["TiradaProductTiga"];
+                                                        $tax = 0;
+                                                        $price = $unit * $qty;
+                                                        //GET THE LATEST ID>>>>>>>>>>>
+                                                        $results = $mysqli->query("SELECT * FROM product p,employee e WHERE Product_ID = '" . $id . "' AND p.Employee_ID = e.Employee_ID  ORDER BY Product_ID DESC LIMIT 1");
+                                                        if ($results) {
+                                                            if ($obj = $results->fetch_object()) {
+                                                                $bid[] = $obj->Employee_ID;
+                                                                $bOwner[] = $obj->Employee_Name;
+                                                                $mtn[] = $obj->mtn;
+                                                                $airtel[] = $obj->airtel;
+                                                                $total[] = $price;
+                                                            }
+                                                        }
+                                                    }
+                                                    $unique_data = array_unique($bid);
+                                                    foreach ($unique_data as $id) {
+                                                        $t_price = 0;
+                                                        $i = 0;
+                                                        $mtn_ = "";
+                                                        $air_ = "";
+                                                        $name = "";
+                                                        foreach ($bid as $id2) {
+                                                            if ($id == $id2) {
+                                                                $t_price += $total[$i];
+                                                                $mtn_ = $mtn[$i];
+                                                                $air_ = $airtel[$i];
+                                                                $name = $bOwner[$i];
+                                                            }
+                                                            $i ++;
+                                                        }
+
+                                                        echo "<p><strong>B-OWNER: </strong>" . $name . " " . "<br/>";
+                                                        echo "<strong>MTN-MONEY: </strong>" . $mtn_ . "<br/>";
+                                                        echo "<strong>AIRTEL-MONEY: </strong>" . $air_ . "<br/>";
+                                                        echo "<strong>AMOUNT: </strong>" . number_format($t_price) . "<br/>";
+                                                    }
+                                                }
+
+                                                if (isset($_SESSION["cart_session"])) {
+                                                    ?>
+                                                    <p class="submit">
+                                                        <button id="registerButton" type="submit"   name="submit"  title="Click On Payment Method"> Proceed</button>
+                                                    </p>
+                                                <?php } ?>
                                             </fieldset>
                                         </form>
                                     </div>
@@ -377,7 +422,7 @@ include("../config.php");
                             <!-- End Sidebar -->
                             <div class="cl">&nbsp;</div>
                             <br><br>
-                                    
+
                                     </div>
                                     <!-- End Main -->
 

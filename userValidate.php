@@ -37,7 +37,7 @@ session_start(); {
             $_SESSION['PostalCode'] = $obj->PostalCode;
            
             
-            header("location: Admin/index.php");
+            header("location: index.php");
         } else {
             header('Location: Sign In.php');
         }

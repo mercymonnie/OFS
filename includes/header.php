@@ -6,10 +6,16 @@
             <ul>
                 <li><a href="contact.php" title="Contact"><span>Contact</span></a></li>
                 <li><a href="Sign In.php" title="Sign In"><span>Sign In</span></a></li>
+                
+                <?php if (@$_SESSION['FullName']){ ?>
+                <li><a><?php echo "Sign in as: ".$_SESSION['FullName']; ?></a></li>
+                <?php }else{ ?>
+                <li> Not sign in </li>
+                <?php } ?>
             </ul>
 
             <li>
-                <h1><p> <a href="Sign In.php"><img src="images/logo.png" alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <font color="grey">ONLINE CLOTH SHOPPING </font> <span> </span></p> </h1>
+                <h1><p> <a href="Sign In.php"><img src="images/logo.png" alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <font color="grey">ONLINE CLOTH SHOPPING </font> <span>  </span></p> </h1>
             </li>
         </div>
         <div id="left"></div>

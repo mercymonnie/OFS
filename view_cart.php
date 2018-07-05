@@ -81,8 +81,15 @@ include("config.php");
                             echo '<span class="check-out-txt">';
                             echo '</table>';
                             echo '<span> <h4 class="pricewayn"> Grand Total : <big style="color:green">' . $currency . number_format($total) . '</big> </h4></span> ';
-                            echo '<spa class="midigta"><a  class="a-btn" href="OCS checkout/process.php?payment_mode=Mobile Money"><span class="a-btn-text">Proced On Mobile Money</span> </a></span>';
-                            //echo '<span class="midigta"> <a  class="a-btn" href="OCS checkout/process.php?payment_mode=MTN Money Payment Method"> <span class="a-btn-text"> Pay On MTN Mobile money</span></a></span>';
+                            
+                            if(@$_SESSION['customer_id']){
+                            echo '<spa class="midigta"><a  class="a-btn" href="OCS checkout/zaadprocess.php?payment_mode=Mobile/Airtel Money"><span class="a-btn-text">Proced On Mobile Money</span> </a></span>';
+                            }else{
+                             echo '<spa class="midigta"> Please signin first to proceed..!</span>';
+                               
+                            }
+//echo '<span class="midigta"> <a  class="a-btn" href="OCS checkout/process.php?payment_mode=MTN Money Payment Method"> <span class="a-btn-text"> Pay On MTN Mobile money</span></a></span>';
+                            
                             echo '</span>';
                             echo '</form>';
                         } else {

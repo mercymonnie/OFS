@@ -167,6 +167,10 @@ include("../config.php");
                                                 ?>
 
                                             </fieldset>
+                                            
+                                            <!-- personel details -->
+                                            
+                                            <!-- end here -->
 
                                             <fieldset class="step">
                                                 <legend>Confirm
